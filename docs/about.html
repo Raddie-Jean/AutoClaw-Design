@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>资料包说明 · AutoClaw Design Agent</title><link rel="stylesheet" href="styles.css"></head>
 <body><header class="sitebar"><a class="sitebrand" href="index.html"><span>A</span>AutoClaw · Design Agent</a><nav><a href="index.html">资料首页</a><a href="process.html">研究过程</a><a href="report_v09/index.html">方案汇报</a><a href="architecture_v10/index.html">功能架构</a></nav></header>
-<article class="reading"><h1>AutoClaw Design Agent · GitHub 资料包</h1>
-<p>这是一份可独立放进 GitHub 仓库的静态资料包，整理了 AI Native Design 工作区测试题的研究过程、方案汇报、交互原型和 HTML 产物架构。</p>
+<article class="reading"><h1>AutoClaw Design Agent · 设计资料库</h1>
+<p>本仓库整理了 AI Native Design 工作区测试题的研究过程、方案汇报、交互原型和 HTML 产物架构。<code>docs/</code> 是可直接静态托管的站点目录。</p>
 <h2>从哪里看</h2>
 <ul>
 <li><a href="index.html">资料首页</a>：推荐阅读顺序和所有入口。</li>
@@ -12,12 +12,8 @@
 <li><a href="process.html">过程资料索引</a>：V01–V07 调研、用户旅程、MVP 与功能定义。</li>
 </ul>
 <p><code>docs/</code> 内同时保留原始 MD、PDF、SVG、PNG 和原型代码。浏览器阅读用的 <code>.html</code> 是对应 MD 的静态副本；资料包进入独立仓库后，修改 <code>docs/</code> 内的原始 MD，可安装 <code>requirements.txt</code> 后运行仓库根目录的 <code>build_release.py</code> 重新生成阅读页。直接预览现有站点不需要安装依赖。</p>
-<h2>放入 GitHub</h2>
-<ol>
-<li><strong>解压资料包</strong>，把本目录中的 <code>README.md</code>、<code>build_release.py</code>、<code>docs/</code> 等文件放进新仓库根目录；不要只上传 ZIP。</li>
-<li>在仓库中提交并推送文件。仓库的 Pages 发布源可设置为默认分支的 <code>/docs</code>，入口就是 <code>docs/index.html</code>。<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">GitHub 官方配置说明</a>。</li>
-<li>若仅需多设备同步资料，不需要对外网页，可以只使用仓库文件，不启用 Pages。</li>
-</ol>
+<h2>网页预览</h2>
+<p>仓库文件可直接用于多设备同步。若要通过独立网址浏览完整 HTML 页面，可在仓库 <code>Settings → Pages</code> 中将发布源设为 <code>Deploy from a branch</code>，选择 <code>main</code> 和 <code>/docs</code>；入口是 <code>docs/index.html</code>。<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">GitHub 官方配置说明</a>。</p>
 <p><strong>发布前检查可公开范围。</strong>GitHub 官方说明：GitHub Pages 站点即使来自私有仓库，也可能作为公开网页被访问。本包包含测试题截图与产品录屏的截帧；请先确认这些材料适合公开，再启用 Pages。Figma 源稿仍是外部链接，其访问权限由原 Figma 文件控制。</p>
 <h2>范围与版本</h2>
 <table>

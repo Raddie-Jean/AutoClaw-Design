@@ -1,6 +1,6 @@
-# AutoClaw Design Agent · GitHub 资料包
+# AutoClaw Design Agent · 设计资料库
 
-这是一份可独立放进 GitHub 仓库的静态资料包，整理了 AI Native Design 工作区测试题的研究过程、方案汇报、交互原型和 HTML 产物架构。
+本仓库整理了 AI Native Design 工作区测试题的研究过程、方案汇报、交互原型和 HTML 产物架构。`docs/` 是可直接静态托管的站点目录。
 
 ## 从哪里看
 
@@ -12,11 +12,9 @@
 
 `docs/` 内同时保留原始 MD、PDF、SVG、PNG 和原型代码。浏览器阅读用的 `.html` 是对应 MD 的静态副本；资料包进入独立仓库后，修改 `docs/` 内的原始 MD，可安装 `requirements.txt` 后运行仓库根目录的 `build_release.py` 重新生成阅读页。直接预览现有站点不需要安装依赖。
 
-## 放入 GitHub
+## 网页预览
 
-1. **解压资料包**，把本目录中的 `README.md`、`build_release.py`、`docs/` 等文件放进新仓库根目录；不要只上传 ZIP。
-2. 在仓库中提交并推送文件。仓库的 Pages 发布源可设置为默认分支的 `/docs`，入口就是 `docs/index.html`。[GitHub 官方配置说明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。
-3. 若仅需多设备同步资料，不需要对外网页，可以只使用仓库文件，不启用 Pages。
+仓库文件可直接用于多设备同步。若要通过独立网址浏览完整 HTML 页面，可在仓库 `Settings → Pages` 中将发布源设为 `Deploy from a branch`，选择 `main` 和 `/docs`；入口是 `docs/index.html`。[GitHub 官方配置说明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。
 
 **发布前检查可公开范围。**GitHub 官方说明：GitHub Pages 站点即使来自私有仓库，也可能作为公开网页被访问。本包包含测试题截图与产品录屏的截帧；请先确认这些材料适合公开，再启用 Pages。Figma 源稿仍是外部链接，其访问权限由原 Figma 文件控制。
 
