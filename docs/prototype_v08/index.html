@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>AutoClaw Design 工作区 · 可点击原型</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="AutoClaw 侧边栏">
+      <div class="window-controls"><i class="mac-dot red"></i><i class="mac-dot yellow"></i><i class="mac-dot green"></i><span class="sidebar-toggle">◧</span></div>
+      <div class="sidebar-tabs"><button class="side-tab active" data-action="home"><span>♧</span>任务</button><button class="side-tab" type="button"><span>◉</span>智能体</button><span class="side-tab-spacer"></span><button class="icon-only" aria-label="切换布局">▢</button><button class="icon-only" aria-label="搜索">⌕</button></div>
+      <button class="new-task" data-action="home"><span class="round-plus">+</span><span>新建任务</span><small>⌘　N</small></button>
+      <button class="sidebar-link" type="button"><span>▣</span>Skill &amp; 连接器</button>
+      <div class="sidebar-section"><span>项目 ﹀</span><span>♧</span></div>
+      <button class="sidebar-link muted" type="button"><span>♧</span>点击新增项目</button>
+      <div class="sidebar-section task-section"><span>任务 ﹀</span><span>▢</span></div>
+      <button class="task-link" data-action="overview" id="design-task-link">邀请成员流程 <i class="unread-dot"></i></button>
+      <button class="task-link" type="button">红色蝴蝶结</button>
+      <div class="account"><span class="avatar">👨🏻</span><span>182****89...</span><span class="account-plan">Coding Plan</span><span class="speed">1.5X</span></div>
+    </aside>
+    <div class="app-main">
+      <header class="topbar"><div class="breadcrumbs" id="breadcrumbs"></div><div class="top-actions"><button class="platform-btn" type="button">➤　接入微信/飞书等平台</button><span class="credits"><i>z</i> 1.76 万</span><a href="#" onclick="return false">去购买</a><span class="member">非会员</span></div></header>
+      <main id="main" tabindex="-1"></main>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>

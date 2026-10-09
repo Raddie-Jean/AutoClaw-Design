@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">05 / 用户问题</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">优先解决三处断点，重点放在“改不准”</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">它们是基于场景与研究提出的优先级假设，等待目标用户任务测试。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">06 / 12</text>
+<rect x="88" y="242" width="454" height="413" rx="22" fill="#DDEBEF"/>
+<text x="118" y="302" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#12877D" text-anchor="start">H1</text>
+<text x="118" y="370" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="39" font-weight="700" fill="#17383B" text-anchor="start">看不全</text>
+<text x="118" y="427" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">初稿覆盖了哪些方向、页面、状态？</text>
+<line x1="118" y1="489" x2="512" y2="489" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="118" y="543" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="19" font-weight="700" fill="#60716F" text-anchor="start">MVP 响应</text>
+<text x="118" y="591" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="25" font-weight="600" fill="#17383B" text-anchor="start">成果总览与覆盖清单</text>
+<rect x="574" y="242" width="454" height="413" rx="22" fill="#E5F4F0"/>
+<text x="604" y="302" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#12877D" text-anchor="start">H2</text>
+<text x="604" y="370" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="39" font-weight="700" fill="#17383B" text-anchor="start">改不准</text>
+<text x="604" y="427" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">AI 是否理解这次只改哪一处？</text>
+<line x1="604" y1="489" x2="998" y2="489" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="604" y="543" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="19" font-weight="700" fill="#60716F" text-anchor="start">MVP 响应</text>
+<text x="604" y="591" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="25" font-weight="600" fill="#17383B" text-anchor="start">界面定域修订 + 候选对比</text>
+<rect x="1060" y="242" width="454" height="413" rx="22" fill="#FFF0E3"/>
+<text x="1090" y="302" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#12877D" text-anchor="start">H3</text>
+<text x="1090" y="370" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="39" font-weight="700" fill="#17383B" text-anchor="start">交不清</text>
+<text x="1090" y="427" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">PM 和开发拿到的是哪一版？</text>
+<line x1="1090" y1="489" x2="1484" y2="489" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="1090" y="543" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="19" font-weight="700" fill="#60716F" text-anchor="start">MVP 响应</text>
+<text x="1090" y="591" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="25" font-weight="600" fill="#17383B" text-anchor="start">固定交付快照与状态表</text>
+<rect x="650" y="695" width="302" height="37" rx="18" fill="#122D31"/>
+<text x="801.0" y="721" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">H2 是本题的核心 Feature</text>
+</svg>

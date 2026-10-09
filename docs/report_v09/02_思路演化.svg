@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">01 / 过程</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">从发散到收敛：我们如何选中这个问题</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">每一步都在缩小设计范围，而不是继续堆叠工具。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">02 / 12</text>
+<rect x="88" y="255" width="266" height="232" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<text x="117" y="307" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#17383B" text-anchor="start">竞品与产物</text>
+<text x="117" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">多格式生成与交付</text>
+<rect x="111" y="420" width="107" height="37" rx="18" fill="#E5F4F0"/>
+<text x="164.5" y="446" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#12877D" text-anchor="middle">V01–02</text>
+<line x1="357" y1="370" x2="362" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="351" y1="360" x2="362" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="351" y1="380" x2="362" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="378" y="255" width="266" height="232" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<text x="407" y="307" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#17383B" text-anchor="start">工作区 MVP</text>
+<text x="407" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">HTML 是主产物</text>
+<rect x="401" y="420" width="107" height="37" rx="18" fill="#E5F4F0"/>
+<text x="454.5" y="446" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#12877D" text-anchor="middle">V03</text>
+<line x1="647" y1="370" x2="652" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="641" y1="360" x2="652" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="641" y1="380" x2="652" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="668" y="255" width="266" height="232" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<text x="697" y="307" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#17383B" text-anchor="start">旅程与共创</text>
+<text x="697" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">明确评审先后</text>
+<rect x="691" y="420" width="107" height="37" rx="18" fill="#E5F4F0"/>
+<text x="744.5" y="446" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#12877D" text-anchor="middle">V04–05</text>
+<line x1="937" y1="370" x2="942" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="931" y1="360" x2="942" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="931" y1="380" x2="942" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="958" y="255" width="266" height="232" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="958" y="255" width="8" height="232" rx="4" fill="#12877D"/>
+<text x="987" y="307" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#17383B" text-anchor="start">草图与修订</text>
+<text x="987" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">三态 + 定域修改</text>
+<rect x="981" y="420" width="107" height="37" rx="18" fill="#E5F4F0"/>
+<text x="1034.5" y="446" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#12877D" text-anchor="middle">V06–07</text>
+<line x1="1227" y1="370" x2="1232" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1221" y1="360" x2="1232" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1221" y1="380" x2="1232" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="1248" y="255" width="266" height="232" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<text x="1277" y="307" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#17383B" text-anchor="start">可点击原型</text>
+<text x="1277" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">验证一条主链路</text>
+<rect x="1271" y="420" width="107" height="37" rx="18" fill="#E5F4F0"/>
+<text x="1324.5" y="446" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#12877D" text-anchor="middle">V08</text>
+<rect x="88" y="555" width="1424" height="164" rx="19" fill="#122D31"/>
+<text x="122" y="606" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#FFFFFF" text-anchor="start">最终取舍</text>
+<text x="122" y="649" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="25" font-weight="400" fill="#DCEBE6" text-anchor="start">不把无限画布当作 MVP 主功能；不承诺任意 HTML → Figma 无损转换。</text>
+<text x="122" y="687" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="25" font-weight="400" fill="#DCEBE6" text-anchor="start">聚焦一次真实工作：AI 初稿 → 局部修订 → 阶段评审 → 固定版本交付。</text>
+</svg>

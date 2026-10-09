@@ -1,0 +1,1112 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AutoClaw Design 工作区 · 方案汇报 V09</title>
+  <style>
+    :root{--ink:#17383b;--muted:#60716f;--teal:#12877d;--line:#dbe5e0;--surface:#fff;--bg:#eef3f0;--shadow:0 15px 50px rgba(18,45,49,.10)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Noto Sans SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    button{font:inherit;cursor:pointer}
+    .app{min-height:100vh;display:grid;grid-template-rows:64px minmax(0,1fr)}
+    .topbar{background:var(--surface);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:24px;padding:0 24px;position:sticky;top:0;z-index:20}
+    .brand{display:flex;align-items:center;gap:12px;min-width:310px;font-size:15px;font-weight:700;white-space:nowrap}
+    .brand-mark{width:28px;height:28px;background:var(--teal);color:#fff;display:grid;place-items:center;border-radius:7px;font-weight:800}
+    .brand small{font-size:11px;font-weight:600;color:var(--muted);padding:4px 7px;border:1px solid var(--line);border-radius:5px}
+    .view-tabs{display:flex;align-items:center;background:#f0f4f2;border:1px solid var(--line);padding:3px;border-radius:8px;gap:3px}
+    .view-tabs button{border:0;background:none;padding:7px 13px;border-radius:5px;font-size:13px;color:var(--muted);font-weight:600}
+    .view-tabs button.active{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.08)}
+    .top-spacer{flex:1}
+    .top-hint{font-size:12px;color:var(--muted);white-space:nowrap}
+    .layout{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:calc(100vh - 64px)}
+    aside{background:var(--surface);border-right:1px solid var(--line);position:sticky;top:64px;align-self:start;height:calc(100vh - 64px);overflow:auto;padding:23px 13px 25px}
+    .side-heading{font-size:11px;letter-spacing:.06em;color:#82918d;font-weight:700;padding:0 12px;margin-bottom:12px}
+    .slide-list,.doc-list{display:flex;flex-direction:column;gap:3px}
+    .slide-link{display:flex;align-items:center;width:100%;text-align:left;border:0;background:transparent;border-radius:6px;padding:10px 12px;color:#445b58;font-size:13px;gap:12px}
+    .slide-link:hover,.slide-link.active{background:#e7f3ef;color:#0e7069}
+    .slide-link.active{font-weight:700}
+    .number{font-variant-numeric:tabular-nums;font-size:11px;color:#83a6a0;width:22px}
+    .doc-list{font-size:12px;line-height:1.55}
+    .doc-list ul{list-style:none;padding-left:0;margin:0}
+    .doc-list ul ul{padding-left:14px}
+    .doc-list a{display:block;text-decoration:none;color:#4d6461;padding:7px 12px;border-radius:5px}
+    .doc-list a:hover{background:#e7f3ef;color:#0e7069}
+    .demo-guide{display:none;padding:4px 12px;color:#4d6461;font-size:12px;line-height:1.75}
+    .demo-guide p{margin:8px 0 14px}
+    .demo-guide ol{padding-left:18px;margin:0 0 18px}
+    .demo-guide li{margin-bottom:9px}
+    .demo-guide a{color:#087b72;text-underline-offset:3px}
+    .side-note{border-top:1px solid var(--line);margin:22px 9px 0;padding-top:15px;font-size:11px;line-height:1.7;color:#83918e}
+    .main{min-width:0;padding:19px 28px 26px}
+    .toolbar{max-width:1380px;margin:0 auto 15px;display:flex;align-items:center;gap:10px;min-height:38px}
+    .eyebrow{font-size:13px;font-weight:700;color:var(--ink)}
+    .count{font-size:12px;color:var(--muted);margin-left:8px}
+    .toolbar-spacer{flex:1}
+    .toolbar button,.bottom-nav button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:6px;padding:8px 12px;font-size:12px;font-weight:600}
+    .toolbar button:hover,.bottom-nav button:hover{border-color:#9fc8be;background:#f6fbf9}
+    .toolbar button:disabled,.bottom-nav button:disabled{opacity:.35;cursor:default}
+    .mobile-select{display:none;border:1px solid var(--line);padding:7px;border-radius:6px;background:#fff;color:var(--ink);max-width:180px}
+    .slide-stage{max-width:1380px;margin:auto;background:#fff;box-shadow:var(--shadow);border:1px solid #dce5e1;overflow:auto}
+    .slide-stage.zoomed .slide svg{width:max(100%,min(1600px,220vw));max-width:none}
+    .slide{display:none}
+    .slide.active{display:block}
+    .slide svg{display:block;width:100%;height:auto;aspect-ratio:16/9}
+    .bottom-nav{max-width:1380px;margin:15px auto 0;display:flex;align-items:center;gap:10px}
+    .progress{height:4px;background:#d8e5df;flex:1;max-width:250px;border-radius:3px;overflow:hidden;margin-left:auto}
+    .progress span{display:block;height:100%;background:var(--teal);width:8.333%;transition:width .2s}
+    .keyboard-tip{font-size:11px;color:#7b8c88}
+    .doc-view{display:none;max-width:1080px;margin:0 auto;padding:14px 18px 90px;background:#fff;box-shadow:var(--shadow);border:1px solid var(--line)}
+    .article{padding:25px 50px 55px;line-height:1.85;font-size:15px;color:#324b48}
+    .article h1{font-size:34px;line-height:1.3;letter-spacing:0;margin:0 0 22px;color:var(--ink)}
+    .article h2{font-size:23px;color:var(--ink);border-top:1px solid var(--line);padding-top:36px;margin-top:42px;line-height:1.4}
+    .article h3{font-size:18px;color:var(--ink);margin-top:30px}
+    .article p{margin:12px 0 17px}
+    .article a{color:#087b72;text-underline-offset:3px}
+    .article table{border-collapse:collapse;display:block;overflow-x:auto;width:100%;margin:22px 0;font-size:13px;line-height:1.65}
+    .article th,.article td{min-width:130px;border:1px solid var(--line);padding:10px 13px;vertical-align:top}
+    .article th{background:#eaf4f0;color:var(--ink);font-weight:700}
+    .article tr:nth-child(even) td{background:#f8fbf9}
+    .article blockquote{border-left:3px solid var(--teal);padding:4px 20px;margin-left:0;background:#f5faf8;color:#4f6562}
+    .article code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#eef4f1;padding:1px 4px;border-radius:3px;font-size:.92em}
+    .article ul{padding-left:22px}
+    .demo-view{display:none;max-width:1430px;margin:0 auto;padding-bottom:48px}
+    .demo-heading{display:flex;align-items:flex-start;gap:24px;justify-content:space-between;margin:3px 0 20px}
+    .demo-heading h1{font-size:27px;line-height:1.3;margin:0 0 8px}
+    .demo-heading p{font-size:13px;color:var(--muted);line-height:1.65;margin:0;max-width:670px}
+    .demo-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .demo-actions button,.demo-actions a{border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;border-radius:6px;padding:9px 12px;font-size:12px;font-weight:600;white-space:nowrap}
+    .demo-actions button:hover,.demo-actions a:hover{border-color:#9fc8be;background:#f6fbf9}
+    .demo-actions button.active{border-color:#80bfb2;background:#e3f3ed;color:#0e7069}
+    .demo-shell{background:#dfe8e3;border:1px solid #cbdad3;padding:17px;display:flex;justify-content:center;overflow:auto;box-shadow:var(--shadow)}
+    .demo-shell iframe{display:block;width:1365px;max-width:100%;height:851px;flex:none;border:1px solid #c7d5cf;background:#fff;box-shadow:0 5px 25px rgba(18,45,49,.14)}
+    .demo-note{font-size:12px;color:#6d7e79;line-height:1.7;margin-top:11px}
+    body.doc-mode .deck-view{display:none}
+    body.doc-mode .doc-view{display:block}
+    body.doc-mode .slide-list{display:none}
+    body:not(.doc-mode) .doc-list{display:none}
+    body.demo-mode .deck-view,body.demo-mode .doc-view{display:none}
+    body.demo-mode .demo-view{display:block}
+    body.demo-mode .slide-list,body.demo-mode .doc-list{display:none}
+    body.demo-mode .demo-guide{display:block}
+    .overview{position:fixed;inset:0;background:rgba(12,35,38,.84);z-index:40;display:none;overflow:auto;padding:55px 35px}
+    .overview.open{display:block}
+    .overview-head{max-width:1300px;margin:0 auto 20px;display:flex;align-items:center;color:#fff;justify-content:space-between}
+    .overview-head h2{margin:0;font-size:22px}
+    .overview-head button{border:1px solid #678481;background:transparent;color:#fff;border-radius:6px;padding:8px 12px}
+    .thumb-grid{max-width:1300px;margin:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .thumb{background:#fff;border:0;padding:0;text-align:left;border-radius:5px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.2)}
+    .thumb:hover{outline:3px solid #65c8b7}
+    .thumb svg{display:block;width:100%;height:auto}
+    .thumb-label{display:block;padding:8px 11px;font-size:12px;color:var(--ink);font-weight:700}
+    :focus-visible{outline:2px solid var(--teal)!important;outline-offset:2px}
+    @media(max-width:1050px){.brand{min-width:0}.top-hint{display:none}.layout{grid-template-columns:190px minmax(0,1fr)}.main{padding:16px}.article{padding:20px 30px}}
+    @media(max-width:760px){.topbar{gap:10px;padding:0 12px}.brand{font-size:12px;gap:6px}.brand span:nth-child(2),.brand small{display:none}.view-tabs{margin-left:auto}.view-tabs button{padding:7px 8px;font-size:11px}.layout{display:block}aside{display:none}.main{padding:12px}.toolbar{gap:7px}.toolbar .eyebrow,.toolbar .count{display:none}.toolbar button{padding:7px 9px}.mobile-select{display:block}.slide-stage{border-radius:2px}.bottom-nav .keyboard-tip{display:none}.doc-view{border:0;padding:4px}.article{padding:16px;font-size:14px}.article h1{font-size:26px}.thumb-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.overview{padding:30px 12px}.demo-heading{display:block}.demo-heading h1{font-size:22px}.demo-actions{justify-content:flex-start;margin-top:13px}.demo-shell{padding:7px}.demo-shell iframe{height:760px}}
+    @media print{.topbar,aside,.toolbar,.bottom-nav,.overview{display:none!important}.app,.layout{display:block}.main{padding:0}.slide-stage{border:0;box-shadow:none;max-width:none}.slide{display:block!important;break-after:page}.slide svg,.slide-stage.zoomed .slide svg{width:100%;height:auto}.doc-view{box-shadow:none;border:0;max-width:none;padding:0}.article{padding:0}body.doc-mode .deck-view{display:none!important}body:not(.doc-mode) .doc-view{display:none!important}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">A</span><span>AutoClaw · Design Agent</span><small>方案汇报 V09</small></div>
+    <nav class="view-tabs" aria-label="阅读模式"><button id="tab-deck" class="active" data-mode="deck" aria-current="page">画板</button><button id="tab-doc" data-mode="doc">完整文稿</button><button id="tab-demo" data-mode="demo">设计稿 Demo</button></nav>
+    <div class="top-spacer"></div><span class="top-hint">单文件 · 离线可查看</span>
+  </header>
+  <div class="layout">
+    <aside aria-label="内容目录">
+      <div class="side-heading" id="side-label">汇报画板 · 12 页</div>
+      <div class="slide-list"><button class="slide-link active" data-goto="1" aria-label="查看第 1 页 封面"><span class="number">01</span><span>封面</span></button><button class="slide-link" data-goto="2" aria-label="查看第 2 页 思路演化"><span class="number">02</span><span>思路演化</span></button><button class="slide-link" data-goto="3" aria-label="查看第 3 页 研究证据"><span class="number">03</span><span>研究证据</span></button><button class="slide-link" data-goto="4" aria-label="查看第 4 页 共创旅程"><span class="number">04</span><span>共创旅程</span></button><button class="slide-link" data-goto="5" aria-label="查看第 5 页 草图三态"><span class="number">05</span><span>草图三态</span></button><button class="slide-link" data-goto="6" aria-label="查看第 6 页 痛点排序"><span class="number">06</span><span>痛点排序</span></button><button class="slide-link" data-goto="7" aria-label="查看第 7 页 界面定域修订"><span class="number">07</span><span>界面定域修订</span></button><button class="slide-link" data-goto="8" aria-label="查看第 8 页 评审节奏"><span class="number">08</span><span>评审节奏</span></button><button class="slide-link" data-goto="9" aria-label="查看第 9 页 信息架构"><span class="number">09</span><span>信息架构</span></button><button class="slide-link" data-goto="10" aria-label="查看第 10 页 原型链路"><span class="number">10</span><span>原型链路</span></button><button class="slide-link" data-goto="11" aria-label="查看第 11 页 MVP 边界"><span class="number">11</span><span>MVP 边界</span></button><button class="slide-link" data-goto="12" aria-label="查看第 12 页 验证计划"><span class="number">12</span><span>验证计划</span></button></div>
+      <nav class="doc-list" aria-label="文稿目录"><div class="toc">
+<ul>
+<li><a href="#autoclaw-design-agent-v09">AutoClaw Design Agent 工作区｜方案汇报 V09</a><ul>
+<li><a href="#1">1. 思路如何收敛</a></li>
+<li><a href="#2">2. 证据、推论和待验证项</a></li>
+<li><a href="#3">3. 设计师从初稿到交付的旅程</a></li>
+<li><a href="#4-feature">4. 核心 Feature：界面定域修订</a></li>
+<li><a href="#5-mvp">5. 产品结构与 MVP 范围</a></li>
+<li><a href="#6">6. 原型完成度与验证计划</a></li>
+<li><a href="#_1">研究依据与链接</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+      <div class="demo-guide"><strong>交互演示路径</strong><p>当前采用 AutoClaw Design 工作区 V08 原型，设计源稿是同一 Figma 文件中的「03 · Design 工作区原型」。</p><ol><li>打开「邀请成员流程」</li><li>选择方向 B 并预览</li><li>文字、智能编辑或画笔圈选</li><li>比较候选并采纳</li><li>完成 G1 / G2 评审后查看交付</li></ol><a href="https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/%E6%99%BA%E8%B0%B1%E6%B5%8B%E8%AF%95%E9%A2%98-2026?node-id=100-3" target="_blank" rel="noopener">打开 Figma 设计源稿 ↗</a></div>
+      <div class="side-note">画板可用 ← → 翻页；按 O 打开总览。完整文稿含证据口径与来源。</div>
+    </aside>
+    <main class="main">
+      <div class="deck-view">
+        <div class="toolbar">
+          <span class="eyebrow">封面</span><span class="count" id="count">01 / 12</span>
+          <select class="mobile-select" id="mobile-select" aria-label="选择汇报页"><option value="0">01 · 封面</option><option value="1">02 · 思路演化</option><option value="2">03 · 研究证据</option><option value="3">04 · 共创旅程</option><option value="4">05 · 草图三态</option><option value="5">06 · 痛点排序</option><option value="6">07 · 界面定域修订</option><option value="7">08 · 评审节奏</option><option value="8">09 · 信息架构</option><option value="9">10 · 原型链路</option><option value="10">11 · MVP 边界</option><option value="11">12 · 验证计划</option></select>
+          <span class="toolbar-spacer"></span>
+          <button id="overview-btn" title="查看全部页面">总览</button>
+          <button id="zoom-btn" title="放大画板后可横向拖动查看">放大</button>
+          <button id="fullscreen-btn" title="全屏查看画板">全屏</button>
+          <button id="print-btn" title="打印或保存为 PDF">打印</button>
+        </div>
+        <div class="slide-stage" id="stage"><section class="slide active" data-slide="1" aria-label="第 1 页：封面"><svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#122D31"/>
+<rect x="86" y="84" width="242" height="44" rx="22" fill="#12877D"/>
+<text x="207" y="114" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">产品设计测试题 · 汇报稿</text>
+<text x="87" y="247" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="72" font-weight="700" fill="#FFFFFF" text-anchor="start">从 AI 初稿</text>
+<text x="87" y="344" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="72" font-weight="700" fill="#FFFFFF" text-anchor="start">到可交付方案</text>
+<rect x="87" y="397" width="907" height="8" rx="4" fill="#F5AB6E"/>
+<text x="88" y="478" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="400" fill="#CBE2DC" text-anchor="start">Design Agent 工作区设计：</text>
+<text x="88" y="525" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="400" fill="#CBE2DC" text-anchor="start">让设计师看清结果、精准修订，并和 PM / 开发围绕同一版本决策。</text>
+<rect x="1107" y="186" width="380" height="470" rx="28" fill="#24464A"/>
+<circle cx="1168" cy="255" r="27" fill="#43676A"/>
+<text x="1168" y="263" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#FFFFFF" text-anchor="middle">01</text>
+<text x="1223" y="264" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="600" fill="#FFFFFF" text-anchor="start">看清初稿</text>
+<circle cx="1168" cy="355" r="27" fill="#12877D"/>
+<text x="1168" y="363" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#FFFFFF" text-anchor="middle">02</text>
+<text x="1223" y="364" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="600" fill="#FFFFFF" text-anchor="start">控制修改</text>
+<circle cx="1168" cy="455" r="27" fill="#43676A"/>
+<text x="1168" y="463" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#FFFFFF" text-anchor="middle">03</text>
+<text x="1223" y="464" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="600" fill="#FFFFFF" text-anchor="start">阶段共识</text>
+<circle cx="1168" cy="555" r="27" fill="#43676A"/>
+<text x="1168" y="563" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#FFFFFF" text-anchor="middle">04</text>
+<text x="1223" y="564" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="600" fill="#FFFFFF" text-anchor="start">固定交付</text>
+<text x="88" y="811" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="20" font-weight="400" fill="#8EACA8" text-anchor="start">2026.10.05  ·  基于研究 V01–V07 与可点击原型 V08</text>
+</svg></section><section class="slide" data-slide="2" aria-label="第 2 页：思路演化"><svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">01 / 过程</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">从发散到收敛：我们如何选中这个问题</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">每一步都在缩小设计范围，而不是继续堆叠工具。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">02 / 12</text>
+<rect x="88" y="255" width="266" height="232" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<text x="117" y="307" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#17383B" text-anchor="start">竞品与产物</text>
+<text x="117" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">多格式生成与交付</text>
+<rect x="111" y="420" width="107" height="37" rx="18" fill="#E5F4F0"/>
+<text x="164.5" y="446" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#12877D" text-anchor="middle">V01–02</text>
+<line x1="357" y1="370" x2="362" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="351" y1="360" x2="362" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="351" y1="380" x2="362" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="378" y="255" width="266" height="232" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<text x="407" y="307" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#17383B" text-anchor="start">工作区 MVP</text>
+<text x="407" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">HTML 是主产物</text>
+<rect x="401" y="420" width="107" height="37" rx="18" fill="#E5F4F0"/>
+<text x="454.5" y="446" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#12877D" text-anchor="middle">V03</text>
+<line x1="647" y1="370" x2="652" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="641" y1="360" x2="652" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="641" y1="380" x2="652" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="668" y="255" width="266" height="232" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<text x="697" y="307" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#17383B" text-anchor="start">旅程与共创</text>
+<text x="697" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">明确评审先后</text>
+<rect x="691" y="420" width="107" height="37" rx="18" fill="#E5F4F0"/>
+<text x="744.5" y="446" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#12877D" text-anchor="middle">V04–05</text>
+<line x1="937" y1="370" x2="942" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="931" y1="360" x2="942" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="931" y1="380" x2="942" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="958" y="255" width="266" height="232" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="958" y="255" width="8" height="232" rx="4" fill="#12877D"/>
+<text x="987" y="307" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#17383B" text-anchor="start">草图与修订</text>
+<text x="987" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">三态 + 定域修改</text>
+<rect x="981" y="420" width="107" height="37" rx="18" fill="#E5F4F0"/>
+<text x="1034.5" y="446" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#12877D" text-anchor="middle">V06–07</text>
+<line x1="1227" y1="370" x2="1232" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1221" y1="360" x2="1232" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1221" y1="380" x2="1232" y2="370" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="1248" y="255" width="266" height="232" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<text x="1277" y="307" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#17383B" text-anchor="start">可点击原型</text>
+<text x="1277" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">验证一条主链路</text>
+<rect x="1271" y="420" width="107" height="37" rx="18" fill="#E5F4F0"/>
+<text x="1324.5" y="446" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#12877D" text-anchor="middle">V08</text>
+<rect x="88" y="555" width="1424" height="164" rx="19" fill="#122D31"/>
+<text x="122" y="606" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#FFFFFF" text-anchor="start">最终取舍</text>
+<text x="122" y="649" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="25" font-weight="400" fill="#DCEBE6" text-anchor="start">不把无限画布当作 MVP 主功能；不承诺任意 HTML → Figma 无损转换。</text>
+<text x="122" y="687" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="25" font-weight="400" fill="#DCEBE6" text-anchor="start">聚焦一次真实工作：AI 初稿 → 局部修订 → 阶段评审 → 固定版本交付。</text>
+</svg></section><section class="slide" data-slide="3" aria-label="第 3 页：研究证据"><svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">02 / 证据</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">研究发现：成熟工具已覆盖生成与局部编辑</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">本方案关注的是生成后的控制、决策与交接。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">03 / 12</text>
+<rect x="88" y="224" width="446" height="383" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="88" y="224" width="8" height="383" rx="4" fill="#12877D"/>
+<text x="117" y="276" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">AutoClaw：任务与产物入口</text>
+<text x="117" y="324" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">录屏可见任务、项目、对话与</text>
+<text x="117" y="360" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">连接器；客户端可见产物/工作</text>
+<text x="117" y="396" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">区容器。HTML Design 全链路</text>
+<text x="117" y="432" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">尚未由录屏验证。</text>
+<rect x="577" y="224" width="446" height="383" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="577" y="224" width="8" height="383" rx="4" fill="#F5AB6E"/>
+<text x="606" y="276" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">Lovart：对象化局部编辑</text>
+<text x="606" y="324" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">录屏可见选中对象、Quick Edit、</text>
+<text x="606" y="360" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">原稿旁生成候选。启发是先指明</text>
+<text x="606" y="396" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">修改对象，再保留可比较结果。</text>
+<text x="606" y="432" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">不能直接照搬到 HTML 源码。</text>
+<rect x="1066" y="224" width="446" height="383" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="1066" y="224" width="8" height="383" rx="4" fill="#12877D"/>
+<text x="1095" y="276" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">外部研究：判断权仍在人</text>
+<text x="1095" y="324" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">Figma 调查与研究支持清晰目标、</text>
+<text x="1095" y="360" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">多方向预览、位置化反馈与</text>
+<text x="1095" y="396" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">设计开发协作。样本不是</text>
+<text x="1095" y="432" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw 目标用户。</text>
+<rect x="88" y="642" width="1424" height="94" rx="16" fill="#FFF0E3"/>
+<text x="116" y="681" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#A15C25" text-anchor="start">证据边界</text>
+<text x="263" y="681" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#855A3B" text-anchor="start">外部数据只支持方向判断；痛点频率和当前产品能力仍需真实 HTML 任务验证。</text>
+<text x="116" y="716" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="19" font-weight="400" fill="#855A3B" text-anchor="start">来源与样本范围见随附 MD 的“研究依据”章节。</text>
+</svg></section><section class="slide" data-slide="4" aria-label="第 4 页：共创旅程"><svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">03 / 用户旅程</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">从传统串行交接，走向同一方案上的共创</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">共创不意味着取消评审；它让评论、修改与版本都落在同一个对象上。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">04 / 12</text>
+<rect x="88" y="274" width="187" height="104" rx="17" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="124" cy="309" r="20" fill="#E5F4F0"/>
+<text x="124" y="316" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="middle">1</text>
+<text x="108" y="357" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#17383B" text-anchor="start">需求定义</text>
+<line x1="276" y1="326" x2="277" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="266" y1="316" x2="277" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="266" y1="336" x2="277" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="292" y="274" width="187" height="104" rx="17" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="328" cy="309" r="20" fill="#E5F4F0"/>
+<text x="328" y="316" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="middle">2</text>
+<text x="312" y="357" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#17383B" text-anchor="start">思维发散</text>
+<line x1="480" y1="326" x2="481" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="470" y1="316" x2="481" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="470" y1="336" x2="481" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="496" y="274" width="187" height="104" rx="17" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="532" cy="309" r="20" fill="#E5F4F0"/>
+<text x="532" y="316" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="middle">3</text>
+<text x="516" y="357" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#17383B" text-anchor="start">方案设计</text>
+<line x1="684" y1="326" x2="685" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="674" y1="316" x2="685" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="674" y1="336" x2="685" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="700" y="274" width="187" height="104" rx="17" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="736" cy="309" r="20" fill="#E5F4F0"/>
+<text x="736" y="316" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="middle">4</text>
+<text x="720" y="357" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#17383B" text-anchor="start">Demo 展示</text>
+<line x1="888" y1="326" x2="889" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="878" y1="316" x2="889" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="878" y1="336" x2="889" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="904" y="274" width="187" height="104" rx="17" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="940" cy="309" r="20" fill="#E5F4F0"/>
+<text x="940" y="316" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="middle">5</text>
+<text x="924" y="357" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#17383B" text-anchor="start">可交付方案</text>
+<line x1="1092" y1="326" x2="1093" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1082" y1="316" x2="1093" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1082" y1="336" x2="1093" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="1108" y="274" width="187" height="104" rx="17" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="1144" cy="309" r="20" fill="#E5F4F0"/>
+<text x="1144" y="316" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="middle">6</text>
+<text x="1128" y="357" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#17383B" text-anchor="start">微调方案</text>
+<line x1="1296" y1="326" x2="1297" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1286" y1="316" x2="1297" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1286" y1="336" x2="1297" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="1312" y="274" width="187" height="104" rx="17" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="1348" cy="309" r="20" fill="#E5F4F0"/>
+<text x="1348" y="316" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="middle">7</text>
+<text x="1332" y="357" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#17383B" text-anchor="start">上线方案</text>
+<text x="90" y="456" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="25" font-weight="700" fill="#60716F" text-anchor="start">关键判断点</text>
+<circle cx="104" cy="505" r="10" fill="#F5AB6E"/>
+<rect x="96" y="530" width="169" height="37" rx="18" fill="#FFF0E3"/>
+<text x="180.5" y="556" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#9C5A2D" text-anchor="middle">G0 需求对齐</text>
+<text x="110" y="600" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">确认问题</text>
+<circle cx="513" cy="505" r="10" fill="#F5AB6E"/>
+<rect x="505" y="530" width="169" height="37" rx="18" fill="#FFF0E3"/>
+<text x="589.5" y="556" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#9C5A2D" text-anchor="middle">G1 概念确认</text>
+<text x="519" y="600" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">选方向</text>
+<circle cx="922" cy="505" r="10" fill="#F5AB6E"/>
+<rect x="914" y="530" width="169" height="37" rx="18" fill="#FFF0E3"/>
+<text x="998.5" y="556" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#9C5A2D" text-anchor="middle">G2 Demo 评审</text>
+<text x="928" y="600" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">验体验</text>
+<circle cx="1331" cy="505" r="10" fill="#F5AB6E"/>
+<rect x="1323" y="530" width="169" height="37" rx="18" fill="#FFF0E3"/>
+<text x="1407.5" y="556" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#9C5A2D" text-anchor="middle">G3 开发接手</text>
+<text x="1337" y="600" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">复现版本</text>
+<rect x="88" y="660" width="1424" height="74" rx="16" fill="#E5F4F0"/>
+<text x="112" y="709" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="25" font-weight="600" fill="#12877D" text-anchor="start">开发提前介入条件：真实接口、权限、复杂状态、跨端一致性、性能或现有代码约束。</text>
+</svg></section><section class="slide" data-slide="5" aria-label="第 5 页：草图三态"><svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">04 / 草图阶段</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">草图的三种状态：保留可能性，再逐步收敛</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">草图评审要轻量；只有第三态结束才形成进入 Demo 的概念基线。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">05 / 12</text>
+<rect x="88" y="223" width="454" height="464" rx="22" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="143" cy="284" r="29" fill="#E5F4F0"/>
+<text x="143" y="293" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#12877D" text-anchor="middle">01</text>
+<text x="190" y="296" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="31" font-weight="700" fill="#17383B" text-anchor="start">草图收集</text>
+<text x="119" y="380" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">PRD 片段、参考、手绘、</text>
+<text x="119" y="426" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">未尝试概念与 AI 生成物</text>
+<text x="119" y="472" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">允许不完整和矛盾并存</text>
+<line x1="119" y1="564" x2="511" y2="564" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="119" y="615" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="600" fill="#12877D" text-anchor="start">无需批准；值得深化即可入围</text>
+<line x1="543" y1="456" x2="557" y2="456" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="546" y1="446" x2="557" y2="456" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="546" y1="466" x2="557" y2="456" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="574" y="223" width="454" height="464" rx="22" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="629" cy="284" r="29" fill="#E5F4F0"/>
+<text x="629" y="293" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#12877D" text-anchor="middle">02</text>
+<text x="676" y="296" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="31" font-weight="700" fill="#17383B" text-anchor="start">定义概念</text>
+<text x="605" y="380" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">选择 1–3 个方向并排比较</text>
+<text x="605" y="426" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">在原方向上连续局部修订</text>
+<text x="605" y="472" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">PM 与设计师持续讨论</text>
+<line x1="605" y1="564" x2="997" y2="564" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="605" y="615" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="600" fill="#12877D" text-anchor="start">保留主方向与备选，细节仍可变</text>
+<line x1="1029" y1="456" x2="1043" y2="456" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1032" y1="446" x2="1043" y2="456" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1032" y1="466" x2="1043" y2="456" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="1060" y="223" width="454" height="464" rx="22" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="1115" cy="284" r="29" fill="#12877D"/>
+<text x="1115" y="293" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#FFFFFF" text-anchor="middle">03</text>
+<text x="1162" y="296" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="31" font-weight="700" fill="#17383B" text-anchor="start">概念确定</text>
+<text x="1091" y="380" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">确认核心路径与设计原则</text>
+<text x="1091" y="426" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">记录拒绝理由和未决问题</text>
+<text x="1091" y="472" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">必要时请开发做技术预检</text>
+<line x1="1091" y1="564" x2="1483" y2="564" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="1091" y="615" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="600" fill="#12877D" text-anchor="start">G1：PM + 设计师确认后进 Demo</text>
+</svg></section><section class="slide" data-slide="6" aria-label="第 6 页：痛点排序"><svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">05 / 用户问题</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">优先解决三处断点，重点放在“改不准”</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">它们是基于场景与研究提出的优先级假设，等待目标用户任务测试。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">06 / 12</text>
+<rect x="88" y="242" width="454" height="413" rx="22" fill="#DDEBEF"/>
+<text x="118" y="302" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#12877D" text-anchor="start">H1</text>
+<text x="118" y="370" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="39" font-weight="700" fill="#17383B" text-anchor="start">看不全</text>
+<text x="118" y="427" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">初稿覆盖了哪些方向、页面、状态？</text>
+<line x1="118" y1="489" x2="512" y2="489" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="118" y="543" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="19" font-weight="700" fill="#60716F" text-anchor="start">MVP 响应</text>
+<text x="118" y="591" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="25" font-weight="600" fill="#17383B" text-anchor="start">成果总览与覆盖清单</text>
+<rect x="574" y="242" width="454" height="413" rx="22" fill="#E5F4F0"/>
+<text x="604" y="302" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#12877D" text-anchor="start">H2</text>
+<text x="604" y="370" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="39" font-weight="700" fill="#17383B" text-anchor="start">改不准</text>
+<text x="604" y="427" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">AI 是否理解这次只改哪一处？</text>
+<line x1="604" y1="489" x2="998" y2="489" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="604" y="543" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="19" font-weight="700" fill="#60716F" text-anchor="start">MVP 响应</text>
+<text x="604" y="591" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="25" font-weight="600" fill="#17383B" text-anchor="start">界面定域修订 + 候选对比</text>
+<rect x="1060" y="242" width="454" height="413" rx="22" fill="#FFF0E3"/>
+<text x="1090" y="302" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#12877D" text-anchor="start">H3</text>
+<text x="1090" y="370" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="39" font-weight="700" fill="#17383B" text-anchor="start">交不清</text>
+<text x="1090" y="427" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">PM 和开发拿到的是哪一版？</text>
+<line x1="1090" y1="489" x2="1484" y2="489" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="1090" y="543" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="19" font-weight="700" fill="#60716F" text-anchor="start">MVP 响应</text>
+<text x="1090" y="591" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="25" font-weight="600" fill="#17383B" text-anchor="start">固定交付快照与状态表</text>
+<rect x="650" y="695" width="302" height="37" rx="18" fill="#122D31"/>
+<text x="801.0" y="721" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">H2 是本题的核心 Feature</text>
+</svg></section><section class="slide" data-slide="7" aria-label="第 7 页：界面定域修订"><svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">06 / 核心功能</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">界面定域修订：一次有边界、可审阅的修改</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">文字、点选组件、画笔圈选是三种入口，共用同一张修订卡。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">07 / 12</text>
+<rect x="88" y="241" width="266" height="335" rx="18" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="133" cy="292" r="26" fill="#12877D"/>
+<text x="133" y="300" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+<text x="113" y="365" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">定位上下文</text>
+<text x="113" y="428" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">方向 / 页面 / 状态</text>
+<text x="113" y="466" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">设备断点 / 基线版本</text>
+<line x1="356" y1="405" x2="363" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="352" y1="395" x2="363" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="352" y1="415" x2="363" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="378" y="241" width="266" height="335" rx="18" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="423" cy="292" r="26" fill="#12877D"/>
+<text x="423" y="300" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+<text x="403" y="365" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">选目标</text>
+<text x="403" y="428" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">文字 / 组件 / 画笔</text>
+<text x="403" y="466" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">先显示实际命中对象</text>
+<line x1="646" y1="405" x2="653" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="642" y1="395" x2="653" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="642" y1="415" x2="653" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="668" y="241" width="266" height="335" rx="18" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="713" cy="292" r="26" fill="#12877D"/>
+<text x="713" y="300" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+<text x="693" y="365" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">说清边界</text>
+<text x="693" y="428" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">改什么 / 保留什么</text>
+<text x="693" y="466" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">仅此状态或共享实例</text>
+<line x1="936" y1="405" x2="943" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="932" y1="395" x2="943" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="932" y1="415" x2="943" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="958" y="241" width="266" height="335" rx="18" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="1003" cy="292" r="26" fill="#12877D"/>
+<text x="1003" y="300" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">4</text>
+<text x="983" y="365" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">生成候选</text>
+<text x="983" y="428" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">隔离修改源文件</text>
+<text x="983" y="466" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">预览与影响检查</text>
+<line x1="1226" y1="405" x2="1233" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1222" y1="395" x2="1233" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1222" y1="415" x2="1233" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="1248" y="241" width="266" height="335" rx="18" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="1293" cy="292" r="26" fill="#12877D"/>
+<text x="1293" y="300" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">5</text>
+<text x="1273" y="365" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">人来决定</text>
+<text x="1273" y="428" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">比较 / 继续限定</text>
+<text x="1273" y="466" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">采纳或放弃</text>
+<rect x="88" y="628" width="1424" height="108" rx="18" fill="#122D31"/>
+<text x="118" y="673" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#F5AB6E" text-anchor="start">示例</text>
+<text x="202" y="673" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#FFFFFF" text-anchor="start">方向 B / 邀请成员 / Mobile 错误态 / v3：把错误提示移近邮箱框，保留桌面与成功态。</text>
+<text x="202" y="710" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#C8DFD9" text-anchor="start">设计师采纳候选成为 v4；这不等于 PM 已确认概念，也不等于生产代码可直接合并。</text>
+</svg></section><section class="slide" data-slide="8" aria-label="第 8 页：评审节奏"><svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">07 / 评审节奏</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">把“修改采纳”和“阶段批准”分开</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">PM、设计师、开发先后介入，各自判断不同的问题。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">08 / 12</text>
+<rect x="88" y="224" width="1424" height="70" rx="15" fill="#122D31"/>
+<text x="113" y="269" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#FFFFFF" text-anchor="start">决策</text>
+<text x="431" y="269" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#FFFFFF" text-anchor="start">参与人</text>
+<text x="734" y="269" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#FFFFFF" text-anchor="start">判断什么</text>
+<text x="1160" y="269" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#FFFFFF" text-anchor="start">结果</text>
+<rect x="88" y="307" width="1424" height="76" rx="11" fill="#FFFFFF"/>
+<text x="113" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#17383B" text-anchor="start">工作版修订</text>
+<text x="431" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">设计师</text>
+<text x="734" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">候选是否改对、是否越界</text>
+<text x="1160" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#12877D" text-anchor="start">可高频进行；不改批准基线</text>
+<rect x="88" y="391" width="1424" height="76" rx="11" fill="#F0F5F2"/>
+<text x="113" y="439" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#17383B" text-anchor="start">G1 概念确认</text>
+<text x="431" y="439" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">PM + 设计师</text>
+<text x="734" y="439" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">核心路径与原则是否成立</text>
+<text x="1160" y="439" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#12877D" text-anchor="start">确认后进入可运行 Demo</text>
+<rect x="88" y="475" width="1424" height="76" rx="11" fill="#FFFFFF"/>
+<text x="113" y="523" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#17383B" text-anchor="start">技术预检</text>
+<text x="431" y="523" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">开发按风险介入</text>
+<text x="734" y="523" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">接口/权限/组件/跨端风险</text>
+<text x="1160" y="523" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#12877D" text-anchor="start">高风险项目提前到 G1 前</text>
+<rect x="88" y="559" width="1424" height="76" rx="11" fill="#F0F5F2"/>
+<text x="113" y="607" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#17383B" text-anchor="start">G2 Demo 体验</text>
+<text x="431" y="607" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">PM + 设计师 + 开发</text>
+<text x="734" y="607" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">关键路径、异常态与实现边界</text>
+<text x="1160" y="607" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#12877D" text-anchor="start">通过后才能准备交付</text>
+<rect x="88" y="643" width="1424" height="76" rx="11" fill="#FFFFFF"/>
+<text x="113" y="691" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#17383B" text-anchor="start">G3 开发接手</text>
+<text x="431" y="691" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">开发主责</text>
+<text x="734" y="691" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">能否复现同一版本与状态</text>
+<text x="1160" y="691" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#12877D" text-anchor="start">不是自动合并生产代码</text>
+</svg></section><section class="slide" data-slide="9" aria-label="第 9 页：信息架构"><svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">08 / 信息架构</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">沿用 AutoClaw 任务归属，新增 Design 工作区</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">工作区按用户判断组织，而不是按 AI 工具名称堆导航。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">09 / 12</text>
+<rect x="88" y="233" width="424" height="495" rx="20" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<text x="120" y="286" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#17383B" text-anchor="start">AutoClaw 现有外壳</text>
+<circle cx="137" cy="343" r="8" fill="#F5AB6E"/>
+<text x="158" y="351" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">项目</text>
+<circle cx="160" cy="415" r="8" fill="#F5AB6E"/>
+<text x="181" y="423" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">任务：邀请成员流程</text>
+<circle cx="183" cy="487" r="8" fill="#12877D"/>
+<text x="204" y="495" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="600" fill="#17383B" text-anchor="start">Design 工作区</text>
+<circle cx="206" cy="559" r="8" fill="#12877D"/>
+<text x="227" y="567" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="600" fill="#17383B" text-anchor="start">方向 B / v4</text>
+<circle cx="229" cy="631" r="8" fill="#12877D"/>
+<text x="250" y="639" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="600" fill="#17383B" text-anchor="start">页面 × 状态 × 设备</text>
+<line x1="515" y1="465" x2="572" y2="465" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="561" y1="455" x2="572" y2="465" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="561" y1="475" x2="572" y2="465" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="606" y="250" width="420" height="196" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<text x="635" y="302" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">成果总览</text>
+<text x="635" y="350" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#60716F" text-anchor="start">方向、覆盖与未解决项</text>
+<rect x="1056" y="250" width="420" height="196" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<text x="1085" y="302" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">聚焦预览</text>
+<text x="1085" y="350" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#60716F" text-anchor="start">运行页面、设备和状态</text>
+<rect x="606" y="475" width="420" height="196" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="606" y="475" width="8" height="196" rx="4" fill="#12877D"/>
+<text x="635" y="527" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">修订审阅</text>
+<text x="635" y="575" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#60716F" text-anchor="start">候选差异、影响与决定</text>
+<rect x="1056" y="475" width="420" height="196" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<text x="1085" y="527" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">交付快照</text>
+<text x="1085" y="575" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#60716F" text-anchor="start">确认版本、文件与说明</text>
+<rect x="606" y="697" width="870" height="49" rx="12" fill="#E5F4F0"/>
+<text x="632" y="729" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start">关键约束：预览确认版本 ID = 交付快照版本 ID</text>
+</svg></section><section class="slide" data-slide="10" aria-label="第 10 页：原型链路"><svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">09 / 原型</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">已落地一条从初稿到交付的可点击主路径</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">用“邀请成员流程”的 Mobile 错误态验证信息结构和决策顺序。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">10 / 12</text>
+<rect x="88" y="268" width="265" height="342" rx="18" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="110" y="294" width="221" height="156" rx="12" fill="#E5F4F0"/>
+<rect x="129" y="321" width="69" height="14" rx="5" fill="#B7D9D0"/>
+<rect x="129" y="350" width="180" height="13" rx="5" fill="#CEE6DF"/>
+<rect x="129" y="377" width="155" height="13" rx="5" fill="#CEE6DF"/>
+<rect x="129" y="408" width="98" height="20" rx="7" fill="#12877D"/>
+<text x="110" y="492" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="700" fill="#12877D" text-anchor="start">01</text>
+<text x="110" y="535" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="27" font-weight="700" fill="#17383B" text-anchor="start">成果总览</text>
+<text x="110" y="573" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="20" font-weight="400" fill="#60716F" text-anchor="start">A/B/C 三方向</text>
+<line x1="355" y1="435" x2="361" y2="435" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="350" y1="425" x2="361" y2="435" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="350" y1="445" x2="361" y2="435" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="378" y="268" width="265" height="342" rx="18" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="400" y="294" width="221" height="156" rx="12" fill="#E5F4F0"/>
+<rect x="419" y="321" width="69" height="14" rx="5" fill="#B7D9D0"/>
+<rect x="419" y="350" width="180" height="13" rx="5" fill="#CEE6DF"/>
+<rect x="419" y="377" width="155" height="13" rx="5" fill="#CEE6DF"/>
+<rect x="419" y="408" width="98" height="20" rx="7" fill="#12877D"/>
+<text x="400" y="492" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="700" fill="#12877D" text-anchor="start">02</text>
+<text x="400" y="535" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="27" font-weight="700" fill="#17383B" text-anchor="start">可运行预览</text>
+<text x="400" y="573" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="20" font-weight="400" fill="#60716F" text-anchor="start">文字 / 智能 / 画笔</text>
+<line x1="645" y1="435" x2="651" y2="435" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="640" y1="425" x2="651" y2="435" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="640" y1="445" x2="651" y2="435" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="668" y="268" width="265" height="342" rx="18" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="690" y="294" width="221" height="156" rx="12" fill="#E5F4F0"/>
+<rect x="709" y="321" width="69" height="14" rx="5" fill="#B7D9D0"/>
+<rect x="709" y="350" width="180" height="13" rx="5" fill="#CEE6DF"/>
+<rect x="709" y="377" width="155" height="13" rx="5" fill="#CEE6DF"/>
+<rect x="709" y="408" width="98" height="20" rx="7" fill="#12877D"/>
+<text x="690" y="492" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="700" fill="#12877D" text-anchor="start">03</text>
+<text x="690" y="535" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="27" font-weight="700" fill="#17383B" text-anchor="start">候选比较</text>
+<text x="690" y="573" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="20" font-weight="400" fill="#60716F" text-anchor="start">原版 vs 隔离候选</text>
+<line x1="935" y1="435" x2="941" y2="435" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="930" y1="425" x2="941" y2="435" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="930" y1="445" x2="941" y2="435" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="958" y="268" width="265" height="342" rx="18" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="980" y="294" width="221" height="156" rx="12" fill="#E5F4F0"/>
+<rect x="999" y="321" width="69" height="14" rx="5" fill="#B7D9D0"/>
+<rect x="999" y="350" width="180" height="13" rx="5" fill="#CEE6DF"/>
+<rect x="999" y="377" width="155" height="13" rx="5" fill="#CEE6DF"/>
+<rect x="999" y="408" width="98" height="20" rx="7" fill="#12877D"/>
+<text x="980" y="492" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="700" fill="#12877D" text-anchor="start">04</text>
+<text x="980" y="535" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="27" font-weight="700" fill="#17383B" text-anchor="start">阶段评审</text>
+<text x="980" y="573" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="20" font-weight="400" fill="#60716F" text-anchor="start">G1 概念 → G2 Demo</text>
+<line x1="1225" y1="435" x2="1231" y2="435" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1220" y1="425" x2="1231" y2="435" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1220" y1="445" x2="1231" y2="435" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="1248" y="268" width="265" height="342" rx="18" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="1270" y="294" width="221" height="156" rx="12" fill="#E5F4F0"/>
+<rect x="1289" y="321" width="69" height="14" rx="5" fill="#B7D9D0"/>
+<rect x="1289" y="350" width="180" height="13" rx="5" fill="#CEE6DF"/>
+<rect x="1289" y="377" width="155" height="13" rx="5" fill="#CEE6DF"/>
+<rect x="1289" y="408" width="98" height="20" rx="7" fill="#12877D"/>
+<text x="1270" y="492" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="700" fill="#12877D" text-anchor="start">05</text>
+<text x="1270" y="535" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="27" font-weight="700" fill="#17383B" text-anchor="start">固定交付</text>
+<text x="1270" y="573" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="20" font-weight="400" fill="#60716F" text-anchor="start">版本与未决问题</text>
+<rect x="88" y="654" width="1424" height="83" rx="15" fill="#FFF0E3"/>
+<text x="118" y="707" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#885936" text-anchor="start">原型边界：候选修改和状态切换为交互模拟；真实 AI、HTML 源文件回写与生产交付尚待验证。</text>
+</svg></section><section class="slide" data-slide="11" aria-label="第 11 页：MVP 边界"><svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">10 / MVP 取舍</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">先验证闭环，再扩大格式与画布能力</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">可交付的含义是“版本明确、可复现、信息完整”，不是自动上线。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">11 / 12</text>
+<rect x="88" y="230" width="454" height="492" rx="21" fill="#E5F4F0"/>
+<text x="116" y="286" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="30" font-weight="700" fill="#17383B" text-anchor="start">P0 · 现在做</text>
+<circle cx="125" cy="335" r="7" fill="#12877D"/>
+<text x="144" y="343" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#17383B" text-anchor="start">AutoClaw 自生成 HTML</text>
+<circle cx="125" cy="396" r="7" fill="#12877D"/>
+<text x="144" y="404" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#17383B" text-anchor="start">页面/状态/断点索引</text>
+<circle cx="125" cy="457" r="7" fill="#12877D"/>
+<text x="144" y="465" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#17383B" text-anchor="start">文字与元素定域修改</text>
+<circle cx="125" cy="518" r="7" fill="#12877D"/>
+<text x="144" y="526" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#17383B" text-anchor="start">受限画笔 + 命中确认</text>
+<circle cx="125" cy="579" r="7" fill="#12877D"/>
+<text x="144" y="587" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#17383B" text-anchor="start">候选比较 / 采纳 / 放弃</text>
+<circle cx="125" cy="640" r="7" fill="#12877D"/>
+<text x="144" y="648" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#17383B" text-anchor="start">固定版本交付快照</text>
+<rect x="574" y="230" width="454" height="492" rx="21" fill="#DDEBEF"/>
+<text x="602" y="286" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="30" font-weight="700" fill="#17383B" text-anchor="start">P1 · 下一步</text>
+<circle cx="611" cy="335" r="7" fill="#60716F"/>
+<text x="630" y="343" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#17383B" text-anchor="start">对象锚定的异步评论</text>
+<circle cx="611" cy="396" r="7" fill="#60716F"/>
+<text x="630" y="404" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#17383B" text-anchor="start">1–3 方向并排评审</text>
+<circle cx="611" cy="457" r="7" fill="#60716F"/>
+<text x="630" y="465" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#17383B" text-anchor="start">跨页面回归清单</text>
+<circle cx="611" cy="518" r="7" fill="#60716F"/>
+<text x="630" y="526" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#17383B" text-anchor="start">约束模板与负责人</text>
+<circle cx="611" cy="579" r="7" fill="#60716F"/>
+<text x="630" y="587" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#17383B" text-anchor="start">技术风险提前提醒</text>
+<rect x="1060" y="230" width="454" height="492" rx="21" fill="#FFF0E3"/>
+<text x="1088" y="286" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="30" font-weight="700" fill="#17383B" text-anchor="start">后续 · 暂不承诺</text>
+<circle cx="1097" cy="335" r="7" fill="#60716F"/>
+<text x="1116" y="343" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#17383B" text-anchor="start">无限画布全功能</text>
+<circle cx="1097" cy="396" r="7" fill="#60716F"/>
+<text x="1116" y="404" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#17383B" text-anchor="start">任意外部网页原位修改</text>
+<circle cx="1097" cy="457" r="7" fill="#60716F"/>
+<text x="1116" y="465" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#17383B" text-anchor="start">Figma ↔ HTML 无损双向同步</text>
+<circle cx="1097" cy="518" r="7" fill="#60716F"/>
+<text x="1116" y="526" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#17383B" text-anchor="start">图片/视频统一精准编辑</text>
+<circle cx="1097" cy="579" r="7" fill="#60716F"/>
+<text x="1116" y="587" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#17383B" text-anchor="start">自动合并生产仓库</text>
+</svg></section><section class="slide" data-slide="12" aria-label="第 12 页：验证计划"><svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">11 / 验证与下一步</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">把方案变成可检验的产品判断</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">下一轮先用真实 Auto Design HTML 任务核对现状，再测设计与研发接力。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">12 / 12</text>
+<rect x="88" y="225" width="678" height="383" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="88" y="225" width="8" height="383" rx="4" fill="#12877D"/>
+<text x="117" y="277" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">设计师任务测试 · 建议 5–8 人</text>
+<text x="117" y="325" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">能否找到全部页面、状态和当前版？</text>
+<text x="117" y="361" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">能否在不重述整页需求时完成两次微调？</text>
+<text x="117" y="397" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">能否识别候选的越界变化并正确回退？</text>
+<text x="117" y="433" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">能否区分“采纳修订”和“确认方案”？</text>
+<rect x="834" y="225" width="678" height="383" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="834" y="225" width="8" height="383" rx="4" fill="#F5AB6E"/>
+<text x="863" y="277" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">开发接手测试 · 建议 2–3 人</text>
+<text x="863" y="325" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">能否按说明运行同一 HTML 版本？</text>
+<text x="863" y="361" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">能否独立复现 Mobile 错误态与成功态？</text>
+<text x="863" y="397" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">是否看得见接口、权限和未解决问题？</text>
+<text x="863" y="433" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">需要追问哪些关键假设？</text>
+<rect x="88" y="648" width="1424" height="93" rx="16" fill="#122D31"/>
+<text x="118" y="687" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#F5AB6E" text-anchor="start">汇报结论</text>
+<text x="255" y="688" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#FFFFFF" text-anchor="start">AI 负责生成候选与提示影响；设计师、PM、开发围绕同一版本作出不同阶段的决定。</text>
+<text x="118" y="722" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#D1E2DE" text-anchor="start">先跑通一条“看清 → 改准 → 审准 → 交清”的 HTML 主链路，再判断是否需要无限画布与跨格式同步。</text>
+</svg></section></div>
+        <div class="bottom-nav"><button id="prev" aria-label="上一页">← 上一页</button><button id="next" aria-label="下一页">下一页 →</button><div class="progress" aria-hidden="true"><span id="progress"></span></div><span class="keyboard-tip">键盘 ← → 翻页</span></div>
+      </div>
+      <div class="doc-view"><article class="article"><h1 id="autoclaw-design-agent-v09">AutoClaw Design Agent 工作区｜方案汇报 V09</h1>
+<p><strong>汇报结论：</strong>本题的重点不是让 Agent 再多生成一种网页，而是让设计师把已经生成的 HTML 初稿变成一份<strong>可定位修订、可阶段评审、可固定版本交付</strong>的设计成果。建议沿用 AutoClaw 的项目与任务外壳，在一次 Design 任务内增加“成果总览 → 聚焦预览 → 修订审阅 → 阶段评审 → 交付快照”。开放题只深入一个 Feature：<strong>界面定域修订</strong>。</p>
+<p>本稿配套 <code>01_封面.svg</code>—<code>12_验证计划.svg</code>，每页为 1600 × 900 独立 SVG。它们是汇报画面，支持逐页导入 Figma 后继续改动。当前的 <a href="../prototype_v08/index.html">可点击原型</a> 用“邀请成员流程”演示主链路。原型中的 AI 修改为交互模拟，不是已实现的 AutoClaw 功能。</p>
+<h2 id="1">1. 思路如何收敛</h2>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>得到的判断</th>
+<th>对本次方案的影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V01–V02：设计 AI 工具与产物调研</td>
+<td>生成方式、格式、画布和导出方式很多；仅把结果转成另一种格式，不能保证可编辑或可开发。</td>
+<td>选择可运行 HTML 项目作为本题的主产物，不承诺任意格式无损转换。</td>
+</tr>
+<tr>
+<td>V03：AutoClaw / Lovart 录屏与 MVP</td>
+<td>AutoClaw 的任务与产物外壳可承接 Design 结果；Lovart 的对象选择、局部指令和旁置候选可迁移为设计交互模式。</td>
+<td>不新增全局设计软件首页；在现有任务内组织持续演化的产物。</td>
+</tr>
+<tr>
+<td>V04–V05：旅程、信息架构与多方共创</td>
+<td>设计师需要看清初稿、控制修改，PM 与开发需要在不同时间回答不同问题。</td>
+<td>把草图概念评审、Demo 体验评审和开发接手拆开。</td>
+</tr>
+<tr>
+<td>V06：草图三态</td>
+<td>草图收集应保留不确定性；定义概念时可同时深化 1–3 个方向；确定概念后才进入运行体验判断。</td>
+<td>G1 概念确认后移到草图第三态末尾。</td>
+</tr>
+<tr>
+<td>V07–V08：界面定域修订与原型</td>
+<td>重写整段提示词容易丢失已接受部分；局部修改需要目标、范围、候选、对比和人的决定。</td>
+<td>聚焦一条从初稿到固定交付的主链路，做成可点击原型。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>舍弃或后置：</strong>无限画布全功能、任意 HTML↔Figma 无损双向同步、任意图片/视频统一精准编辑、自动把 Demo 代码合并到生产仓库。这些能力可能有价值，但不能替代对主链路的验证。</p>
+<h2 id="2">2. 证据、推论和待验证项</h2>
+<p><strong>直接观察：</strong>用户提供的 AutoClaw 录屏呈现首页、任务、项目、对话与连接器等通用外壳；一次客户端只读走查还看到“输出产物”与浏览器/文件工作区容器。该录屏中的任务是图片生成，<strong>不是 HTML Design 任务</strong>。用户提供的 Lovart 录屏呈现选中素材对象、Quick Edit、原稿旁生成候选与对象下载；它证明对象化局部编辑是可理解的交互范式，<strong>不能证明 HTML 源码能同样精准回写</strong>。详细截图见 <a href="../mvp_v03/2026-10-04_AutoClaw_Design工作区_MVP初稿_V03.html">MVP 观察记录</a>。</p>
+<p><strong>外部研究提示：</strong>Figma 针对 906 位数字设计师的 2026 调查显示，创作自主权和明确目标与预期受到重视；一项 24 人 GenUI 研究指出多屏方向的预览困难；Figma 2025 设计师/开发者报告提示双方频繁协作且存在假设差异。这些结果支持“保留判断权、清晰预览、传递意图”的方向，<strong>不代表 AutoClaw 用户痛点发生率</strong>。研究范围与口径见 <a href="../journey_v04/2026-10-04_设计师用户旅程_痛点证据_信息架构草案_V04.html">用户旅程 V04</a>。</p>
+<p><strong>本次产品假设：</strong>一次 HTML Design 任务结束后，最影响后续工作的三个断点按顺序为：①看不全页面/状态；②无法确定 AI 修改的实际目标与影响；③PM/开发难以确认和复现最终版本。其中②是交互差异化重点，③决定“可交付”是否成立。真实频率和严重程度仍需目标用户任务测试。</p>
+<h2 id="3">3. 设计师从初稿到交付的旅程</h2>
+<p>主场景：设计师收到“成员邀请流程”的 PRD、旧稿和设计约束；AutoClaw 生成 Desktop/Mobile HTML 初稿。设计师发现 Mobile 无效邮箱提示离输入框过远，要求仅改这个状态，并确认 Desktop 和成功态不受影响，再与 PM 确认方向、评审 Demo、交给前端。</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>用户要判断</th>
+<th>工作区的回应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>接收与清点初稿</td>
+<td>生成了哪些方向、页面、状态？缺什么？</td>
+<td>成果总览与覆盖清单。</td>
+</tr>
+<tr>
+<td>草图收集</td>
+<td>是否保留灵感、参考和反例？</td>
+<td>自由收集，暂不强行确认单一方向。</td>
+</tr>
+<tr>
+<td>定义 1–3 个概念</td>
+<td>哪个方向更有潜力？细节如何连续改善？</td>
+<td>方向并排、局部修订、保留演化历史。</td>
+</tr>
+<tr>
+<td>G1 概念确认</td>
+<td>核心路径、价值与原则是否成立？</td>
+<td>PM 和设计师形成概念基线；高风险时开发提前预检。</td>
+</tr>
+<tr>
+<td>Demo 体验评审</td>
+<td>流程、异常态、响应式和实现边界是否可靠？</td>
+<td>G2 在可运行版本上审阅并记录未解决问题。</td>
+</tr>
+<tr>
+<td>开发接手</td>
+<td>接收的是哪个版本？能否复现？</td>
+<td>G3 固定交付快照：源码、资源、状态表、运行说明与已知问题。</td>
+</tr>
+</tbody>
+</table>
+<p>后续的微调与上线验收在同一版本轨迹上继续，但不应静默覆盖已批准基线。<strong>采纳一次修改</strong>只是设计师把候选加入工作版；<strong>G1/G2/G3</strong>分别代表团队对概念、体验和接手的判断。</p>
+<h2 id="4-feature">4. 核心 Feature：界面定域修订</h2>
+<p>统一链路：<strong>定位上下文 → 指出目标 → 定义意图与保留项 → 隔离生成候选 → 比较影响 → 人决定</strong>。</p>
+<ul>
+<li><strong>文字微调</strong>适合明确文案。源文字可定位时直接改工作草稿，AI 只提供措辞建议和溢出检查。</li>
+<li><strong>点选组件</strong>适合样式、布局和交互规则。系统预填方向、页面、状态、断点、基线版本及真实命中对象。</li>
+<li><strong>画笔圈选</strong>适合表达一片视觉关系。它只提供视觉锚点；系统必须先显示识别到的 DOM/组件，映射不稳定时降低承诺或让用户重新选择。</li>
+</ul>
+<p>三种入口都进入同一张修订卡。Agent 在隔离候选中修改源文件，保留原工作版；审阅页并排呈现原版与候选、源文件变动摘要和可能受影响的其他状态。设计师可采纳、继续限定或放弃。<strong>画笔圈住像素，不等于代码只改圈内。</strong>共享样式、组件复用和真实交互都要通过影响提示及回归检查处理。功能细节见 <a href="../feature_v07/2026-10-04_Design工作区_界面定域修订功能定义_V07.html">V07 功能定义</a>。</p>
+<h2 id="5-mvp">5. 产品结构与 MVP 范围</h2>
+<p><code>项目 → 任务 → Design 工作区 → 方向/版本 → 页面 × 状态 × 设备</code>。工作区导航以用户判断组织：成果总览、聚焦预览、修订审阅、交付快照；评审决定与版本记录贯穿其间。底层每份产物应有类型、来源、版本、负责人和关联对象。<strong><code>preview.version_id = delivery.version_id</code></strong> 是交付必须满足的约束。</p>
+<p><strong>P0：</strong>只处理 AutoClaw 自生成、源文件可用的 HTML 项目；索引页面/状态/断点；提供文字和元素定域修订、受限画笔、候选比较、采纳/放弃、固定版本交付。<strong>P1：</strong>对象锚定异步评论、1–3 方向并排、跨页面回归清单、约束模板和技术风险提醒。<strong>暂不承诺：</strong>任意外部站点原位修改、无限画布全功能、Figma↔HTML 无损同步、自动合并生产代码。</p>
+<p>“可交付”指接收方能复现同一版本与状态，理解设计决策及未解决问题。HTML Demo 可能是可运行规格和工程起点；前端仍需核查组件体系、路由、真实数据、接口、权限、性能与无障碍。</p>
+<h2 id="6">6. 原型完成度与验证计划</h2>
+<p><a href="../prototype_v08/index.html">可点击原型 V08</a> 已呈现：AutoClaw 首页 → 成果总览 → 方向 B 预览 → 文字/智能/画笔修订 → 候选对比 → 设计师采纳 → PM 概念确认 → Demo 状态复核 → 固定交付页。它验证的是信息结构与交互顺序，<strong>尚未接入真实 AI、HTML 源文件改写或生产交付包</strong>。</p>
+<p>建议先做一项真实 Auto Design HTML 任务走查，核对已有产物、修改、版本、导出能力，再用 <strong>5–8 位设计师、2–3 位前端</strong>进行发现性测试。重点记录：设计师能否在不重述整页需求的情况下连续完成两次微调；能否指出候选越界变化和当前正式版；PM 能否区分采纳修改与批准方案；前端能否独立复现交付包中的错误态。以上人数和指标是<strong>研究计划</strong>，并非已获得的结果。</p>
+<h2 id="_1">研究依据与链接</h2>
+<ul>
+<li><a href="https://autoclaw.zhipuai.cn/blog/product/auto-design-ai-designer/">AutoClaw Auto Design 官方介绍</a>：公开描述聊天、评论/画布修改、多端预览与导出；仍需以实际客户端核对。</li>
+<li><a href="https://www.lovart.art/docs/edit-your-design/advanced-ai-editing">Lovart Advanced AI Editing</a>：Quick Edit、Mark/Touch Edit 等官方说明；本稿的具体录屏观察另见 V03。</li>
+<li><a href="https://www.canva.com/newsroom/news/canva-ai-whiteboards/">Canva AI Whiteboards</a>：无限画布更适合发散和共同整理，不直接证明其应是本题 MVP。</li>
+<li><a href="https://www.figma.com/blog/state-of-the-designer-2026/">Figma State of the Designer 2026</a>：设计师调查，非 AutoClaw 用户样本。</li>
+<li><a href="https://www.figma.com/reports/designer-developer-trends/">Figma 2025 Designer and Developer Trends</a>：设计与开发协作报告。</li>
+<li><a href="https://arxiv.org/html/2606.13843v2">Chen 等，Rethinking the UI of GenUI</a>：早期多方向 UI 探索研究，样本范围有限。</li>
+<li><a href="https://arxiv.org/html/2509.16779v2">Wu 等，Improving UI Generation Models from Designer Feedback</a>：位置化/直接修订反馈的研究；不作为本产品效果预测。</li>
+<li><a href="https://help.figma.com/hc/en-us/articles/360063144053-Guide-to-branching">Figma Branching 指南</a>、<a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/use-copilot-agents/overview">GitHub Copilot agents 文档</a>：候选、审阅、接受的协作范式参考，不代表设计 UI 可直接照搬代码 PR。</li>
+</ul></article></div>
+      <div class="demo-view">
+        <div class="demo-heading"><div><h1>设计稿 Demo · AutoClaw Design 工作区</h1><p>按真实操作顺序体验一条从 AI 初稿、局部修订、概念与 Demo 评审到交付的路径。当前为可点击交互模拟，后续新增设计内容可继续接入此处。</p></div><div class="demo-actions"><button class="active" data-device="desktop">桌面</button><button data-device="mobile">手机</button><button id="reset-demo">重置演示</button><button id="fullscreen-demo">全屏体验</button><a href="https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/%E6%99%BA%E8%B0%B1%E6%B5%8B%E8%AF%95%E9%A2%98-2026?node-id=100-3" target="_blank" rel="noopener">Figma 源稿 ↗</a></div></div>
+        <div class="demo-shell"><iframe id="demo-frame" title="AutoClaw Design 工作区可点击原型" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;link rel=&quot;icon&quot; href=&quot;data:,&quot;&gt;
+  &lt;title&gt;AutoClaw Design 工作区 · 可点击原型&lt;/title&gt;
+  &lt;style&gt;:root{font-family:-apple-system,BlinkMacSystemFont,&quot;PingFang SC&quot;,&quot;Microsoft YaHei&quot;,sans-serif;color:#2c3032;background:#fff;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,input,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #148c83;outline-offset:2px}.app-shell{min-height:100vh;display:flex}.sidebar{flex:0 0 282px;width:282px;background:#f7f7f7;min-height:100vh;position:relative;padding:0 12px 66px}.window-controls{height:55px;display:flex;align-items:flex-start;gap:8px;padding:23px 8px 0}.mac-dot{display:block;width:12px;height:12px;border-radius:50%}.red{background:#ff5b56}.yellow{background:#ffbd2e}.green{background:#28c840}.sidebar-toggle{margin-left:13px;margin-top:-3px;font-size:17px;color:#777}.sidebar-tabs{display:flex;align-items:center;height:41px;gap:3px;margin:0 3px 13px}.side-tab{border:0;background:transparent;border-radius:18px;padding:6px 9px;color:#62676a;font-size:15px;white-space:nowrap}.side-tab span{font-size:17px;margin-right:6px}.side-tab.active{background:#ededed;color:#34393b}.side-tab-spacer{flex:1}.icon-only{border:0;background:transparent;color:#777;font-size:21px;padding:3px 5px}.new-task{display:flex;align-items:center;gap:10px;width:100%;height:34px;background:#ededed;border:0;border-radius:9px;padding:0 12px;color:#343434;font-size:15px;text-align:left}.new-task small{font-size:10px;color:#aaa;margin-left:auto}.round-plus{border:1px solid #5b6061;border-radius:50%;width:15px;height:15px;line-height:13px;text-align:center;font-size:14px}.sidebar-link{display:flex;align-items:center;gap:11px;background:none;border:0;width:100%;height:40px;text-align:left;font-size:15px;color:#36393a;padding:0 11px}.sidebar-link span{font-size:18px;min-width:15px}.sidebar-link.muted{color:#a5a5a5;font-size:14px}.sidebar-section{display:flex;justify-content:space-between;color:#999;font-size:14px;margin:20px 8px 4px}.sidebar-section.task-section{margin-top:24px}.task-link{display:block;position:relative;border:0;background:none;width:100%;height:32px;border-radius:7px;text-align:left;padding:0 8px;color:#343434;font-size:14px}.task-link.selected{background:#eaeaea}.unread-dot{position:absolute;right:12px;top:13px;width:7px;height:7px;border-radius:50%;background:#ff5155}.account{position:absolute;left:20px;right:14px;bottom:14px;display:flex;align-items:center;gap:7px;font-size:13px;white-space:nowrap;color:#303030}.avatar{display:grid;place-items:center;background:#f6dfca;width:24px;height:24px;border-radius:50%;font-size:17px}.account-plan{margin-left:auto}.speed{font-size:11px;background:#777;color:#fff;padding:2px 4px;border-radius:4px}.app-main{min-width:0;flex:1;background:#fff}.topbar{height:64px;display:flex;align-items:flex-start;justify-content:space-between;padding:9px 30px}.breadcrumbs{color:#717679;font-size:13px;margin-top:14px}.top-actions{display:flex;align-items:center;gap:22px;white-space:nowrap;font-size:13px}.top-actions a{color:#ff6039;text-decoration:none}.platform-btn{border:1px solid #eee;background:#fff;border-radius:13px;padding:9px 12px;color:#42484a;font-size:13px}.credits{color:#676b6e}.credits i{display:inline-grid;place-items:center;background:#f6c34b;color:#fff;font-style:normal;border-radius:50%;width:14px;height:14px;font-size:10px;font-weight:bold}.member{background:#f7f7f7;border-radius:8px;padding:5px 8px;color:#6a6a6a}#main{height:calc(100vh - 64px);min-height:660px;overflow:auto}.home{min-height:calc(100vh - 64px);position:relative;display:flex;flex-direction:column;align-items:center;padding-top:185px}.home h1{font-weight:400;font-size:29px;margin:0 0 28px;letter-spacing:.3px}.mode-tabs{display:flex;background:#f4f4f4;border-radius:14px;padding:2px;gap:2px}.mode-tabs button{border:0;background:none;color:#696e70;border-radius:12px;padding:9px 14px;font-size:15px}.mode-tabs button.active{background:#fff;color:#333}.composer-wrap{width:min(770px,calc(100% - 100px));margin-top:24px}.composer{border:1px solid #eee;box-shadow:0 14px 35px rgba(0,0,0,.035);border-radius:25px;height:141px;display:flex;flex-direction:column}.composer textarea{border:0;outline:0;resize:none;background:transparent;flex:1;margin:17px 18px;font-size:15px;color:#333}.composer textarea::placeholder{color:#aaa}.composer-foot{height:41px;display:flex;gap:25px;align-items:center;padding:0 14px 12px;color:#989898;font-size:14px}.composer-foot button{border:0;background:none;color:inherit}.composer-foot .plus{font-size:22px;color:#555}.composer-foot .auto{margin-left:auto;color:#333}.composer-foot .send{display:grid;place-items:center;background:#bdbdbd;color:#fff;width:32px;height:32px;border-radius:50%;font-size:25px;line-height:1}.project-choice{margin:0 17px;background:#f4f4f4;border-radius:0 0 15px 15px;height:46px;padding:13px 20px;color:#6c6c6c;font-size:14px}.quick-links{display:flex;gap:0;margin-top:25px;color:#3d4143}.quick-links button{border:0;background:none;padding:0 16px;border-right:1px solid #eee;color:inherit;font-size:14px}.quick-links button:last-child{border:0}.quick-links .star{color:#35bce7}.quick-links .pink{color:#f56d91}.quick-links .blue{color:#528bf4}.ai-note{position:absolute;bottom:10px;font-size:12px;color:#b6b6b6}.workspace{padding:0 30px 40px;max-width:1260px;margin:0 auto}.workspace-tabs{display:flex;gap:28px;height:64px;align-items:center;border-bottom:1px solid #eee}.workspace-tabs button{border:0;background:none;color:#999;height:100%;position:relative;font-size:15px;padding:0}.workspace-tabs button.active{color:#303535;font-weight:600}.workspace-tabs button.active:after{content:&quot;&quot;;height:2px;background:#333;position:absolute;bottom:0;left:0;right:0}.page-head{display:flex;justify-content:space-between;align-items:flex-start;margin:28px 0 20px}.page-head h1{font-size:26px;font-weight:600;margin:0 0 6px}.page-head p{color:#858b8b;font-size:14px;margin:0}.subtle{color:#7c8585}.small{font-size:12px}.pills{display:flex;gap:9px;align-items:center}.pill{display:inline-block;background:#f5f6f6;border-radius:99px;padding:7px 12px;color:#5e6868;font-size:12px}.pill.teal{background:#e7f4f1;color:#187f76}.pill.amber{background:#fff3e7;color:#9b6838}.pill.dark{background:#e9eeee;color:#284347}.btn{border:1px solid #e2e7e6;background:#fff;color:#354142;border-radius:9px;padding:9px 14px;font-size:13px}.btn:hover{border-color:#a7d5cf}.btn.primary{background:#263f41;color:#fff;border-color:#263f41}.btn.primary:hover{background:#36585b}.btn.ghost{border:0;color:#697576}.btn.danger{color:#9d5e53}.btn:disabled{opacity:.42;cursor:not-allowed}.direction-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:23px}.direction-card{border:1px solid #e7eaea;border-radius:17px;padding:15px;background:#fff;min-width:0}.direction-card.featured{border:2px solid #218b82;padding:14px}.mini-ui{height:180px;background:#f8f9f9;border:1px solid #eef0f0;border-radius:11px;display:flex;overflow:hidden}.mini-side{width:50px;background:#eef1f0}.mini-body{flex:1;padding:28px 20px}.mini-line{height:12px;border-radius:7px;background:#d6e9e6;width:65%;margin-bottom:22px}.mini-field{border:1px solid #dbe1e0;background:#fff;height:19px;border-radius:5px;margin-bottom:11px}.mini-button{background:#2e8d85;border-radius:5px;height:20px;width:60%;margin-top:18px}.mini-ui.alt .mini-line{background:#dbe6f0}.mini-ui.alt .mini-button{background:#bdcbd5}.mini-ui.violet .mini-line{background:#e9e2f0}.mini-ui.violet .mini-button{background:#c9bfd9}.direction-card-head{display:flex;align-items:center;justify-content:space-between;margin:18px 0 7px}.direction-card h2{font-size:18px;margin:0;font-weight:600}.direction-card p{font-size:13px;color:#737d7d;margin:0 0 22px;min-height:20px}.direction-card .btn{width:100%}.review-strip{background:#f7faf9;border:1px solid #e4eeec;border-radius:15px;padding:18px 20px;margin-top:20px}.review-strip strong{font-size:15px}.review-strip p{margin:8px 0 12px;color:#667879;font-size:13px}.progress-chain{font-size:12px;color:#6f918e}.split-workspace{display:grid;grid-template-columns:minmax(0,1fr) 288px;gap:18px;height:calc(100vh - 145px);min-height:660px}.preview-pane,.right-panel{border:1px solid #e6eaea;border-radius:15px;background:#fff;min-width:0;overflow:hidden}.preview-pane{display:flex;flex-direction:column}.preview-top{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #eef0ef;gap:10px}.preview-top h2{font-size:15px;margin:0}.preview-top small{color:#889291}.segmented{display:flex;background:#f5f6f6;border-radius:9px;padding:3px;gap:2px}.segmented button{border:0;background:transparent;border-radius:7px;color:#777;padding:6px 10px;font-size:12px}.segmented button.active{background:#fff;color:#2b3535;box-shadow:0 1px 3px rgba(0,0,0,.06)}.preview-tools{display:flex;align-items:center;gap:6px;padding:9px 14px;border-bottom:1px solid #eef0ef}.tool-btn{border:1px solid transparent;background:#fff;color:#66716f;padding:7px 10px;border-radius:8px;font-size:13px}.tool-btn.active{border-color:#99cec6;background:#eff8f6;color:#166d66}.preview-stage{flex:1;background:#f5f7f7;display:grid;place-items:center;position:relative;overflow:auto;padding:20px}.phone{width:288px;height:530px;background:#fff;border:1px solid #dfe5e4;border-radius:22px;box-shadow:0 12px 30px rgba(38,61,60,.08);padding:0 21px;position:relative;overflow:hidden;user-select:none}.phone .statusbar{font-size:11px;display:flex;justify-content:space-between;padding:12px 1px 0;color:#2e3737}.phone .close-x{text-align:right;font-size:20px;color:#999;margin-top:14px}.phone h3{font-size:22px;margin:32px 0 6px;font-weight:650}.phone p.desc{font-size:12px;color:#8a9392;margin:0 0 24px}.phone label{display:block;font-size:12px;margin-bottom:7px;color:#505c5b}.phone .field{height:39px;border:1px solid #cfd9d7;border-radius:8px;display:flex;align-items:center;padding:0 11px;font-size:12px;color:#525f5d}.phone .field.invalid{border-color:#e68b83}.phone .error{font-size:11px;color:#d76c62;margin:9px 0 0;line-height:1.45}.phone .secondary{font-size:11px;color:#a0aaa8;margin-top:19px}.phone .primary-cta{height:42px;border-radius:8px;background:#2f897f;color:#fff;display:grid;place-items:center;margin-top:25px;font-size:13px}.phone .foot{font-size:11px;color:#a1aaa8;text-align:center;position:absolute;bottom:24px;left:0;right:0}.phone .highlight-target{outline:2px solid #26a398;outline-offset:4px}.phone .brush-layer{position:absolute;inset:0;z-index:5;cursor:crosshair}.phone .brush-selection{position:absolute;border:2px solid #1a9489;background:rgba(36,157,145,.13);border-radius:8px;z-index:6;pointer-events:none}.desktop-preview{width:min(620px,95%);height:410px;background:#fff;border:1px solid #dfe5e4;box-shadow:0 12px 30px rgba(38,61,60,.08);border-radius:12px;display:flex;overflow:hidden}.desktop-preview .desktop-side{width:135px;background:#f4f7f6;padding:23px 15px;color:#8a9a97;font-size:11px}.desktop-preview .desktop-side b{display:block;color:#2d655e;font-size:15px;margin-bottom:32px}.desktop-preview .desktop-body{flex:1;padding:53px 60px}.desktop-preview h3{font-size:23px;margin:0 0 8px}.desktop-preview p{font-size:12px;color:#8c9694;margin-bottom:26px}.desktop-preview .field{border:1px solid #d5dedd;border-radius:8px;height:43px;padding:12px;font-size:12px}.desktop-preview .error{font-size:11px;color:#d56a62;margin:8px 0}.desktop-preview .primary-cta{background:#2f897f;color:#fff;border-radius:8px;padding:12px;text-align:center;margin-top:24px;font-size:12px}.right-panel{padding:18px;overflow:auto}.right-panel h2{font-size:17px;margin:0 0 8px}.right-panel h3{font-size:13px;margin:22px 0 9px}.right-panel p{font-size:13px;color:#73807f;line-height:1.55}.context-row{font-size:12px;color:#6d7978;padding:10px 0;border-bottom:1px solid #eef0ef}.right-panel label{display:block;font-size:12px;font-weight:600;margin:15px 0 7px}.right-panel textarea,.right-panel input[type=text]{width:100%;border:1px solid #d9e2e0;border-radius:8px;background:#fff;padding:10px 11px;color:#333;resize:vertical;font-size:13px}.right-panel textarea{min-height:86px}.check-row{display:flex;align-items:center;gap:8px;font-size:12px;color:#586866;margin:10px 0}.check-row input{accent-color:#1d8c82}.right-panel .btn{width:100%;margin-top:9px}.mapping{background:#eff8f5;border:1px solid #d6eee8;border-radius:9px;padding:10px;font-size:12px;color:#316f69;line-height:1.5}.warning{background:#fff5eb;border:1px solid #fae5ce;border-radius:9px;padding:10px;font-size:12px;color:#9c6d3c;line-height:1.5}.hint{font-size:12px;color:#8e9998}.compare-area{display:grid;grid-template-columns:1fr 1fr;gap:16px;min-height:570px}.compare-column{background:#f5f7f7;border:1px solid #e7eceb;border-radius:15px;display:flex;flex-direction:column;align-items:center;padding:15px}.compare-column .column-head{width:100%;display:flex;justify-content:space-between;align-items:center;font-size:14px;margin-bottom:12px}.compare-column .phone{transform:scale(.86);transform-origin:top center;margin-bottom:-74px}.difference-box{border:2px solid #24988e;border-radius:6px;padding:4px}.impact-list{list-style:none;margin:8px 0;padding:0}.impact-list li{font-size:12px;color:#60706e;padding:8px 0;border-bottom:1px solid #eef0ef}.impact-list li:before{content:&quot;•&quot;;color:#209589;margin-right:8px}.decision-card{background:#fff;border:1px solid #e5ebea;border-radius:15px;padding:24px}.decision-card h2{margin:0 0 10px;font-size:20px}.decision-card p{color:#77827f;font-size:13px;line-height:1.6}.decision-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.decision-card .btn{margin-top:14px}.handoff-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}.file-list{list-style:none;padding:0;margin:15px 0}.file-list li{display:flex;justify-content:space-between;border-bottom:1px solid #edf1f0;padding:11px 0;font-size:13px;color:#53605e}.toast{position:fixed;right:30px;bottom:28px;background:#263f41;color:#fff;border-radius:9px;padding:10px 15px;font-size:12px;box-shadow:0 9px 26px rgba(0,0,0,.16);z-index:100}.prototype-badge{position:fixed;right:18px;bottom:12px;color:#93a09d;font-size:10px;pointer-events:none}@media(max-width:1050px){.sidebar{flex-basis:230px;width:230px}.account-plan,.speed{display:none}.direction-grid{gap:10px}.split-workspace{grid-template-columns:minmax(0,1fr) 250px}.workspace{padding:0 18px 30px}.top-actions{gap:9px}.platform-btn{display:none}}@media(max-width:780px){.sidebar{display:none}.topbar{padding:9px 15px}.direction-grid{grid-template-columns:1fr}.split-workspace{display:block;height:auto}.right-panel{margin-top:12px}.preview-pane{min-height:650px}.compare-area{grid-template-columns:1fr}.home{padding-top:115px}.composer-wrap{width:calc(100% - 35px)}}
+.demo-stage .phone{zoom:.68}
+
+#mobile-design-entry{display:none}
+@media(max-width:780px){
+  .top-actions{display:none}
+  .breadcrumbs{margin-top:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .workspace{padding:0 15px 24px}
+  .workspace-tabs{gap:20px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+  .workspace-tabs button{flex:none;font-size:13px}
+  .page-head{display:block;margin:20px 0 15px}
+  .page-head h1{font-size:22px}
+  .page-head&gt;.pill{display:inline-block;margin-top:12px}
+  .pills{flex-wrap:wrap}
+  .app-main:has(.home) #mobile-design-entry{display:block;position:absolute;top:77px;left:20px;z-index:5;border:1px solid #a6d5cb;background:#e5f4f0;color:#167b72;border-radius:8px;padding:10px 14px;font-size:13px;font-weight:600}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class=&quot;app-shell&quot;&gt;
+    &lt;aside class=&quot;sidebar&quot; aria-label=&quot;AutoClaw 侧边栏&quot;&gt;
+      &lt;div class=&quot;window-controls&quot;&gt;&lt;i class=&quot;mac-dot red&quot;&gt;&lt;/i&gt;&lt;i class=&quot;mac-dot yellow&quot;&gt;&lt;/i&gt;&lt;i class=&quot;mac-dot green&quot;&gt;&lt;/i&gt;&lt;span class=&quot;sidebar-toggle&quot;&gt;◧&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;sidebar-tabs&quot;&gt;&lt;button class=&quot;side-tab active&quot; data-action=&quot;home&quot;&gt;&lt;span&gt;♧&lt;/span&gt;任务&lt;/button&gt;&lt;button class=&quot;side-tab&quot; type=&quot;button&quot;&gt;&lt;span&gt;◉&lt;/span&gt;智能体&lt;/button&gt;&lt;span class=&quot;side-tab-spacer&quot;&gt;&lt;/span&gt;&lt;button class=&quot;icon-only&quot; aria-label=&quot;切换布局&quot;&gt;▢&lt;/button&gt;&lt;button class=&quot;icon-only&quot; aria-label=&quot;搜索&quot;&gt;⌕&lt;/button&gt;&lt;/div&gt;
+      &lt;button class=&quot;new-task&quot; data-action=&quot;home&quot;&gt;&lt;span class=&quot;round-plus&quot;&gt;+&lt;/span&gt;&lt;span&gt;新建任务&lt;/span&gt;&lt;small&gt;⌘　N&lt;/small&gt;&lt;/button&gt;
+      &lt;button class=&quot;sidebar-link&quot; type=&quot;button&quot;&gt;&lt;span&gt;▣&lt;/span&gt;Skill &amp;amp; 连接器&lt;/button&gt;
+      &lt;div class=&quot;sidebar-section&quot;&gt;&lt;span&gt;项目 ﹀&lt;/span&gt;&lt;span&gt;♧&lt;/span&gt;&lt;/div&gt;
+      &lt;button class=&quot;sidebar-link muted&quot; type=&quot;button&quot;&gt;&lt;span&gt;♧&lt;/span&gt;点击新增项目&lt;/button&gt;
+      &lt;div class=&quot;sidebar-section task-section&quot;&gt;&lt;span&gt;任务 ﹀&lt;/span&gt;&lt;span&gt;▢&lt;/span&gt;&lt;/div&gt;
+      &lt;button class=&quot;task-link&quot; data-action=&quot;overview&quot; id=&quot;design-task-link&quot;&gt;邀请成员流程 &lt;i class=&quot;unread-dot&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;button class=&quot;task-link&quot; type=&quot;button&quot;&gt;红色蝴蝶结&lt;/button&gt;
+      &lt;div class=&quot;account&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;👨🏻&lt;/span&gt;&lt;span&gt;182****89...&lt;/span&gt;&lt;span class=&quot;account-plan&quot;&gt;Coding Plan&lt;/span&gt;&lt;span class=&quot;speed&quot;&gt;1.5X&lt;/span&gt;&lt;/div&gt;
+    &lt;/aside&gt;
+    &lt;div class=&quot;app-main&quot;&gt;
+      &lt;header class=&quot;topbar&quot;&gt;&lt;div class=&quot;breadcrumbs&quot; id=&quot;breadcrumbs&quot;&gt;&lt;/div&gt;&lt;div class=&quot;top-actions&quot;&gt;&lt;button class=&quot;platform-btn&quot; type=&quot;button&quot;&gt;➤　接入微信/飞书等平台&lt;/button&gt;&lt;span class=&quot;credits&quot;&gt;&lt;i&gt;z&lt;/i&gt; 1.76 万&lt;/span&gt;&lt;a href=&quot;#&quot; onclick=&quot;return false&quot;&gt;去购买&lt;/a&gt;&lt;span class=&quot;member&quot;&gt;非会员&lt;/span&gt;&lt;/div&gt;&lt;/header&gt;
+      &lt;button id=&quot;mobile-design-entry&quot; data-action=&quot;overview&quot;&gt;打开「邀请成员流程」设计任务 →&lt;/button&gt;&lt;main id=&quot;main&quot; tabindex=&quot;-1&quot;&gt;&lt;/main&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;script&gt;const state = {
+  screen: &#x27;home&#x27;,
+  direction: &#x27;B&#x27;,
+  device: &#x27;mobile&#x27;,
+  status: &#x27;error&#x27;,
+  tool: &#x27;none&#x27;,
+  target: &#x27;邮箱错误提示&#x27;,
+  brushRect: null,
+  acceptedText: &#x27;输入有误&#x27;,
+  version: &#x27;v3&#x27;,
+  conceptConfirmed: false,
+  demoApproved: false,
+  qaChecked: false,
+};
+
+const main = document.getElementById(&#x27;main&#x27;);
+const breadcrumbs = document.getElementById(&#x27;breadcrumbs&#x27;);
+const toastEl = document.createElement(&#x27;div&#x27;);
+toastEl.className = &#x27;toast&#x27;;
+toastEl.hidden = true;
+document.body.appendChild(toastEl);
+let toastTimer;
+
+function toast(message) {
+  toastEl.textContent = message;
+  toastEl.hidden = false;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() =&gt; { toastEl.hidden = true; }, 2800);
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&amp;&lt;&gt;&quot;&#x27;]/g, s =&gt; ({&#x27;&amp;&#x27;:&#x27;&amp;amp;&#x27;,&#x27;&lt;&#x27;:&#x27;&amp;lt;&#x27;,&#x27;&gt;&#x27;:&#x27;&amp;gt;&#x27;,&#x27;&quot;&#x27;:&#x27;&amp;quot;&#x27;,&quot;&#x27;&quot;:&#x27;&amp;#39;&#x27;}[s]));
+}
+
+function tabs(active) {
+  return `&lt;nav class=&quot;workspace-tabs&quot; aria-label=&quot;设计工作区导航&quot;&gt;
+    &lt;button data-action=&quot;overview&quot; class=&quot;${active===&#x27;overview&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;成果总览&lt;/button&gt;
+    &lt;button data-action=&quot;preview&quot; class=&quot;${active===&#x27;preview&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;可运行预览&lt;/button&gt;
+    &lt;button data-action=&quot;demo&quot; class=&quot;${active===&#x27;demo&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;Demo 体验&lt;/button&gt;
+    &lt;button data-action=&quot;review&quot; class=&quot;${active===&#x27;review&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;修订记录&lt;/button&gt;
+    &lt;button data-action=&quot;handoff&quot; class=&quot;${active===&#x27;handoff&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;交付&lt;/button&gt;
+  &lt;/nav&gt;`;
+}
+
+function home() {
+  return `&lt;div class=&quot;home&quot;&gt;
+    &lt;h1&gt;和 AutoClaw 一起工作&lt;/h1&gt;
+    &lt;div class=&quot;mode-tabs&quot;&gt;&lt;button class=&quot;active&quot;&gt;◉　日常办公&lt;/button&gt;&lt;button&gt;▣　代码开发&lt;/button&gt;&lt;button&gt;⚖　法律助手&lt;/button&gt;&lt;button&gt;◉　金融分析&lt;/button&gt;&lt;/div&gt;
+    &lt;div class=&quot;composer-wrap&quot;&gt;&lt;div class=&quot;composer&quot;&gt;&lt;textarea aria-label=&quot;任务输入&quot; placeholder=&quot;输入“/”使用技能&quot;&gt;&lt;/textarea&gt;&lt;div class=&quot;composer-foot&quot;&gt;&lt;button class=&quot;plus&quot; aria-label=&quot;添加附件&quot;&gt;+&lt;/button&gt;&lt;button&gt;♢ 默认权限 ﹀&lt;/button&gt;&lt;button&gt;⌘ Agent 集群&lt;/button&gt;&lt;button class=&quot;auto&quot;&gt;Auto ﹀&lt;/button&gt;&lt;button class=&quot;send&quot; data-action=&quot;overview&quot; aria-label=&quot;进入设计任务&quot;&gt;↑&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;project-choice&quot;&gt;▱　默认项目 ﹀&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;quick-links&quot;&gt;&lt;button data-action=&quot;quick&quot;&gt; &lt;span class=&quot;star&quot;&gt;✦&lt;/span&gt; 即梦生图&lt;/button&gt;&lt;button data-action=&quot;quick&quot;&gt;&lt;span class=&quot;pink&quot;&gt;▣&lt;/span&gt; PDF 生成&lt;/button&gt;&lt;button data-action=&quot;quick&quot;&gt;&lt;span class=&quot;blue&quot;&gt;▣&lt;/span&gt; 行业周报&lt;/button&gt;&lt;/div&gt;
+    &lt;div class=&quot;ai-note&quot;&gt;内容由 AI 生成，请核实关键信息&lt;/div&gt;
+  &lt;/div&gt;`;
+}
+
+function miniUi(style) {
+  return `&lt;div class=&quot;mini-ui ${style}&quot;&gt;&lt;div class=&quot;mini-side&quot;&gt;&lt;/div&gt;&lt;div class=&quot;mini-body&quot;&gt;&lt;div class=&quot;mini-line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;mini-field&quot;&gt;&lt;/div&gt;&lt;div class=&quot;mini-field&quot;&gt;&lt;/div&gt;&lt;div class=&quot;mini-button&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;`;
+}
+
+function overview() {
+  const cards = [
+    [&#x27;A&#x27;,&#x27;一步完成邀请，流程最短&#x27;,&#x27;探索中&#x27;,&#x27;alt&#x27;],
+    [&#x27;B&#x27;,&#x27;分步填写，错误引导更清楚&#x27;,&#x27;优先深化&#x27;,&#x27;&#x27;],
+    [&#x27;C&#x27;,&#x27;角色先行，适合复杂权限&#x27;,&#x27;待验证&#x27;,&#x27;violet&#x27;],
+  ];
+  return `&lt;div class=&quot;workspace&quot;&gt;${tabs(&#x27;overview&#x27;)}
+    &lt;div class=&quot;page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;邀请成员流程 · 设计成果&lt;/h1&gt;&lt;p&gt;从需求到可运行界面，继续评审、编辑和交付。&lt;/p&gt;&lt;/div&gt;&lt;span class=&quot;pill amber&quot;&gt;待 PM 确认方向 · 2 条未解决意见&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;pills&quot;&gt;&lt;span class=&quot;pill teal&quot;&gt;草图概念中&lt;/span&gt;&lt;span class=&quot;pill&quot;&gt;4 个关键状态&lt;/span&gt;&lt;span class=&quot;pill&quot;&gt;桌面 / 手机&lt;/span&gt;&lt;span class=&quot;pill&quot;&gt;当前工作版 ${state.version}&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;direction-grid&quot;&gt;${cards.map(([id,description,tag,style])=&gt;`&lt;article class=&quot;direction-card ${id===&#x27;B&#x27;?&#x27;featured&#x27;:&#x27;&#x27;}&quot;&gt;${miniUi(style)}&lt;div class=&quot;direction-card-head&quot;&gt;&lt;h2&gt;方向 ${id}&lt;/h2&gt;&lt;span class=&quot;pill ${id===&#x27;B&#x27;?&#x27;teal&#x27;:&#x27;&#x27;}&quot;&gt;${tag}&lt;/span&gt;&lt;/div&gt;&lt;p&gt;${description}&lt;/p&gt;&lt;button class=&quot;btn ${id===&#x27;B&#x27;?&#x27;primary&#x27;:&#x27;&#x27;}&quot; data-action=&quot;preview&quot; data-direction=&quot;${id}&quot;&gt;${id===&#x27;B&#x27;?&#x27;打开可运行预览&#x27;:&#x27;查看方案&#x27;} →&lt;/button&gt;&lt;/article&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;
+    &lt;div class=&quot;review-strip&quot;&gt;&lt;strong&gt;从方向到 Demo&lt;/strong&gt;&lt;p&gt;保留 A / C 作为备选。方向 B 的“错误提示位置”尚待微调，确认概念后再验证运行体验。&lt;/p&gt;&lt;div class=&quot;progress-chain&quot;&gt;草图收集　→　定义 1–3 个方向　→　概念确认　→　Demo 体验　→　开发交付&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;`;
+}
+
+function phoneMarkup(candidate = false, compact = false) {
+  const errorText = candidate ? state.acceptedText === &#x27;输入有误&#x27; ? &#x27;请输入有效的邮箱地址&#x27; : state.acceptedText : state.acceptedText;
+  const selected = state.tool !== &#x27;none&#x27; &amp;&amp; !candidate ? &#x27;highlight-target&#x27; : &#x27;&#x27;;
+  const brush = state.tool === &#x27;brush&#x27; &amp;&amp; !candidate &amp;&amp; !compact ? `&lt;div class=&quot;brush-layer&quot; id=&quot;brush-layer&quot; aria-label=&quot;画笔圈选区域&quot;&gt;&lt;/div&gt;${state.brushRect ? `&lt;div class=&quot;brush-selection&quot; style=&quot;left:${state.brushRect.x}%;top:${state.brushRect.y}%;width:${state.brushRect.w}%;height:${state.brushRect.h}%&quot;&gt;&lt;/div&gt;` : &#x27;&#x27;}` : &#x27;&#x27;;
+  const isSuccess = state.status === &#x27;success&#x27; &amp;&amp; !compact;
+  const isDefault = state.status === &#x27;default&#x27; &amp;&amp; !compact;
+  return `&lt;div class=&quot;phone ${compact?&#x27;compact&#x27;:&#x27;&#x27;}&quot; aria-label=&quot;手机端邀请成员页面&quot;&gt;
+    &lt;div class=&quot;statusbar&quot;&gt;&lt;span&gt;9:41&lt;/span&gt;&lt;span&gt;●●●　▰&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;close-x&quot; data-action=&quot;overview&quot;&gt;×&lt;/div&gt;
+    &lt;h3&gt;邀请成员&lt;/h3&gt;&lt;p class=&quot;desc&quot;&gt;发送邀请，让成员加入你的团队。&lt;/p&gt;
+    &lt;label&gt;邮箱地址&lt;/label&gt;&lt;div class=&quot;field ${isDefault||isSuccess?&#x27;&#x27;:&#x27;invalid&#x27;}&quot;&gt;name@example.com&lt;/div&gt;
+    ${isSuccess?&#x27;&lt;div class=&quot;mapping&quot; style=&quot;margin-top:22px&quot;&gt;✓ 邀请已发送，成员可通过邮件加入团队。&lt;/div&gt;&#x27;:isDefault?&#x27;&#x27;:`&lt;div class=&quot;error ${selected}&quot; data-action=&quot;select-error&quot; style=&quot;margin-top:${candidate?8:26}px&quot;&gt;${escapeHtml(errorText)}&lt;/div&gt;`}
+    &lt;div class=&quot;secondary&quot;&gt;邀请链接将在 7 天后失效&lt;/div&gt;&lt;div class=&quot;primary-cta&quot; style=&quot;margin-top:${candidate?24:28}px&quot;&gt;${isSuccess?&#x27;继续邀请&#x27;:&#x27;发送邀请&#x27;}&lt;/div&gt;
+    &lt;div class=&quot;foot&quot;&gt;使用即代表同意服务条款与隐私政策&lt;/div&gt;${brush}
+  &lt;/div&gt;`;
+}
+
+function desktopMarkup() {
+  return `&lt;div class=&quot;desktop-preview&quot;&gt;&lt;div class=&quot;desktop-side&quot;&gt;&lt;b&gt;工作空间&lt;/b&gt;&lt;p&gt;概览&lt;/p&gt;&lt;p&gt;成员管理&lt;/p&gt;&lt;p&gt;设置&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;desktop-body&quot;&gt;&lt;h3&gt;邀请成员&lt;/h3&gt;&lt;p&gt;发送邀请，让成员加入你的团队。&lt;/p&gt;&lt;div class=&quot;field&quot;&gt;name@example.com&lt;/div&gt;${state.status===&#x27;success&#x27;?&#x27;&lt;div class=&quot;mapping&quot; style=&quot;margin-top:14px&quot;&gt;✓ 邀请已发送&lt;/div&gt;&#x27;:state.status===&#x27;default&#x27;?&#x27;&#x27;:`&lt;div class=&quot;error&quot;&gt;${escapeHtml(state.acceptedText)}&lt;/div&gt;`}&lt;div class=&quot;primary-cta&quot;&gt;${state.status===&#x27;success&#x27;?&#x27;继续邀请&#x27;:&#x27;发送邀请&#x27;}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;`;
+}
+
+function previewPanel() {
+  const base = `&lt;div class=&quot;context-row&quot;&gt;方向 ${state.direction}　/　邀请成员　/　${state.status===&#x27;error&#x27;?&#x27;邮箱错误态&#x27;:&#x27;默认态&#x27;}　/　${state.device===&#x27;mobile&#x27;?&#x27;Mobile&#x27;:&#x27;Desktop&#x27;}　/　${state.version}&lt;/div&gt;`;
+  if (state.tool === &#x27;text&#x27;) return `&lt;h2&gt;文字微调&lt;/h2&gt;&lt;p&gt;只改当前错误态文案；AI 可以提供表达建议，修改会先进入工作草稿。&lt;/p&gt;${base}&lt;label for=&quot;text-edit&quot;&gt;错误提示文案&lt;/label&gt;&lt;input id=&quot;text-edit&quot; type=&quot;text&quot; value=&quot;${escapeHtml(state.acceptedText)}&quot;&gt;&lt;div class=&quot;check-row&quot;&gt;&lt;input id=&quot;only-state&quot; type=&quot;checkbox&quot; checked&gt;&lt;span&gt;仅此状态，不改其他实例&lt;/span&gt;&lt;/div&gt;&lt;button class=&quot;btn&quot; data-action=&quot;suggest-text&quot;&gt;建议一个更清楚的说法&lt;/button&gt;&lt;button class=&quot;btn primary&quot; data-action=&quot;apply-text&quot;&gt;应用到工作草稿&lt;/button&gt;&lt;p class=&quot;hint&quot;&gt;应用后仍可撤销；PM 阶段确认是另一项决定。&lt;/p&gt;`;
+  if (state.tool === &#x27;smart&#x27; || state.tool === &#x27;brush&#x27;) return `&lt;h2&gt;界面定域修订&lt;/h2&gt;&lt;p&gt;先确认 AI 命中的目标，再描述修改与需要保留的部分。&lt;/p&gt;${base}&lt;h3&gt;当前目标&lt;/h3&gt;&lt;div class=&quot;mapping&quot;&gt;${state.tool===&#x27;brush&#x27;?&#x27;原型模拟识别：错误提示、邮箱输入框、发送按钮&#x27;:&#x27;已选中：邮箱错误提示组件&#x27;}&lt;br&gt;&lt;small&gt;正式产品须显示真实命中对象；画笔不是代码选区。&lt;/small&gt;&lt;/div&gt;&lt;label for=&quot;edit-intent&quot;&gt;修改意图&lt;/label&gt;&lt;textarea id=&quot;edit-intent&quot;&gt;${state.tool===&#x27;brush&#x27;?&#x27;缩短说明并拉开提示与按钮间距，突出主操作&#x27;:&#x27;将错误提示移到邮箱输入框下方，间距更紧凑&#x27;}&lt;/textarea&gt;&lt;label&gt;保留项 / 生效范围&lt;/label&gt;&lt;div class=&quot;check-row&quot;&gt;&lt;input type=&quot;checkbox&quot; checked&gt;&lt;span&gt;只作用于 Mobile 错误态&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;check-row&quot;&gt;&lt;input type=&quot;checkbox&quot; checked&gt;&lt;span&gt;保留 Desktop 与成功态&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;check-row&quot;&gt;&lt;input type=&quot;checkbox&quot; checked&gt;&lt;span&gt;保留品牌色和页面结构&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;warning&quot;&gt;可能触及共享样式。生成后仍需检查 Desktop 和其他状态。&lt;/div&gt;&lt;button class=&quot;btn primary&quot; data-action=&quot;generate&quot;&gt;生成隔离候选&lt;/button&gt;&lt;button class=&quot;btn ghost&quot; data-action=&quot;reset-tool&quot;&gt;取消本次修订&lt;/button&gt;`;
+  return `&lt;h2&gt;当前设计&lt;/h2&gt;&lt;p&gt;方向 ${state.direction} · ${state.version}。在预览中选中文字、元素或使用画笔指出问题。&lt;/p&gt;${base}&lt;h3&gt;PM 意见&lt;/h3&gt;&lt;div class=&quot;warning&quot;&gt;“错误提示离输入框太远，文案也不够清楚。”&lt;br&gt;&lt;small&gt;锚定：邮箱错误态 / Mobile&lt;/small&gt;&lt;/div&gt;&lt;h3&gt;建议下一步&lt;/h3&gt;&lt;button class=&quot;btn&quot; data-action=&quot;tool-text&quot;&gt;改错误文案&lt;/button&gt;&lt;button class=&quot;btn&quot; data-action=&quot;tool-smart&quot;&gt;精准修改组件&lt;/button&gt;&lt;button class=&quot;btn&quot; data-action=&quot;tool-brush&quot;&gt;画笔圈选区域&lt;/button&gt;`;
+}
+
+function preview() {
+  return `&lt;div class=&quot;workspace&quot;&gt;${tabs(&#x27;preview&#x27;)}&lt;div class=&quot;split-workspace&quot;&gt;
+    &lt;section class=&quot;preview-pane&quot;&gt;&lt;div class=&quot;preview-top&quot;&gt;&lt;div&gt;&lt;h2&gt;方向 ${state.direction} · 邀请成员流程&lt;/h2&gt;&lt;small&gt;${state.version} · 可运行预览&lt;/small&gt;&lt;/div&gt;&lt;div class=&quot;segmented&quot;&gt;&lt;button data-action=&quot;device-mobile&quot; class=&quot;${state.device===&#x27;mobile&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;手机&lt;/button&gt;&lt;button data-action=&quot;device-desktop&quot; class=&quot;${state.device===&#x27;desktop&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;桌面&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;preview-tools&quot;&gt;&lt;button class=&quot;tool-btn ${state.tool===&#x27;none&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot; data-action=&quot;reset-tool&quot;&gt;↖ 选择元素&lt;/button&gt;&lt;button class=&quot;tool-btn ${state.tool===&#x27;text&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot; data-action=&quot;tool-text&quot;&gt;T 改文字&lt;/button&gt;&lt;button class=&quot;tool-btn ${state.tool===&#x27;smart&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot; data-action=&quot;tool-smart&quot;&gt;✧ 智能编辑&lt;/button&gt;&lt;button class=&quot;tool-btn ${state.tool===&#x27;brush&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot; data-action=&quot;tool-brush&quot;&gt;◌ 画笔圈选&lt;/button&gt;&lt;span class=&quot;subtle small&quot; style=&quot;margin-left:auto&quot;&gt;状态：邮箱错误态 ▾&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;preview-stage&quot;&gt;${state.device===&#x27;mobile&#x27;?phoneMarkup():desktopMarkup()}&lt;/div&gt;&lt;/section&gt;&lt;aside class=&quot;right-panel&quot;&gt;${previewPanel()}&lt;/aside&gt;
+    &lt;/div&gt;&lt;/div&gt;`;
+}
+
+function compare() {
+  return `&lt;div class=&quot;workspace&quot;&gt;${tabs(&#x27;preview&#x27;)}&lt;div class=&quot;page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;修订候选 · 尚未采纳&lt;/h1&gt;&lt;p&gt;目标：方向 ${state.direction} / 邀请成员 / 邮箱错误态 / Mobile / 错误提示区域&lt;/p&gt;&lt;/div&gt;&lt;span class=&quot;pill amber&quot;&gt;候选 ${state.version}-c1&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;split-workspace&quot;&gt;&lt;div class=&quot;compare-area&quot;&gt;&lt;section class=&quot;compare-column&quot;&gt;&lt;div class=&quot;column-head&quot;&gt;&lt;strong&gt;原版 ${state.version}&lt;/strong&gt;&lt;span class=&quot;subtle small&quot;&gt;当前工作版&lt;/span&gt;&lt;/div&gt;${phoneMarkup(false,true)}&lt;/section&gt;&lt;section class=&quot;compare-column&quot;&gt;&lt;div class=&quot;column-head&quot;&gt;&lt;strong&gt;候选&lt;/strong&gt;&lt;span class=&quot;pill teal&quot;&gt;仅此状态&lt;/span&gt;&lt;/div&gt;${phoneMarkup(true,true)}&lt;/section&gt;&lt;/div&gt;
+    &lt;aside class=&quot;right-panel&quot;&gt;&lt;h2&gt;修改影响&lt;/h2&gt;&lt;p&gt;这是交互原型的模拟候选。正式产品应运行 HTML 并核查受影响状态。&lt;/p&gt;&lt;ul class=&quot;impact-list&quot;&gt;&lt;li&gt;错误提示移动到邮箱输入框下方&lt;/li&gt;&lt;li&gt;沿用工作草稿中已确认的文案&lt;/li&gt;&lt;li&gt;Mobile 错误态局部间距更新&lt;/li&gt;&lt;li&gt;Desktop 与成功态：待回归检查&lt;/li&gt;&lt;/ul&gt;&lt;div class=&quot;warning&quot;&gt;共享样式可能影响其他页面；正式产品不得只靠截图宣称安全。&lt;/div&gt;&lt;button class=&quot;btn primary&quot; data-action=&quot;accept&quot;&gt;采纳为下一工作版&lt;/button&gt;&lt;button class=&quot;btn&quot; data-action=&quot;refine&quot;&gt;继续限定修改&lt;/button&gt;&lt;button class=&quot;btn ghost danger&quot; data-action=&quot;reject&quot;&gt;放弃候选，保留 ${state.version}&lt;/button&gt;&lt;/aside&gt;&lt;/div&gt;&lt;/div&gt;`;
+}
+
+function review() {
+  return `&lt;div class=&quot;workspace&quot;&gt;${tabs(&#x27;review&#x27;)}&lt;div class=&quot;page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;方向 ${state.direction} · 阶段评审&lt;/h1&gt;&lt;p&gt;一次修改已被设计师采纳，是否确认概念由 PM 与设计师共同决定。&lt;/p&gt;&lt;/div&gt;&lt;span class=&quot;pill ${state.conceptConfirmed?&#x27;teal&#x27;:&#x27;amber&#x27;}&quot;&gt;${state.conceptConfirmed?&#x27;概念已确认&#x27;:&#x27;待 PM 确认概念&#x27;}&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;decision-grid&quot;&gt;&lt;section class=&quot;decision-card&quot;&gt;&lt;h2&gt;本次修订&lt;/h2&gt;&lt;p&gt;基于 ${state.version}：将 Mobile 错误提示移近邮箱输入框，并明确提示文案。原工作版及放弃的候选仍可回看。&lt;/p&gt;&lt;div class=&quot;pills&quot;&gt;&lt;span class=&quot;pill teal&quot;&gt;设计师已采纳&lt;/span&gt;&lt;span class=&quot;pill&quot;&gt;Mobile 错误态&lt;/span&gt;&lt;/div&gt;&lt;h3&gt;设计师判断&lt;/h3&gt;&lt;p&gt;错误信息与出错字段关系更清楚；Desktop 和成功态仍需在真实 Demo 中回归。&lt;/p&gt;&lt;button class=&quot;btn&quot; data-action=&quot;preview&quot;&gt;返回可运行预览&lt;/button&gt;&lt;/section&gt;
+    &lt;section class=&quot;decision-card&quot;&gt;&lt;h2&gt;PM 方向确认&lt;/h2&gt;&lt;p&gt;确认本方向的核心路径与原则，保留细节给 Demo 体验评审。这个动作不等于自动批准生产代码。&lt;/p&gt;&lt;div class=&quot;warning&quot;&gt;未解决：邀请链接失效后的提示方式；开发需评估真实接口和状态返回。&lt;/div&gt;&lt;button class=&quot;btn primary&quot; data-action=&quot;confirm-concept&quot;&gt;${state.conceptConfirmed?&#x27;查看交付准备&#x27;:&#x27;确认概念并进入 Demo&#x27;}&lt;/button&gt;&lt;button class=&quot;btn ghost&quot; data-action=&quot;overview&quot;&gt;回看其他方向&lt;/button&gt;&lt;/section&gt;&lt;/div&gt;&lt;/div&gt;`;
+}
+
+function demo() {
+  if (!state.conceptConfirmed) return `&lt;div class=&quot;workspace&quot;&gt;${tabs(&#x27;demo&#x27;)}&lt;div class=&quot;page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;先确认草图概念&lt;/h1&gt;&lt;p&gt;方向尚未确认，运行体验评审会混淆“选方向”和“验体验”。&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;button class=&quot;btn primary&quot; data-action=&quot;review&quot;&gt;返回概念评审&lt;/button&gt;&lt;/div&gt;`;
+  return `&lt;div class=&quot;workspace&quot;&gt;${tabs(&#x27;demo&#x27;)}&lt;div class=&quot;page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;Demo 运行体验评审&lt;/h1&gt;&lt;p&gt;方向 ${state.direction} · ${state.version}。检查关键路径、错误与成功状态，再决定是否交付开发。&lt;/p&gt;&lt;/div&gt;&lt;span class=&quot;pill amber&quot;&gt;G2 · 待体验确认&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;split-workspace&quot;&gt;&lt;section class=&quot;preview-pane&quot;&gt;&lt;div class=&quot;preview-top&quot;&gt;&lt;div&gt;&lt;h2&gt;邀请成员流程&lt;/h2&gt;&lt;small&gt;可点击原型 · 真实产品须运行生成的 HTML&lt;/small&gt;&lt;/div&gt;&lt;div class=&quot;segmented&quot;&gt;&lt;button data-action=&quot;device-mobile&quot; class=&quot;${state.device===&#x27;mobile&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;手机&lt;/button&gt;&lt;button data-action=&quot;device-desktop&quot; class=&quot;${state.device===&#x27;desktop&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;桌面&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;preview-tools&quot;&gt;&lt;div class=&quot;segmented&quot;&gt;&lt;button data-action=&quot;status-default&quot; class=&quot;${state.status===&#x27;default&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;默认态&lt;/button&gt;&lt;button data-action=&quot;status-error&quot; class=&quot;${state.status===&#x27;error&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;错误态&lt;/button&gt;&lt;button data-action=&quot;status-success&quot; class=&quot;${state.status===&#x27;success&#x27;?&#x27;active&#x27;:&#x27;&#x27;}&quot;&gt;成功态&lt;/button&gt;&lt;/div&gt;&lt;span class=&quot;subtle small&quot; style=&quot;margin-left:auto&quot;&gt;版本 ${state.version}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;preview-stage demo-stage&quot;&gt;${state.device===&#x27;mobile&#x27;?phoneMarkup():desktopMarkup()}&lt;/div&gt;&lt;/section&gt;
+    &lt;aside class=&quot;right-panel&quot;&gt;&lt;h2&gt;体验评审清单&lt;/h2&gt;&lt;p&gt;PM 判断是否满足需求，设计师检查表现，开发确认接手风险。&lt;/p&gt;&lt;div class=&quot;check-row&quot;&gt;&lt;input type=&quot;checkbox&quot; checked&gt;&lt;span&gt;主要邀请路径可理解&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;check-row&quot;&gt;&lt;input type=&quot;checkbox&quot; checked&gt;&lt;span&gt;Mobile 错误提示与输入框关系清楚&lt;/span&gt;&lt;/div&gt;&lt;label class=&quot;check-row&quot;&gt;&lt;input id=&quot;demo-qa&quot; type=&quot;checkbox&quot; ${state.qaChecked?&#x27;checked&#x27;:&#x27;&#x27;}&gt;&lt;span&gt;Desktop / 默认 / 成功态已复核&lt;/span&gt;&lt;/label&gt;&lt;div class=&quot;warning&quot;&gt;原型中的状态切换用于讨论。正式交付必须用真实运行结果完成回归；当前仍有“邀请链接失效”问题未解决。&lt;/div&gt;&lt;button class=&quot;btn primary&quot; data-action=&quot;approve-demo&quot; ${state.qaChecked?&#x27;&#x27;:&#x27;disabled&#x27;}&gt;确认 Demo 并准备交付&lt;/button&gt;&lt;button class=&quot;btn ghost&quot; data-action=&quot;review&quot;&gt;返回概念决策&lt;/button&gt;&lt;/aside&gt;&lt;/div&gt;&lt;/div&gt;`;
+}
+
+function handoff() {
+  if (!state.demoApproved) return `&lt;div class=&quot;workspace&quot;&gt;${tabs(&#x27;handoff&#x27;)}&lt;div class=&quot;page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;交付尚未开放&lt;/h1&gt;&lt;p&gt;先完成概念确认和 Demo 体验评审，避免把未验证的工作版交给开发。&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;button class=&quot;btn primary&quot; data-action=&quot;${state.conceptConfirmed?&#x27;demo&#x27;:&#x27;review&#x27;}&quot;&gt;${state.conceptConfirmed?&#x27;继续 Demo 评审&#x27;:&#x27;返回概念评审&#x27;}&lt;/button&gt;&lt;/div&gt;`;
+  return `&lt;div class=&quot;workspace&quot;&gt;${tabs(&#x27;handoff&#x27;)}&lt;div class=&quot;page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;固定交付快照&lt;/h1&gt;&lt;p&gt;开发接收的文件与评审通过的预览指向同一版本。&lt;/p&gt;&lt;/div&gt;&lt;span class=&quot;pill teal&quot;&gt;方向 ${state.direction} · ${state.version} · 概念已确认&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;handoff-grid&quot;&gt;&lt;section class=&quot;decision-card&quot;&gt;&lt;h2&gt;交付版本 ${state.version}&lt;/h2&gt;&lt;p&gt;网页与 UI 草图经局部修订、候选比较、设计师采纳、PM 概念确认和 Demo 体验评审。正式交付还需接入真实 HTML 产物。&lt;/p&gt;&lt;ul class=&quot;file-list&quot;&gt;&lt;li&gt;&lt;span&gt;可运行 HTML / CSS / JS&lt;/span&gt;&lt;span&gt;待真实产物接入&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span&gt;页面与状态清单&lt;/span&gt;&lt;span&gt;4 个状态&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span&gt;设计资源与约束&lt;/span&gt;&lt;span&gt;2 个设备&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span&gt;评审决定与已知问题&lt;/span&gt;&lt;span&gt;含 2 条记录&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;button class=&quot;btn primary&quot; data-action=&quot;download-note&quot;&gt;下载原型交付说明&lt;/button&gt;&lt;/section&gt;
+    &lt;section class=&quot;decision-card&quot;&gt;&lt;h2&gt;开发接手前需确认&lt;/h2&gt;&lt;div class=&quot;warning&quot;&gt;原型只模拟了界面与状态，不包含可合并的生产源码。真实项目需核查组件、接口、权限、可访问性与性能。&lt;/div&gt;&lt;h3&gt;版本来源&lt;/h3&gt;&lt;p&gt;方向 B / 工作版 ${state.version} / Mobile 错误态修订 / PM 概念确认。&lt;/p&gt;&lt;button class=&quot;btn&quot; data-action=&quot;review&quot;&gt;查看评审记录&lt;/button&gt;&lt;button class=&quot;btn ghost&quot; data-action=&quot;overview&quot;&gt;返回成果总览&lt;/button&gt;&lt;/section&gt;&lt;/div&gt;&lt;/div&gt;`;
+}
+
+function render() {
+  breadcrumbs.textContent = state.screen===&#x27;home&#x27; ? &#x27;&#x27; : &#x27;任务  /  邀请成员流程  /  Design 工作区&#x27;;
+  document.getElementById(&#x27;design-task-link&#x27;).classList.toggle(&#x27;selected&#x27;,state.screen!==&#x27;home&#x27;);
+  main.innerHTML = ({home,overview,preview,compare,review,demo,handoff}[state.screen] || home)();
+  document.querySelector(&#x27;.prototype-badge&#x27;)?.remove();
+  const badge=document.createElement(&#x27;div&#x27;);badge.className=&#x27;prototype-badge&#x27;;badge.textContent=&#x27;可点击原型 · 候选内容为模拟&#x27;;document.body.appendChild(badge);
+}
+
+document.addEventListener(&#x27;click&#x27;, event =&gt; {
+  const control=event.target.closest(&#x27;[data-action]&#x27;); if(!control) return;
+  const action=control.dataset.action;
+  if(action===&#x27;home&#x27;){state.screen=&#x27;home&#x27;;state.tool=&#x27;none&#x27;;}
+  else if(action===&#x27;overview&#x27;){state.screen=&#x27;overview&#x27;;state.tool=&#x27;none&#x27;;}
+  else if(action===&#x27;preview&#x27;){state.direction=control.dataset.direction||state.direction;state.screen=&#x27;preview&#x27;;state.tool=&#x27;none&#x27;;}
+  else if(action===&#x27;review&#x27;){state.screen=&#x27;review&#x27;;state.tool=&#x27;none&#x27;;}
+  else if(action===&#x27;demo&#x27;){state.screen=&#x27;demo&#x27;;state.tool=&#x27;none&#x27;;}
+  else if(action===&#x27;handoff&#x27;){state.screen=&#x27;handoff&#x27;;state.tool=&#x27;none&#x27;;}
+  else if(action===&#x27;tool-text&#x27;){state.screen=&#x27;preview&#x27;;state.tool=&#x27;text&#x27;;}
+  else if(action===&#x27;tool-smart&#x27;||action===&#x27;select-error&#x27;){state.screen=&#x27;preview&#x27;;state.tool=&#x27;smart&#x27;;}
+  else if(action===&#x27;tool-brush&#x27;){state.screen=&#x27;preview&#x27;;state.tool=&#x27;brush&#x27;;state.brushRect=null;}
+  else if(action===&#x27;reset-tool&#x27;){state.tool=&#x27;none&#x27;;state.brushRect=null;}
+  else if(action===&#x27;device-mobile&#x27;){state.device=&#x27;mobile&#x27;;}
+  else if(action===&#x27;device-desktop&#x27;){state.device=&#x27;desktop&#x27;;}
+  else if(action===&#x27;status-default&#x27;){state.status=&#x27;default&#x27;;}
+  else if(action===&#x27;status-error&#x27;){state.status=&#x27;error&#x27;;}
+  else if(action===&#x27;status-success&#x27;){state.status=&#x27;success&#x27;;}
+  else if(action===&#x27;suggest-text&#x27;){const input=document.getElementById(&#x27;text-edit&#x27;); if(input){input.value=&#x27;请输入有效的邮箱地址&#x27;;toast(&#x27;已提供一条建议，可继续编辑后应用&#x27;);} return;}
+  else if(action===&#x27;apply-text&#x27;){const input=document.getElementById(&#x27;text-edit&#x27;);if(input&amp;&amp;!input.value.trim()){toast(&#x27;请先输入文案&#x27;);return;}state.acceptedText=input.value.trim();state.tool=&#x27;none&#x27;;toast(&#x27;文案已进入工作草稿，可继续修订&#x27;);}
+  else if(action===&#x27;generate&#x27;){state.screen=&#x27;compare&#x27;;}
+  else if(action===&#x27;accept&#x27;){state.version=&#x27;v4&#x27;;state.acceptedText=&#x27;请输入有效的邮箱地址&#x27;;state.screen=&#x27;review&#x27;;state.tool=&#x27;none&#x27;;toast(&#x27;候选已采纳为 v4；仍待阶段评审&#x27;);}
+  else if(action===&#x27;refine&#x27;){state.screen=&#x27;preview&#x27;;state.tool=&#x27;smart&#x27;;toast(&#x27;已返回修订卡，可继续限定修改范围&#x27;);}
+  else if(action===&#x27;reject&#x27;){state.screen=&#x27;preview&#x27;;state.tool=&#x27;none&#x27;;toast(&#x27;候选已放弃，工作版保持不变&#x27;);}
+  else if(action===&#x27;confirm-concept&#x27;){state.conceptConfirmed=true;state.screen=&#x27;demo&#x27;;state.status=&#x27;error&#x27;;toast(&#x27;概念已确认；现在评审 Demo 运行体验&#x27;);}
+  else if(action===&#x27;approve-demo&#x27;){if(!state.qaChecked){toast(&#x27;请先复核其他设备与状态&#x27;);return;}state.demoApproved=true;state.screen=&#x27;handoff&#x27;;toast(&#x27;Demo 已确认；可固定交付快照&#x27;);}
+  else if(action===&#x27;download-note&#x27;){const content=`AutoClaw Design 工作区原型交付说明\n方向：${state.direction}\n版本：${state.version}\n状态：${state.conceptConfirmed?&#x27;PM 已确认概念&#x27;:&#x27;待 PM 确认&#x27;}\n注意：此文件由可点击原型生成，不包含真实 HTML 项目源码。`;const a=document.createElement(&#x27;a&#x27;);a.href=URL.createObjectURL(new Blob([content],{type:&#x27;text/plain;charset=utf-8&#x27;}));a.download=&#x27;AutoClaw_原型交付说明.txt&#x27;;a.click();setTimeout(()=&gt;URL.revokeObjectURL(a.href),1000);return;}
+  else if(action===&#x27;quick&#x27;){toast(&#x27;此快捷入口仅用于还原 AutoClaw 首页&#x27;);return;}
+  render();
+});
+
+document.addEventListener(&#x27;change&#x27;,event=&gt;{if(event.target.id===&#x27;demo-qa&#x27;){state.qaChecked=event.target.checked;render();}});
+
+let brushStart=null;
+document.addEventListener(&#x27;pointerdown&#x27;,event=&gt;{const layer=event.target.closest(&#x27;#brush-layer&#x27;);if(!layer)return;const rect=layer.getBoundingClientRect();brushStart={x:(event.clientX-rect.left)/rect.width,y:(event.clientY-rect.top)/rect.height,rect};layer.setPointerCapture(event.pointerId);});
+document.addEventListener(&#x27;pointerup&#x27;,event=&gt;{const layer=event.target.closest(&#x27;#brush-layer&#x27;);if(!layer||!brushStart)return;const r=brushStart.rect;const end={x:(event.clientX-r.left)/r.width,y:(event.clientY-r.top)/r.height};const x=Math.max(0,Math.min(brushStart.x,end.x)),y=Math.max(0,Math.min(brushStart.y,end.y));const w=Math.max(.08,Math.abs(brushStart.x-end.x)),h=Math.max(.05,Math.abs(brushStart.y-end.y));state.brushRect={x:Math.round(x*100),y:Math.round(y*100),w:Math.round(Math.min(w,1-x)*100),h:Math.round(Math.min(h,1-y)*100)};brushStart=null;render();toast(&#x27;已圈选区域；请核对右侧实际命中的界面元素&#x27;);});
+
+render();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe></div>
+        <p class="demo-note">演示基于 V08 原型。局部生成、状态回归与开发交付为模拟内容；Figma 源稿新增画面不会自动同步到此演示。</p>
+      </div>
+    </main>
+  </div>
+</div>
+<div class="overview" id="overview" role="dialog" aria-modal="true" aria-label="汇报画板总览">
+  <div class="overview-head"><h2>汇报画板 · 12 页</h2><button id="close-overview">关闭 ×</button></div>
+  <div class="thumb-grid" id="thumb-grid"></div>
+</div>
+<script>
+(()=>{
+  const titles=["封面", "思路演化", "研究证据", "共创旅程", "草图三态", "痛点排序", "界面定域修订", "评审节奏", "信息架构", "原型链路", "MVP 边界", "验证计划"];
+  const slides=[...document.querySelectorAll('.slide')];
+  const links=[...document.querySelectorAll('.slide-link')];
+  const overview=document.getElementById('overview');
+  const grid=document.getElementById('thumb-grid');
+  let current=0;
+  let mode='deck';
+  function go(index, hash=true){
+    current=Math.max(0,Math.min(slides.length-1,index));
+    slides.forEach((el,i)=>el.classList.toggle('active',i===current));
+    links.forEach((el,i)=>{el.classList.toggle('active',i===current);if(i===current)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current')});
+    document.querySelector('.toolbar .eyebrow').textContent=titles[current];
+    document.getElementById('count').textContent=String(current+1).padStart(2,'0')+' / 12';
+    document.getElementById('mobile-select').value=String(current);
+    document.getElementById('prev').disabled=current===0;
+    document.getElementById('next').disabled=current===slides.length-1;
+    document.getElementById('progress').style.width=((current+1)/slides.length*100)+'%';
+    links[current]?.scrollIntoView({block:'nearest'});
+    if(hash)history.replaceState(null,'','#slide-'+String(current+1).padStart(2,'0'));
+  }
+  function setMode(next,hash=true){
+    mode=next;
+    document.body.classList.toggle('doc-mode',mode==='doc');
+    document.body.classList.toggle('demo-mode',mode==='demo');
+    for(const view of ['deck','doc','demo']){
+      const tab=document.getElementById('tab-'+view);
+      tab.classList.toggle('active',mode===view);
+      tab.setAttribute('aria-current',mode===view?'page':'false');
+    }
+    document.getElementById('side-label').textContent=mode==='doc'?'完整文稿目录':mode==='demo'?'设计稿 Demo':'汇报画板 · 12 页';
+    if(hash)history.replaceState(null,'',mode==='doc'?'#document':mode==='demo'?'#demo':'#slide-'+String(current+1).padStart(2,'0'));
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+  function openOverview(){overview.classList.add('open');document.getElementById('close-overview').focus()}
+  function closeOverview(){overview.classList.remove('open');document.getElementById('overview-btn').focus()}
+  slides.forEach((slide,i)=>{
+    const btn=document.createElement('button');btn.className='thumb';btn.setAttribute('aria-label','查看第 '+(i+1)+' 页 '+titles[i]);
+    btn.appendChild(slide.querySelector('svg').cloneNode(true));
+    const label=document.createElement('span');label.className='thumb-label';label.textContent=String(i+1).padStart(2,'0')+'  '+titles[i];btn.appendChild(label);
+    btn.addEventListener('click',()=>{go(i);closeOverview()});grid.appendChild(btn);
+  });
+  links.forEach((button,i)=>button.addEventListener('click',()=>go(i)));
+  document.getElementById('prev').addEventListener('click',()=>go(current-1));
+  document.getElementById('next').addEventListener('click',()=>go(current+1));
+  document.getElementById('mobile-select').addEventListener('change',e=>go(Number(e.target.value)));
+  document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
+  document.getElementById('overview-btn').addEventListener('click',openOverview);
+  document.getElementById('close-overview').addEventListener('click',closeOverview);
+  overview.addEventListener('click',e=>{if(e.target===overview)closeOverview()});
+  document.getElementById('zoom-btn').addEventListener('click',()=>{const stage=document.getElementById('stage');const on=stage.classList.toggle('zoomed');document.getElementById('zoom-btn').textContent=on?'还原':'放大';stage.scrollTo({left:0,top:0,behavior:'instant'})});
+  document.getElementById('fullscreen-btn').addEventListener('click',async()=>{if(document.fullscreenElement)await document.exitFullscreen();else await document.getElementById('stage').requestFullscreen()});
+  document.getElementById('print-btn').addEventListener('click',()=>window.print());
+  const demoFrame=document.getElementById('demo-frame');
+  document.querySelectorAll('[data-device]').forEach(button=>button.addEventListener('click',()=>{
+    const isMobile=button.dataset.device==='mobile';
+    demoFrame.style.width=isMobile?'390px':'1365px';
+    document.querySelectorAll('[data-device]').forEach(b=>b.classList.toggle('active',b===button));
+  }));
+  document.getElementById('reset-demo').addEventListener('click',()=>{demoFrame.srcdoc=demoFrame.getAttribute('srcdoc')});
+  document.getElementById('fullscreen-demo').addEventListener('click',async()=>{if(document.fullscreenElement)await document.exitFullscreen();else await demoFrame.requestFullscreen()});
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&overview.classList.contains('open')){closeOverview();return}
+    if(e.target.matches('input,textarea,select'))return;
+    if(mode!=='deck'||overview.classList.contains('open'))return;
+    if(e.key==='ArrowRight'){e.preventDefault();go(current+1)}
+    if(e.key==='ArrowLeft'){e.preventDefault();go(current-1)}
+    if(e.key.toLowerCase()==='o'){e.preventDefault();openOverview()}
+  });
+  const initial=location.hash.match(/^#slide-(\d{1,2})$/);
+  if(location.hash==='#document')setMode('doc',false);else if(location.hash==='#demo')setMode('demo',false);else go(initial?Number(initial[1])-1:0,false);
+})();
+</script>
+</body>
+</html>

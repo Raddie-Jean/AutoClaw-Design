@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">07 / 评审节奏</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">把“修改采纳”和“阶段批准”分开</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">PM、设计师、开发先后介入，各自判断不同的问题。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">08 / 12</text>
+<rect x="88" y="224" width="1424" height="70" rx="15" fill="#122D31"/>
+<text x="113" y="269" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#FFFFFF" text-anchor="start">决策</text>
+<text x="431" y="269" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#FFFFFF" text-anchor="start">参与人</text>
+<text x="734" y="269" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#FFFFFF" text-anchor="start">判断什么</text>
+<text x="1160" y="269" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#FFFFFF" text-anchor="start">结果</text>
+<rect x="88" y="307" width="1424" height="76" rx="11" fill="#FFFFFF"/>
+<text x="113" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#17383B" text-anchor="start">工作版修订</text>
+<text x="431" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">设计师</text>
+<text x="734" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">候选是否改对、是否越界</text>
+<text x="1160" y="355" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#12877D" text-anchor="start">可高频进行；不改批准基线</text>
+<rect x="88" y="391" width="1424" height="76" rx="11" fill="#F0F5F2"/>
+<text x="113" y="439" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#17383B" text-anchor="start">G1 概念确认</text>
+<text x="431" y="439" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">PM + 设计师</text>
+<text x="734" y="439" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">核心路径与原则是否成立</text>
+<text x="1160" y="439" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#12877D" text-anchor="start">确认后进入可运行 Demo</text>
+<rect x="88" y="475" width="1424" height="76" rx="11" fill="#FFFFFF"/>
+<text x="113" y="523" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#17383B" text-anchor="start">技术预检</text>
+<text x="431" y="523" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">开发按风险介入</text>
+<text x="734" y="523" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">接口/权限/组件/跨端风险</text>
+<text x="1160" y="523" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#12877D" text-anchor="start">高风险项目提前到 G1 前</text>
+<rect x="88" y="559" width="1424" height="76" rx="11" fill="#F0F5F2"/>
+<text x="113" y="607" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#17383B" text-anchor="start">G2 Demo 体验</text>
+<text x="431" y="607" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">PM + 设计师 + 开发</text>
+<text x="734" y="607" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">关键路径、异常态与实现边界</text>
+<text x="1160" y="607" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#12877D" text-anchor="start">通过后才能准备交付</text>
+<rect x="88" y="643" width="1424" height="76" rx="11" fill="#FFFFFF"/>
+<text x="113" y="691" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#17383B" text-anchor="start">G3 开发接手</text>
+<text x="431" y="691" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">开发主责</text>
+<text x="734" y="691" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">能否复现同一版本与状态</text>
+<text x="1160" y="691" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#12877D" text-anchor="start">不是自动合并生产代码</text>
+</svg>

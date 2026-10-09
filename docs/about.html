@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>资料包说明 · AutoClaw Design Agent</title><link rel="stylesheet" href="styles.css"></head>
+<body><header class="sitebar"><a class="sitebrand" href="index.html"><span>A</span>AutoClaw · Design Agent</a><nav><a href="index.html">资料首页</a><a href="process.html">研究过程</a><a href="report_v09/index.html">方案汇报</a><a href="architecture_v10/index.html">功能架构</a></nav></header>
+<article class="reading"><h1>AutoClaw Design Agent · GitHub 资料包</h1>
+<p>这是一份可独立放进 GitHub 仓库的静态资料包，整理了 AI Native Design 工作区测试题的研究过程、方案汇报、交互原型和 HTML 产物架构。</p>
+<h2>从哪里看</h2>
+<ul>
+<li><a href="index.html">资料首页</a>：推荐阅读顺序和所有入口。</li>
+<li><a href="report_v09/index.html">方案汇报 V09</a>：完整文稿、12 页汇报画板和内嵌 Demo。</li>
+<li><a href="architecture_v10/index.html">功能架构 V10</a>：HTML 产物管理、精准调优与 8 张交互框架图。</li>
+<li><a href="prototype_v08/index.html">可点击原型 V08</a>：模拟从初稿到候选审阅、阶段评审和交付。</li>
+<li><a href="process.html">过程资料索引</a>：V01–V07 调研、用户旅程、MVP 与功能定义。</li>
+</ul>
+<p><code>docs/</code> 内同时保留原始 MD、PDF、SVG、PNG 和原型代码。浏览器阅读用的 <code>.html</code> 是对应 MD 的静态副本；资料包进入独立仓库后，修改 <code>docs/</code> 内的原始 MD，可安装 <code>requirements.txt</code> 后运行仓库根目录的 <code>build_release.py</code> 重新生成阅读页。直接预览现有站点不需要安装依赖。</p>
+<h2>放入 GitHub</h2>
+<ol>
+<li><strong>解压资料包</strong>，把本目录中的 <code>README.md</code>、<code>build_release.py</code>、<code>docs/</code> 等文件放进新仓库根目录；不要只上传 ZIP。</li>
+<li>在仓库中提交并推送文件。仓库的 Pages 发布源可设置为默认分支的 <code>/docs</code>，入口就是 <code>docs/index.html</code>。<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">GitHub 官方配置说明</a>。</li>
+<li>若仅需多设备同步资料，不需要对外网页，可以只使用仓库文件，不启用 Pages。</li>
+</ol>
+<p><strong>发布前检查可公开范围。</strong>GitHub 官方说明：GitHub Pages 站点即使来自私有仓库，也可能作为公开网页被访问。本包包含测试题截图与产品录屏的截帧；请先确认这些材料适合公开，再启用 Pages。Figma 源稿仍是外部链接，其访问权限由原 Figma 文件控制。</p>
+<h2>范围与版本</h2>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docs/report_v09/</code></td>
+<td>当前方案汇报与 SVG 画板</td>
+</tr>
+<tr>
+<td><code>docs/architecture_v10/</code></td>
+<td>最新功能架构、信息结构和线框</td>
+</tr>
+<tr>
+<td><code>docs/prototype_v08/</code></td>
+<td>可点击交互原型及截图</td>
+</tr>
+<tr>
+<td><code>docs/md/</code>、<code>docs/pdf/</code></td>
+<td>研究 V01–V02</td>
+</tr>
+<tr>
+<td><code>docs/mvp_v03/</code> 至 <code>docs/feature_v07/</code></td>
+<td>观察证据、旅程、共创流程、草图三态、定域修订定义</td>
+</tr>
+<tr>
+<td><code>docs/input/</code></td>
+<td>用户提供的题目截图</td>
+</tr>
+</tbody>
+</table>
+<p>未纳入与本题无关的 <code>black_friday_gift/</code>、<code>imagegen/</code>、<code>ui_750x1624/</code>、旧版重复 ZIP 和临时浏览器文件。另一个面试资料目录中的原始录屏约 124 MB，未放入这份网页资料包；本包保留此前整理的截图和观察记录。个人求职资料 PDF 也未纳入。</p>
+<h2>本地预览</h2>
+<p>在本目录运行 <code>python3 -m http.server 8767</code>，然后访问 <code>http://127.0.0.1:8767/docs/</code>。页面不需要构建工具或云端 API；外部研究与 Figma 链接需要联网。</p>
+<p>分享前可运行 <code>python3 verify_release.py</code> 检查站内链接与 SVG 文件。</p>
+<h2>交付性质</h2>
+<p>V08 是交互模拟，V09–V10 是方案与线框，不代表 AutoClaw 当前已实现 HTML 定域回写、真实视觉回归或生产代码交付。各文档分别标出已观察事实、方案假设和待验证问题。</p></article><footer class="foot" style="max-width:1000px;margin:30px auto 70px;padding:20px"><a href="process.html">← 过程资料</a> · <a href="index.html">资料首页</a></footer></body></html>

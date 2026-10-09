@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">08 / 信息架构</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">沿用 AutoClaw 任务归属，新增 Design 工作区</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">工作区按用户判断组织，而不是按 AI 工具名称堆导航。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">09 / 12</text>
+<rect x="88" y="233" width="424" height="495" rx="20" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<text x="120" y="286" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="700" fill="#17383B" text-anchor="start">AutoClaw 现有外壳</text>
+<circle cx="137" cy="343" r="8" fill="#F5AB6E"/>
+<text x="158" y="351" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">项目</text>
+<circle cx="160" cy="415" r="8" fill="#F5AB6E"/>
+<text x="181" y="423" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">任务：邀请成员流程</text>
+<circle cx="183" cy="487" r="8" fill="#12877D"/>
+<text x="204" y="495" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="600" fill="#17383B" text-anchor="start">Design 工作区</text>
+<circle cx="206" cy="559" r="8" fill="#12877D"/>
+<text x="227" y="567" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="600" fill="#17383B" text-anchor="start">方向 B / v4</text>
+<circle cx="229" cy="631" r="8" fill="#12877D"/>
+<text x="250" y="639" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="600" fill="#17383B" text-anchor="start">页面 × 状态 × 设备</text>
+<line x1="515" y1="465" x2="572" y2="465" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="561" y1="455" x2="572" y2="465" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="561" y1="475" x2="572" y2="465" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="606" y="250" width="420" height="196" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<text x="635" y="302" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">成果总览</text>
+<text x="635" y="350" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#60716F" text-anchor="start">方向、覆盖与未解决项</text>
+<rect x="1056" y="250" width="420" height="196" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<text x="1085" y="302" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">聚焦预览</text>
+<text x="1085" y="350" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#60716F" text-anchor="start">运行页面、设备和状态</text>
+<rect x="606" y="475" width="420" height="196" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="606" y="475" width="8" height="196" rx="4" fill="#12877D"/>
+<text x="635" y="527" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">修订审阅</text>
+<text x="635" y="575" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#60716F" text-anchor="start">候选差异、影响与决定</text>
+<rect x="1056" y="475" width="420" height="196" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<text x="1085" y="527" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">交付快照</text>
+<text x="1085" y="575" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#60716F" text-anchor="start">确认版本、文件与说明</text>
+<rect x="606" y="697" width="870" height="49" rx="12" fill="#E5F4F0"/>
+<text x="632" y="729" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start">关键约束：预览确认版本 ID = 交付快照版本 ID</text>
+</svg>

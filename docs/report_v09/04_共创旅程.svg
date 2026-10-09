@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">03 / 用户旅程</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">从传统串行交接，走向同一方案上的共创</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">共创不意味着取消评审；它让评论、修改与版本都落在同一个对象上。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">04 / 12</text>
+<rect x="88" y="274" width="187" height="104" rx="17" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="124" cy="309" r="20" fill="#E5F4F0"/>
+<text x="124" y="316" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="middle">1</text>
+<text x="108" y="357" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#17383B" text-anchor="start">需求定义</text>
+<line x1="276" y1="326" x2="277" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="266" y1="316" x2="277" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="266" y1="336" x2="277" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="292" y="274" width="187" height="104" rx="17" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="328" cy="309" r="20" fill="#E5F4F0"/>
+<text x="328" y="316" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="middle">2</text>
+<text x="312" y="357" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#17383B" text-anchor="start">思维发散</text>
+<line x1="480" y1="326" x2="481" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="470" y1="316" x2="481" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="470" y1="336" x2="481" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="496" y="274" width="187" height="104" rx="17" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="532" cy="309" r="20" fill="#E5F4F0"/>
+<text x="532" y="316" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="middle">3</text>
+<text x="516" y="357" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#17383B" text-anchor="start">方案设计</text>
+<line x1="684" y1="326" x2="685" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="674" y1="316" x2="685" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="674" y1="336" x2="685" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="700" y="274" width="187" height="104" rx="17" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="736" cy="309" r="20" fill="#E5F4F0"/>
+<text x="736" y="316" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="middle">4</text>
+<text x="720" y="357" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#17383B" text-anchor="start">Demo 展示</text>
+<line x1="888" y1="326" x2="889" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="878" y1="316" x2="889" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="878" y1="336" x2="889" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="904" y="274" width="187" height="104" rx="17" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="940" cy="309" r="20" fill="#E5F4F0"/>
+<text x="940" y="316" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="middle">5</text>
+<text x="924" y="357" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#17383B" text-anchor="start">可交付方案</text>
+<line x1="1092" y1="326" x2="1093" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1082" y1="316" x2="1093" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1082" y1="336" x2="1093" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="1108" y="274" width="187" height="104" rx="17" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="1144" cy="309" r="20" fill="#E5F4F0"/>
+<text x="1144" y="316" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="middle">6</text>
+<text x="1128" y="357" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#17383B" text-anchor="start">微调方案</text>
+<line x1="1296" y1="326" x2="1297" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1286" y1="316" x2="1297" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1286" y1="336" x2="1297" y2="326" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="1312" y="274" width="187" height="104" rx="17" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="1348" cy="309" r="20" fill="#E5F4F0"/>
+<text x="1348" y="316" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="middle">7</text>
+<text x="1332" y="357" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#17383B" text-anchor="start">上线方案</text>
+<text x="90" y="456" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="25" font-weight="700" fill="#60716F" text-anchor="start">关键判断点</text>
+<circle cx="104" cy="505" r="10" fill="#F5AB6E"/>
+<rect x="96" y="530" width="169" height="37" rx="18" fill="#FFF0E3"/>
+<text x="180.5" y="556" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#9C5A2D" text-anchor="middle">G0 需求对齐</text>
+<text x="110" y="600" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">确认问题</text>
+<circle cx="513" cy="505" r="10" fill="#F5AB6E"/>
+<rect x="505" y="530" width="169" height="37" rx="18" fill="#FFF0E3"/>
+<text x="589.5" y="556" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#9C5A2D" text-anchor="middle">G1 概念确认</text>
+<text x="519" y="600" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">选方向</text>
+<circle cx="922" cy="505" r="10" fill="#F5AB6E"/>
+<rect x="914" y="530" width="169" height="37" rx="18" fill="#FFF0E3"/>
+<text x="998.5" y="556" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#9C5A2D" text-anchor="middle">G2 Demo 评审</text>
+<text x="928" y="600" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">验体验</text>
+<circle cx="1331" cy="505" r="10" fill="#F5AB6E"/>
+<rect x="1323" y="530" width="169" height="37" rx="18" fill="#FFF0E3"/>
+<text x="1407.5" y="556" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="700" fill="#9C5A2D" text-anchor="middle">G3 开发接手</text>
+<text x="1337" y="600" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">复现版本</text>
+<rect x="88" y="660" width="1424" height="74" rx="16" fill="#E5F4F0"/>
+<text x="112" y="709" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="25" font-weight="600" fill="#12877D" text-anchor="start">开发提前介入条件：真实接口、权限、复杂状态、跨端一致性、性能或现有代码约束。</text>
+</svg>

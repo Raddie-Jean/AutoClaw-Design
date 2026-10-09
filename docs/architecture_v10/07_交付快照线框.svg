@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="960" viewBox="0 0 1600 960">
+<rect width="1600" height="960" fill="#F6F8F7"/>
+<rect x="0" y="0" width="12" height="960" fill="#11867D"/>
+<text x="54" y="68" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="38" font-weight="700" fill="#1B3436" text-anchor="start">07  交付快照｜让评审所见可被开发复现</text>
+<text x="55" y="109" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#607472" text-anchor="start">线框：交付不是一个下载按钮；版本、状态和未决问题同屏说明。</text>
+<rect x="30" y="150" width="214" height="680" rx="16" fill="#F0F2F1" stroke="#F0F2F1" stroke-width="1"/>
+<text x="55" y="190" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#1B3436" text-anchor="start">AutoClaw</text>
+<text x="55" y="245" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#607472" text-anchor="start">任务</text>
+<text x="55" y="282" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#1B3436" text-anchor="start">邀请成员流程</text>
+<line x1="48" y1="306" x2="224" y2="306" stroke="#D8E2DE" stroke-width="2" stroke-linecap="round" />
+<text x="62" y="338" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#607472" text-anchor="start">成果总览</text>
+<text x="62" y="394" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#607472" text-anchor="start">预览与编辑</text>
+<text x="62" y="450" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#607472" text-anchor="start">修订审阅</text>
+<text x="62" y="506" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#607472" text-anchor="start">版本与评审</text>
+<rect x="45" y="533" width="183" height="42" rx="10" fill="#E8F4F1" stroke="#E8F4F1" stroke-width="1"/>
+<text x="62" y="562" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#11867D" text-anchor="start">交付</text>
+<text x="275" y="164" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="400" fill="#607472" text-anchor="start">项目  /  邀请成员流程  /  Design 工作区</text>
+<text x="275" y="213" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="700" fill="#1B3436" text-anchor="start">交付快照 · G3</text>
+<rect x="275" y="244" width="1280" height="112" rx="16" fill="#E8F4F1" stroke="#E8F4F1" stroke-width="1"/>
+<text x="300" y="284" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#11867D" text-anchor="start">方向 B / 固定版本 v4 / G2 Demo 已确认</text>
+<text x="300" y="322" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="700" fill="#1B3436" text-anchor="start">评审预览 v4  =  快照 v4  =  导出来源 v4</text>
+<rect x="1325" y="271" width="182" height="35" rx="17" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+<text x="1339" y="295" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#11867D" text-anchor="start">复制预览链接</text>
+<rect x="275" y="377" width="605" height="316" rx="16" fill="#FFFFFF" stroke="#D8E2DE" stroke-width="1"/>
+<text x="300" y="420" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#1B3436" text-anchor="start">交付内容</text>
+<text x="300" y="467" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#607472" text-anchor="start">✓ 可运行 HTML / CSS / JS</text>
+<text x="300" y="510" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#607472" text-anchor="start">✓ 被引用的图片、图标、字体</text>
+<text x="300" y="553" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#607472" text-anchor="start">✓ 页面 × 状态 × 断点清单</text>
+<text x="300" y="596" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#607472" text-anchor="start">✓ 运行与复现说明</text>
+<text x="300" y="639" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#607472" text-anchor="start">✓ G1/G2 决定及已知问题</text>
+<rect x="900" y="377" width="655" height="316" rx="16" fill="#FFFFFF" stroke="#D8E2DE" stroke-width="1"/>
+<text x="926" y="420" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#1B3436" text-anchor="start">接手检查</text>
+<text x="926" y="467" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#607472" text-anchor="start">前端：复现 Mobile 错误态</text>
+<text x="926" y="510" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#607472" text-anchor="start">前端：检查 Desktop 与成功态</text>
+<text x="926" y="553" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#607472" text-anchor="start">前端：核对数据、接口、路由、权限</text>
+<text x="926" y="596" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#607472" text-anchor="start">未解决：键盘焦点顺序待工程核查</text>
+<rect x="275" y="716" width="1280" height="103" rx="16" fill="#FFFFFF" stroke="#D8E2DE" stroke-width="1"/>
+<text x="299" y="756" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#1B3436" text-anchor="start">版本来源：工作版 v4 ← 已采纳候选 v3-c1 ← 基线 v3</text>
+<text x="299" y="790" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="400" fill="#607472" text-anchor="start">任何后续修改都创建新工作版；已确认 G2 不会静默覆盖。</text>
+<rect x="1250" y="732" width="277" height="55" rx="8" fill="#11867D" stroke="#11867D" stroke-width="1"/>
+<text x="1388" y="767" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF" text-anchor="middle">下载交付包 ZIP</text>
+<line x1="54" y1="900" x2="1546" y2="900" stroke="#D8E2DE" stroke-width="2" stroke-linecap="round" />
+<text x="54" y="935" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="400" fill="#607472" text-anchor="start">AutoClaw · Design 工作区 / 功能与交互 V10</text>
+<text x="1545" y="935" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="400" fill="#607472" text-anchor="end">07 / 08</text>
+</svg>

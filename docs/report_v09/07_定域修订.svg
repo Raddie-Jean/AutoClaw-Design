@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">06 / 核心功能</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">界面定域修订：一次有边界、可审阅的修改</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">文字、点选组件、画笔圈选是三种入口，共用同一张修订卡。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">07 / 12</text>
+<rect x="88" y="241" width="266" height="335" rx="18" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="133" cy="292" r="26" fill="#12877D"/>
+<text x="133" y="300" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+<text x="113" y="365" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">定位上下文</text>
+<text x="113" y="428" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">方向 / 页面 / 状态</text>
+<text x="113" y="466" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">设备断点 / 基线版本</text>
+<line x1="356" y1="405" x2="363" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="352" y1="395" x2="363" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="352" y1="415" x2="363" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="378" y="241" width="266" height="335" rx="18" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="423" cy="292" r="26" fill="#12877D"/>
+<text x="423" y="300" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+<text x="403" y="365" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">选目标</text>
+<text x="403" y="428" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">文字 / 组件 / 画笔</text>
+<text x="403" y="466" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">先显示实际命中对象</text>
+<line x1="646" y1="405" x2="653" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="642" y1="395" x2="653" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="642" y1="415" x2="653" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="668" y="241" width="266" height="335" rx="18" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="713" cy="292" r="26" fill="#12877D"/>
+<text x="713" y="300" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+<text x="693" y="365" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">说清边界</text>
+<text x="693" y="428" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">改什么 / 保留什么</text>
+<text x="693" y="466" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">仅此状态或共享实例</text>
+<line x1="936" y1="405" x2="943" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="932" y1="395" x2="943" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="932" y1="415" x2="943" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="958" y="241" width="266" height="335" rx="18" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="1003" cy="292" r="26" fill="#12877D"/>
+<text x="1003" y="300" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">4</text>
+<text x="983" y="365" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">生成候选</text>
+<text x="983" y="428" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">隔离修改源文件</text>
+<text x="983" y="466" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">预览与影响检查</text>
+<line x1="1226" y1="405" x2="1233" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1222" y1="395" x2="1233" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1222" y1="415" x2="1233" y2="405" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="1248" y="241" width="266" height="335" rx="18" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="1293" cy="292" r="26" fill="#12877D"/>
+<text x="1293" y="300" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">5</text>
+<text x="1273" y="365" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">人来决定</text>
+<text x="1273" y="428" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">比较 / 继续限定</text>
+<text x="1273" y="466" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">采纳或放弃</text>
+<rect x="88" y="628" width="1424" height="108" rx="18" fill="#122D31"/>
+<text x="118" y="673" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#F5AB6E" text-anchor="start">示例</text>
+<text x="202" y="673" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#FFFFFF" text-anchor="start">方向 B / 邀请成员 / Mobile 错误态 / v3：把错误提示移近邮箱框，保留桌面与成功态。</text>
+<text x="202" y="710" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#C8DFD9" text-anchor="start">设计师采纳候选成为 v4；这不等于 PM 已确认概念，也不等于生产代码可直接合并。</text>
+</svg>

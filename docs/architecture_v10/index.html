@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AutoClaw Design 工作区 · 功能架构与交互框架 V10</title>
+  <style>
+    :root{font-family:PingFang SC,Microsoft YaHei,system-ui,sans-serif;color:#1b3436;background:#f5f8f7}
+    *{box-sizing:border-box}body{margin:0}button,a{font:inherit}a{color:#087b72}
+    header{background:#fff;border-bottom:1px solid #d8e2de;padding:20px clamp(20px,5vw,72px);display:flex;align-items:center;gap:24px;justify-content:space-between;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:14px}.mark{display:grid;place-items:center;background:#11867d;color:#fff;width:42px;height:42px;border-radius:12px;font-weight:700}.brand b{font-size:19px}.brand small{display:block;color:#607472;margin-top:3px}
+    main{max-width:1600px;margin:auto;padding:30px clamp(16px,4vw,56px) 70px}
+    h1{font-size:clamp(26px,3vw,39px);line-height:1.28;margin:0 0 12px}h2{font-size:23px;margin:40px 0 15px}p{line-height:1.7;margin:0;color:#4e6663}.lead{max-width:1000px}
+    .decision{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:28px 0}
+    .decision div{background:#fff;border:1px solid #d8e2de;border-radius:14px;padding:20px}.decision strong{display:block;margin-bottom:9px;color:#0b7c72}.decision p{font-size:15px}
+    .viewer{background:#fff;border:1px solid #d8e2de;border-radius:16px;overflow:hidden;box-shadow:0 16px 48px #1537340b}
+    .tools{display:flex;align-items:center;gap:10px;padding:14px;border-bottom:1px solid #d8e2de;flex-wrap:wrap}
+    .tools label{font-weight:700;margin-right:auto}.tools select,.tools button{border:1px solid #d8e2de;border-radius:8px;background:white;padding:9px 13px;color:#1b3436;cursor:pointer}.tools button:hover,.tools select:hover{border-color:#11867d}.tools a{padding:9px 11px;text-decoration:none;font-weight:600}
+    .image-scroll{overflow:auto}#figure{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#f6f8f7;object-fit:contain}.caption{border-top:1px solid #d8e2de;padding:16px 20px;font-size:15px;color:#607472;line-height:1.6}
+    .path{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:18px 0}.path div{padding:18px;background:#e8f4f1;border-radius:11px;font-size:15px;font-weight:600;color:#086f67}
+    .meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}.meta a{background:#fff;border:1px solid #d8e2de;border-radius:8px;padding:10px 14px;text-decoration:none}
+    @media(max-width:760px){.decision{grid-template-columns:1fr}.path{grid-template-columns:1fr 1fr}.tools label{width:100%}#figure{min-width:900px;aspect-ratio:auto}.caption::after{content:' 手机查看可左右滑动图纸。';color:#11867d}}
+  </style>
+</head>
+<body>
+  <header><div class="brand"><span class="mark">A</span><span><b>AutoClaw · Design 工作区</b><small>HTML 产物功能架构 / 交互框架 V10</small></span></div><a href="2026-10-07_Design工作区_HTML产物功能架构与交互框架_V10.html">阅读完整功能文档 ↗</a></header>
+  <main>
+    <h1>让 HTML 初稿变成可修改、可评审、可交付的设计成果</h1>
+    <p class="lead">本轮把焦点放在生成之后：文件有明确角色，局部修改先确认目标和范围，候选经审阅才进入工作版；PM 和前端最终面对同一个固定版本。</p>
+    <section class="decision"><div><strong>看全</strong><p>以方向、页面、状态和设备组织成果，缺失与失败可见。</p></div><div><strong>改准</strong><p>文字、DOM 点选、画笔锚点走同一张修订卡，候选先比较再采纳。</p></div><div><strong>交清</strong><p>预览、评审和源码包指向同一个版本，保留决定与已知问题。</p></div></section>
+    <div class="viewer">
+      <div class="tools"><label for="sheet">选择图纸</label><select id="sheet"></select><button id="prev" type="button">← 上一张</button><button id="next" type="button">下一张 →</button><a id="open" target="_blank" rel="noopener">单独打开 SVG ↗</a></div>
+      <div class="image-scroll"><img id="figure" alt="AutoClaw Design 工作区架构与交互图"></div>
+      <div class="caption" id="caption"></div>
+    </div>
+    <h2>核心体验顺序</h2>
+    <div class="path"><div>1 · 找到目标状态</div><div>2 · 指定元素与边界</div><div>3 · 审阅隔离候选</div><div>4 · PM / 设计师阶段确认</div><div>5 · 固定版本交付</div></div>
+    <p>本稿是低保真方案，真实 AI 改写、源码回写与交付包生成还需用 AutoClaw 的实际 HTML 任务验证。SVG 可逐张导入 Figma 修改；详细取舍与失败处理见完整功能文档。</p>
+    <div class="meta"><a href="2026-10-07_Design工作区_HTML产物功能架构与交互框架_V10.html">完整 MD 文档</a><a href="../prototype_v08/index.html">现有可点击原型 V08</a><a href="../report_v09/index.html">前期方案汇报 V09</a></div>
+  </main>
+  <script>
+    const sheets=[
+      ['01_功能架构.svg','功能架构：成果总览、预览与编辑、修订审阅、版本评审、交付，以及贯穿各层的版本与文件关系。'],
+      ['02_文件关系与版本.svg','文件关系：HTML 源项目是唯一可编辑主稿；参考、资产、候选和快照各司其职。'],
+      ['03_核心交互状态流.svg','状态流：从目标状态到隔离候选、工作版、阶段评审与交付，清楚区分采纳和批准。'],
+      ['04_成果总览线框.svg','成果总览：方向、页面/状态/设备矩阵与待处理项同屏呈现。'],
+      ['05_预览与定域编辑线框.svg','预览与编辑：可运行 HTML 旁确认实际命中目标、范围、意图及保留项。'],
+      ['06_候选审阅线框.svg','候选审阅：并排预览、源码变化、受影响状态和决定保持在同一视野。'],
+      ['07_交付快照线框.svg','交付快照：固定版本、复现入口、源码与资源、评审结论和未决问题。'],
+      ['08_文件与引用抽屉线框.svg','文件与引用抽屉：按用途找文件，选择后显示来源、版本、引用关系和可执行操作。']
+    ];
+    const select=document.querySelector('#sheet'),img=document.querySelector('#figure'),caption=document.querySelector('#caption'),open=document.querySelector('#open');
+    sheets.forEach(([name],i)=>select.add(new Option(name.replace(/\.svg$/,''),String(i))));
+    function show(i){i=(i+sheets.length)%sheets.length;select.value=i;const [name,desc]=sheets[i];img.src=name;img.alt=desc;caption.textContent=desc;open.href=name;location.hash='sheet-'+String(i+1).padStart(2,'0')}
+    document.querySelector('#prev').onclick=()=>show(Number(select.value)-1);
+    document.querySelector('#next').onclick=()=>show(Number(select.value)+1);
+    select.onchange=()=>show(Number(select.value));
+    const n=Number(location.hash.replace('#sheet-',''));show(Number.isInteger(n)&&n>=1&&n<=sheets.length?n-1:0);
+  </script>
+</body>
+</html>
