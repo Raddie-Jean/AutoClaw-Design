@@ -1,0 +1,12 @@
+{
+  "url": "https://raddie-jean.github.io/AutoClaw-Design/",
+  "passed": [
+    "公开首页HTTP200，显示1012交付合集",
+    "测试1公开链接HTTP200，设计稿与产物管理可操作",
+    "测试2公开链接HTTP200，设计稿与产物管理可操作",
+    "在线汇报内嵌双任务演示可打开",
+    "在线7章设计规范与图片可加载"
+  ],
+  "errors": [],
+  "network": "公开站点，无GitHub或Figma登录会话"
+}

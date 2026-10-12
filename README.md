@@ -19,3 +19,9 @@
 未找到 .fig 文件，不将 SVG 或插件冒称 .fig 原生文件。外部 Figma 文件需要对应权限；所有主要设计内容提供本地副本。在线链接的验证结果见验收报告，受网络或登录影响的链接不会标记为通过。
 
 浏览器离线验证覆盖桌面 Chrome 与移动视口模拟，不能替代真实 Windows、iOS、Android 硬件测试。中文字体使用系统字体回退，排版可能有细微差异。
+
+## 在线查看
+
+[在线交付首页](https://raddie-jean.github.io/AutoClaw-Design/) · [GitHub仓库](https://github.com/Raddie-Jean/AutoClaw-Design)
+
+在线首页与主要演示已通过公开访问验证，见在线验收.json。离线交付不依赖这些在线链接。

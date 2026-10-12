@@ -1,8 +1,8 @@
 [
   {
     "path": "README.md",
-    "bytes": 1744,
-    "sha256": "cdbc61a8dc7b322b5a9b8bcdfe51bdc9c4cca2613ef9fabe1c839ae5d46e59fd"
+    "bytes": 2021,
+    "sha256": "ce84b87a51e350286d290d305356ebbec358030fe6a5316ae1531f03b35e3f1b"
   },
   {
     "path": "docs/design/figma-exports/01_任务首页_统一规范 1.png",
@@ -1936,13 +1936,13 @@
   },
   {
     "path": "docs/index.html",
-    "bytes": 3590,
-    "sha256": "7d53a6826a3f072fb2bb28dd44c83235b2b8096fa26de1f646a79cd299525ea1"
+    "bytes": 3600,
+    "sha256": "5c4314b45aa80c960bd41357777604c1054ef6bba1299fa3c48a54aaa81d8a42"
   },
   {
     "path": "docs/links.html",
-    "bytes": 11253,
-    "sha256": "ade7cf4f94bc7058f79d001c1588b7513627cf1fe0573205ba2669a40cec7d8d"
+    "bytes": 11271,
+    "sha256": "edc6fe14829c74fa95cc8905fc8c5d264e7e77190c7583a9d5b069a66a4c89a2"
   },
   {
     "path": "docs/process/.nojekyll",
@@ -6670,19 +6670,59 @@
     "sha256": "270effb744e8019d06886e7e518f71a64c1dac6f400b0741d4c37f2b215e1f5b"
   },
   {
+    "path": "docs/verification/交付验收报告.html",
+    "bytes": 2584,
+    "sha256": "e506f766f27b22bde0e78e52b0a8a25ef46d2ed0819a99d8f827910b2c187c51"
+  },
+  {
+    "path": "docs/verification/交付验收报告.md",
+    "bytes": 2226,
+    "sha256": "43d60953fd85868528244af8bccd7f80a6b7806be56641c3190f984088b580f3"
+  },
+  {
+    "path": "docs/verification/在线验收.json",
+    "bytes": 446,
+    "sha256": "4147ae445cc5fd3cc59125b18c4f7e477cf0375be258e4e8aefbad49e4e52e10"
+  },
+  {
+    "path": "docs/verification/外部链接检查.json",
+    "bytes": 13867,
+    "sha256": "343ceeb709bac67456afe2264cb31aa355ffb91d0e03b6712a46caf389c18756"
+  },
+  {
+    "path": "docs/verification/跨设备离线验收.json",
+    "bytes": 1133,
+    "sha256": "00a93535edc691cd88ca7876a660d4baa447d33f044ed68c70a6a0d4adb6b82b"
+  },
+  {
+    "path": "docs/verification/静态链接检查.json",
+    "bytes": 4785,
+    "sha256": "b864e3ce5c197d755e6ecc3ca9b318a60b4c46613023714d0b08cda1e84d6641"
+  },
+  {
     "path": "index.html",
     "bytes": 221,
     "sha256": "46e61bee4527e0c47663e0fafacbf4717c08b48c90ebc97d26d9c69146c9008a"
   },
   {
     "path": "交付验收报告.html",
-    "bytes": 2055,
-    "sha256": "98b110cf4f4ed8071fe4cec50f56c51d51f3604172d016bf11700a8316dc4e3b"
+    "bytes": 2584,
+    "sha256": "e506f766f27b22bde0e78e52b0a8a25ef46d2ed0819a99d8f827910b2c187c51"
   },
   {
     "path": "交付验收报告.md",
-    "bytes": 1729,
-    "sha256": "e354542b3a3973b8bce656196063dcf5d6007f2c0cc31ecea12710ff5f10ff52"
+    "bytes": 2226,
+    "sha256": "43d60953fd85868528244af8bccd7f80a6b7806be56641c3190f984088b580f3"
+  },
+  {
+    "path": "在线站点验收.png",
+    "bytes": 104180,
+    "sha256": "1b7cd23e4df0ae06d599de12220d78bee807eb134bbb4000c11d49aa34659fbc"
+  },
+  {
+    "path": "在线验收.json",
+    "bytes": 446,
+    "sha256": "4147ae445cc5fd3cc59125b18c4f7e477cf0375be258e4e8aefbad49e4e52e10"
   },
   {
     "path": "外部链接检查.json",
@@ -6701,8 +6741,8 @@
   },
   {
     "path": "链接清单.json",
-    "bytes": 5437,
-    "sha256": "062c59e10b31f6df85a5aa7f245b22b9f1ee01709164b7238d146f6cc622167e"
+    "bytes": 5455,
+    "sha256": "26897d5e2c9d44b8a285632233e69175c9b535a72ca5b76317dc60a03593aba0"
   },
   {
     "path": "静态链接检查.json",
