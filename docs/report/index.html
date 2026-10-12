@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AutoClaw Design Agent｜方案汇报</title>
+<script>if(location.pathname.endsWith('/index.template.html'))location.replace('index.html'+location.hash)</script>
+<style>
+:root{--ink:#17383b;--muted:#617370;--teal:#0d8b80;--line:#dce7e2;--bg:#edf3f0;--pale:#e6f3ef;--orange:#efaa72;--dark:#102c30}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:"PingFang SC","Noto Sans SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}button,select{font:inherit}button{cursor:pointer}a{color:#087b72}
+.top{height:64px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:20px;padding:0 24px;position:sticky;top:0;z-index:20}.brand{display:flex;align-items:center;gap:10px;font-weight:700;white-space:nowrap}.mark{width:31px;height:31px;border-radius:8px;background:var(--teal);display:grid;place-items:center;color:#fff}.version{font-size:11px;border:1px solid var(--line);padding:4px 7px;border-radius:5px;color:var(--muted)}.tabs{display:flex;background:#f0f4f2;padding:4px;border:1px solid var(--line);border-radius:9px;gap:3px}.tabs button{border:0;background:transparent;border-radius:6px;padding:8px 13px;font-size:13px;font-weight:700;color:var(--muted)}.tabs button.active{background:#fff;color:var(--ink);box-shadow:0 1px 5px #112d311a}.topnote{margin-left:auto;font-size:12px;color:var(--muted)}
+.layout{display:grid;grid-template-columns:236px minmax(0,1fr);min-height:calc(100vh - 64px)}aside{background:#fff;border-right:1px solid var(--line);height:calc(100vh - 64px);position:sticky;top:64px;overflow:auto;padding:24px 14px}.sidehead{font-size:11px;font-weight:700;letter-spacing:.09em;color:#869994;padding:0 12px 12px}.slide-list{display:flex;flex-direction:column;gap:2px}.slide-link{width:100%;display:flex;align-items:center;gap:12px;text-align:left;border:0;background:transparent;color:#4b625e;border-radius:8px;padding:9px 10px;font-size:13px}.slide-link span:first-child{font-size:11px;color:#8baca5;width:20px}.slide-link:hover,.slide-link.active{background:#e7f3ef;color:#0c7068}.slide-link.active{font-weight:700}.sidenote{font-size:11px;line-height:1.65;color:#869994;border-top:1px solid var(--line);margin:22px 10px 0;padding-top:15px}
+.main{min-width:0;padding:22px 26px 42px}.toolbar{display:flex;align-items:center;gap:11px;margin:0 auto 14px;max-width:1280px}.current-title{font-weight:700}.count{color:var(--muted);font-size:13px}.spacer{flex:1}.toolbar button,.bottom button,.toolbar select{background:#fff;border:1px solid var(--line);border-radius:7px;padding:8px 12px;color:var(--ink);font-size:12px;font-weight:700}.toolbar button:hover,.bottom button:hover{border-color:#8dbdb3}.mobile-select{display:none}.stage{max-width:1280px;margin:auto;position:relative;overflow:auto;box-shadow:0 18px 48px #102c301a;background:#f9fbfa}.slide{display:none;position:absolute;top:0;left:0;width:1280px;height:720px;background:#f8faf9;transform-origin:top left;padding:44px 56px 36px;border-left:12px solid var(--teal);overflow:hidden}.slide.active{display:block}.slide.dark{background:var(--dark);color:#fff;border-left-color:var(--orange)}.slide>.kicker{font-size:14px;letter-spacing:.11em;color:var(--teal);font-weight:800}.slide.dark>.kicker{color:#7cc8bd}.slide h1{font-size:38px;line-height:1.18;letter-spacing:-.02em;margin:12px 0 6px}.slide .lead{font-size:17px;color:var(--muted);margin:0;line-height:1.45}.slide.dark .lead{color:#c2d6d1}.body{margin-top:29px;height:514px}.foot{position:absolute;bottom:25px;left:56px;right:56px;border-top:1px solid var(--line);padding-top:10px;display:flex;justify-content:space-between;color:#71827e;font-size:11px}.dark .foot{border-color:#376064;color:#9ebbb5}.source{font-size:11px;color:#82918d;line-height:1.45}.source a{color:#117b72}.dark .source{color:#adc6c0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;height:100%}.body,.body.grid2,.body.grid3,.body.diagram{height:460px}.body.grid2>* ,.body.grid3>*{min-height:0}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:21px;min-width:0}.card h2{font-size:23px;margin:0 0 12px}.card h3{font-size:18px;margin:0 0 10px}.card p,.card li{font-size:15px;line-height:1.55;color:#536963}.card ul{margin:8px 0;padding-left:19px}.card li+li{margin-top:5px}.card .small{font-size:12px}.card.teal{background:var(--pale)}.card.orange{background:#fff1e5}.eyelabel{font-size:13px;color:var(--teal);font-weight:800;letter-spacing:.04em}.stat{font-size:57px;font-weight:800;line-height:1;color:var(--teal)}.visual{background:#fff;border:1px solid var(--line);border-radius:13px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:8px}.visual img{width:100%;height:100%;object-fit:contain;display:block}.visual.cover img{object-fit:cover}.image-card{display:flex;flex-direction:column;gap:9px;min-width:0;min-height:0}.image-card .visual{flex:1;min-height:0}.caption{font-size:13px;line-height:1.4;color:#516660}.pill{display:inline-flex;align-items:center;border-radius:999px;background:var(--pale);color:#08766c;font-size:12px;font-weight:800;padding:7px 11px}.muted{color:var(--muted)}.accent{color:var(--teal)}.orange-text{color:#b46a31}.big{font-size:23px;line-height:1.45;font-weight:700}.compact{font-size:14px;line-height:1.5}.hr{border-top:1px solid var(--line);margin:12px 0}
+.flow{display:flex;gap:10px;align-items:stretch}.flow .step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;flex:1;min-width:0}.flow .step b{font-size:19px}.flow .step p{font-size:13px;line-height:1.4;color:#59706a}.flow .arrow{align-self:center;color:var(--teal);font-size:25px}.stepno{display:block;font-size:13px;color:var(--teal);font-weight:800;margin-bottom:10px}.matrix{width:100%;border-collapse:separate;border-spacing:0 7px;font-size:14px}.matrix th{text-align:left;background:var(--dark);color:#fff;padding:10px 14px}.matrix th:first-child{border-radius:9px 0 0 9px}.matrix th:last-child{border-radius:0 9px 9px 0}.matrix td{background:#fff;padding:12px 14px;line-height:1.45;color:#536963;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.matrix td:first-child{font-weight:700;color:var(--ink);border-left:1px solid var(--line);border-radius:9px 0 0 9px}.matrix td:last-child{border-right:1px solid var(--line);border-radius:0 9px 9px 0}.quote{background:var(--dark);color:#d7e7e2;border-radius:13px;padding:17px 20px;font-size:17px;line-height:1.45}.quote b{color:var(--orange)}.list-tight{margin:0;padding-left:20px}.list-tight li{margin-bottom:8px;line-height:1.45}.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}.timeline .card{position:relative;padding:17px}.timeline .card:after{content:"→";position:absolute;right:-15px;top:40%;color:var(--teal);font-size:24px}.timeline .card:last-child:after{display:none}.timeline h3{font-size:19px}.timeline p{font-size:13px}
+.hero{display:grid;grid-template-columns:1.35fr .75fr;gap:70px;height:100%;align-items:center}.hero h1{font-size:64px;line-height:1.1;max-width:760px}.hero .lead{font-size:25px;max-width:710px;margin-top:25px}.hero .mini{margin-top:85px;color:#aac5bf;font-size:16px}.hero .panel{background:#24464a;border-radius:28px;padding:30px}.hero .panel div{border-bottom:1px solid #426166;padding:18px 0}.hero .panel div:last-child{border:0}.hero .panel b{font-size:19px;color:#fff}.hero .panel p{color:#abc7c0;margin:7px 0 0;font-size:14px}.badge{display:inline-block;background:#138b80;border-radius:999px;padding:9px 14px;font-size:14px;font-weight:800;color:#fff}
+.diagram{display:grid;grid-template-columns:260px 1fr;gap:27px;height:100%}.diagram .tree{background:#fff;border:1px solid var(--line);border-radius:16px;padding:21px;display:flex;flex-direction:column;gap:15px;font-size:16px}.diagram .tree div{border-left:3px solid var(--line);padding-left:10px}.diagram .tree .active{border-color:var(--teal);font-weight:700}.diagram .views{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:15px}.diagram .views .card{padding:22px}.diagram .views .card h2{font-size:24px}.diagram .views .card p{font-size:14px}.diagram .views .card:nth-child(3){border-left:6px solid var(--teal)}
+.slide[data-title="AutoClaw 现有界面"] .body .card,.slide[data-title="Task 2 协作建议"] .body .card{padding:13px 17px}.slide[data-title="AutoClaw 现有界面"] .body .card h3,.slide[data-title="Task 2 协作建议"] .body .card h2{margin:4px 0 6px}.slide[data-title="AutoClaw 现有界面"] .body .card p,.slide[data-title="Task 2 协作建议"] .body .card p{margin:5px 0;font-size:14px;line-height:1.42}
+.bottom{max-width:1280px;margin:14px auto;display:flex;align-items:center;gap:10px}.bottom button:disabled{opacity:.38;cursor:default}.progress{height:5px;background:#d7e4df;border-radius:10px;flex:1;margin-left:20px;overflow:hidden}.progress span{display:block;height:100%;background:var(--teal);width:0}.bottom .hint{font-size:11px;color:var(--muted)}
+.doc-view,.demo-view{display:none;max-width:1100px;margin:auto}.article{background:#fff;border:1px solid var(--line);padding:55px 70px;font-size:15px;line-height:1.75;box-shadow:0 12px 40px #102c3010;overflow-wrap:anywhere}.article h1{font-size:32px}.article h2{font-size:23px;margin-top:35px}.article p{margin:12px 0}.article table{width:100%;border-collapse:collapse;font-size:14px}.article th,.article td{padding:9px;border:1px solid var(--line);text-align:left}.article pre{max-width:100%;overflow:auto;padding:16px;background:#f4f7f5;border:1px solid var(--line);border-radius:8px}.article img{max-width:100%}.demo-head{display:flex;justify-content:space-between;align-items:center;gap:25px;margin-bottom:15px}.demo-head h2{margin:0;font-size:23px}.demo-head p{font-size:13px;color:var(--muted);max-width:600px}.demo-head a{font-size:13px}.demo-actions{display:flex;align-items:center;gap:8px}.demo-actions button{background:#fff;border:1px solid var(--line);border-radius:7px;padding:8px 11px;color:var(--ink);font-size:12px;font-weight:700}.demo-actions button.active{background:var(--teal);color:#fff}.demo-frame{width:100%;height:850px;border:1px solid var(--line);background:#fff}.overview{position:fixed;inset:0;background:#102b30e8;z-index:40;display:none;overflow:auto;padding:40px}.overview.open{display:block}.overview-head{max-width:1240px;margin:0 auto 22px;color:#fff;display:flex;align-items:center;justify-content:space-between}.overview-head button{background:transparent;color:#fff;border:1px solid #779793;border-radius:7px;padding:8px 12px}.overview-grid{max-width:1240px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.overview-item{background:#fff;border:0;border-radius:9px;padding:20px;text-align:left;min-height:120px;color:var(--ink)}.overview-item b{color:var(--teal);display:block;margin-bottom:12px}
+body.doc-mode .deck-view,body.demo-mode .deck-view{display:none}body.doc-mode .doc-view,body.demo-mode .demo-view{display:block}
+body.demo-mode .demo-view{max-width:none}.demo-frame{height:calc(100dvh - 218px);min-height:680px}.demo-head{flex-wrap:wrap}
+body.doc-mode .layout,body.demo-mode .layout{grid-template-columns:minmax(0,1fr)}body.doc-mode .layout > aside,body.demo-mode .layout > aside{display:none}
+@media(max-width:800px){.layout{display:block}aside{display:none}.main{padding:12px}.top{padding:0 10px;gap:10px}.brand{font-size:12px}.brand .version,.topnote{display:none}.tabs button{font-size:11px;padding:7px 8px}.toolbar .current-title,.toolbar .count{display:none}.mobile-select{display:block}.toolbar button{padding:7px}.bottom .hint{display:none}.article{padding:24px 18px}.overview-grid{grid-template-columns:repeat(2,1fr)}.demo-frame{height:700px}}
+@media print{.top,aside,.toolbar,.bottom,.overview{display:none!important}.layout,.main{display:block;padding:0}.stage{box-shadow:none;max-width:none;width:1280px;height:auto!important;overflow:visible}.slide{position:relative!important;display:block!important;transform:none!important;break-after:page;page-break-after:always}.doc-view,.demo-view{display:none!important}@page{size:1280px 720px;margin:0}}
+</style>
+</head>
+<body>
+<div class="top"><div class="brand"><span class="mark">A</span>AutoClaw · Design Agent <span class="version">方案汇报</span></div><nav class="tabs" aria-label="阅读模式"><button data-mode="deck" class="active">汇报画板</button><button data-mode="doc">完整文稿</button><button data-mode="demo">交互演示</button></nav><span class="topnote">20 页 · 截图证据与设计稿</span></div>
+<div class="layout"><aside><div class="sidehead">汇报目录 · 20 页</div><div class="slide-list" id="slide-list"></div><div class="sidenote">画板用 ← → 翻页。完整文稿含素材来源及验证边界。</div></aside><main class="main"><div class="deck-view"><div class="toolbar"><strong class="current-title" id="current-title">封面</strong><span class="count" id="count">01 / 20</span><select class="mobile-select" id="mobile-select" aria-label="选择页面"></select><div class="spacer"></div><button id="overview-btn">总览</button><button id="fullscreen-btn">全屏</button><button id="print-btn">打印</button></div><div class="stage" id="stage">
+
+<section class="slide dark active" data-title="封面"><div class="hero"><div><span class="badge">设计测试题 · 方案汇报</span><h1>Design Agent 工作区<br>从生成结果到设计交付</h1><p class="lead">围绕 AutoClaw 现有任务结构，完成产物管理与编辑路径，并提出版本锚定的协作建议。</p><div class="mini">2026.10.12　｜　研究证据 · 信息架构 · 交互原型 · 设计规范</div></div><div class="panel"><div><b>Task 1 · 产物工作区</b><p>查看、预览、修订、管理 HTML 设计结果</p></div><div><b>Task 2 · 协作建议</b><p>将反馈固定到版本、页面与对象</p></div><div><b>成果</b><p>20 页汇报、双任务原型与设计规范</p></div></div></div><div class="foot"><span>AutoClaw · Design Agent</span><span>01 / 20</span></div></section>
+
+<section class="slide" data-title="题目与方案范围"><div class="kicker">01 / 题目</div><h1>两项任务，分别回答两个问题</h1><p class="lead">Task 1 先完成单人设计闭环；Task 2 只深入一个未来协作能力。</p><div class="body grid2"><div class="image-card"><div class="visual"><img src="assets/brief.png" alt="用户提供的 Design Agent 测试题"></div><div class="source">来源：用户提供的测试题截图</div></div><div style="display:flex;flex-direction:column;gap:15px"><div class="card teal" style="flex:1"><span class="eyelabel">TASK 1 · 工作区</span><h2>Design 结果如何继续处理？</h2><p>从任务完成卡进入产物集，确认 HTML 主稿，运行预览、定域修订，最后固定可交付版本。</p></div><div class="card orange" style="flex:1"><span class="eyelabel">TASK 2 · 开放 Feature</span><h2>协作建议如何避免版本歧义？</h2><p>建议绑定版本、页面和对象；设计师通过隔离候选决定是否采纳。</p></div></div></div><div class="foot"><span>题目与方案边界</span><span>02 / 20</span></div></section>
+
+<section class="slide" data-title="创意发散与 AI 协作"><div class="kicker">02 / 协作过程</div><h1>AI 扩展选项，设计判断逐步收束范围</h1><p class="lead">此处只呈现能够对应到研究、架构和原型文件的方案演进。</p><div class="body"><div class="timeline" style="height:330px"><div class="card"><span class="stepno">01 · 工具观察</span><h3>广泛收集</h3><p>AI 整理生成、画布、局部编辑与交付模式；设计师补充实际工具截图。</p></div><div class="card"><span class="stepno">02 · 对象确认</span><h3>锁定 HTML</h3><p>题目明确当前产物为 HTML，主稿需要可运行、可定位和可追溯。</p></div><div class="card"><span class="stepno">03 · 结构校正</span><h3>回到任务</h3><p>原型曾偏向独立设计应用；评审后接回 AutoClaw 任务结果。</p></div><div class="card"><span class="stepno">04 · 双题拆分</span><h3>先工作区</h3><p>Task 1 建立单人闭环；协作建议作为 Task 2 深入。</p></div><div class="card"><span class="stepno">05 · 原型验证</span><h3>状态成稿</h3><p>AI 辅助生成 HTML/SVG 与状态画面，设计师校对结构和规范。</p></div></div><div class="quote" style="margin-top:24px"><b>关键变化</b>　从“容纳所有格式的画布”，转为“任务内的 HTML 产物工作区”；从一次性生成，转为可审阅的连续修订。</div><p class="source">可核对产物：研究方向、MVP 初稿、信息架构与双任务原型。</p></div><div class="foot"><span>AI 协作与方案演进</span><span>03 / 20</span></div></section>
+
+<section class="slide" data-title="竞品观察：Lovart"><div class="kicker">03 / 截图研究</div><h1>Lovart：对象选择、局部指令与旁置候选</h1><p class="lead">三个连续画面说明“先定位、再修改、保留原稿”的交互顺序。</p><div class="body grid3"><div class="image-card"><div class="visual"><img src="assets/lovart-select.png" alt="Lovart 选中对象与快捷工具"></div><div class="caption"><b>01 选中对象</b>　上下文工具随目标出现。</div></div><div class="image-card"><div class="visual"><img src="assets/lovart-quick-edit.png" alt="Lovart 选区下的 Quick Edit 输入"></div><div class="caption"><b>02 绑定意图</b>　Quick Edit 与选区相邻。</div></div><div class="image-card"><div class="visual"><img src="assets/lovart-candidate.png" alt="Lovart 原稿旁的新候选结果"></div><div class="caption"><b>03 比较候选</b>　新结果不覆盖原稿。</div></div></div><div class="foot"><span>来源：用户提供的 Lovart 录屏截帧；HTML 映射能力需单独验证</span><span>04 / 20</span></div></section>
+
+<section class="slide" data-title="竞品观察：画布与任务"><div class="kicker">03 / 截图研究</div><h1>画布组织结果，任务保留生成上下文</h1><p class="lead">万相与 WorkBuddy 的截图提供两种工作面结构，不能直接替代 HTML 运行编辑。</p><div class="body grid2"><div class="image-card"><div class="visual"><img src="assets/wanxiang-canvas.png" alt="万相左侧提示与右侧画布"></div><div class="caption"><b>万相</b>　指令区与多节点画布并列，可添加图片、视频、文案、画布、图形和画笔。</div></div><div class="image-card"><div class="visual"><img src="assets/workbuddy-canvas.png" alt="WorkBuddy 任务结果与右侧画布"></div><div class="caption"><b>WorkBuddy</b>　项目/任务、对话内文件卡与右侧画布并存；该截图未展示 HTML 精准编辑。</div></div></div><div class="foot"><span>来源：用户提供的万相、WorkBuddy 截图；<a href="https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/%E6%99%BA%E8%B0%B1%E6%B5%8B%E8%AF%95%E9%A2%98-2026?node-id=246-2661" target="_blank" rel="noopener">Figma 调研画板 ↗</a></span><span>05 / 20</span></div></section>
+
+<section class="slide" data-title="从竞品到设计原则"><div class="kicker">03 / 分析结论</div><h1>借鉴交互机制，不复制工具外形</h1><p class="lead">每项判断只对应截图可见的能力与本题的 HTML 产物约束。</p><div class="body"><table class="matrix"><thead><tr><th style="width:18%">观察对象</th><th style="width:26%">截图中可见</th><th style="width:28%">可借鉴</th><th>本题取舍</th></tr></thead><tbody><tr><td>Lovart</td><td>选区工具、Quick Edit、旁置结果</td><td>目标与修改意图绑定；候选不覆盖原稿</td><td>HTML 需先确认实际命中的 DOM/组件</td></tr><tr><td>万相</td><td>生成流程与多节点画布、画笔</td><td>多类结果可以空间组织、并排比较</td><td>画板用于整理；运行预览承担编辑与状态检查</td></tr><tr><td>WorkBuddy</td><td>任务、对话文件卡与右侧画布</td><td>任务上下文与成果工作面并列</td><td>延续 AutoClaw 项目/任务结构，不另建应用</td></tr><tr><td>AutoClaw</td><td>项目、任务、对话及文件/预览容器</td><td>现有任务可成为 Design 产物入口</td><td>右侧工作区随当前任务和版本切换</td></tr></tbody></table><div class="quote" style="margin-top:15px"><b>方案定义</b>　画板解决“整理与比较”；运行 HTML、确认对象与候选审阅解决“继续设计”。</div><p class="source">扣子等更多截图见用户 Figma 调研画板；本版未能通过接口逐张核对，因此未写入具体功能结论。</p></div><div class="foot"><span>竞品截图 → 产品原则</span><span>06 / 20</span></div></section>
+
+<section class="slide" data-title="AutoClaw 现有界面"><div class="kicker">04 / 产品基底</div><h1>Design 工作区从 AutoClaw 任务结果进入</h1><p class="lead">保留左侧项目/任务与中间对话；右侧承接本次任务的产物与预览。</p><div class="body grid2" style="grid-template-columns:1.4fr .6fr"><div class="image-card"><div class="visual"><img src="assets/autoclaw-base.png" alt="AutoClaw 基础界面还原"></div><div class="source">基础界面还原依据用户提供的 AutoClaw 截图。</div></div><div style="display:flex;flex-direction:column;gap:12px"><div class="card"><span class="eyelabel">保留</span><h3>项目、任务、对话</h3><p>Design 任务仍遵循 Agent 发起、执行、结果回流的原有结构。</p></div><div class="card teal"><span class="eyelabel">新增</span><h3>任务内产物工作区</h3><p>结果卡进入成果、预览与编辑、版本与交付；不在首页额外加入独立设计应用。</p></div><div class="card orange"><span class="eyelabel">原型标注</span><p>工作区及新增组件是设计提案，并非 AutoClaw 已有功能。</p></div></div></div><div class="foot"><span>来源：用户截图与本地基础界面稿</span><span>07 / 20</span></div></section>
+
+<section class="slide" data-title="四项关键决策"><div class="kicker">04 / 方案取舍</div><h1>四项决策确定工作区边界</h1><p class="lead">对应题目现有产物、AutoClaw 界面、截图研究及原型评审。</p><div class="body grid2" style="grid-template-rows:1fr 1fr"><div class="card"><span class="eyelabel">01 · 入口</span><h2>工作区依附任务</h2><p>Agent 完成结果卡直接打开当前产物集；不要求先建一个平行 Design 项目。</p></div><div class="card"><span class="eyelabel">02 · 主稿</span><h2>HTML 项目是编辑权威源</h2><p>截图、PRD、Figma 链接与派生图像保持各自角色，不承诺无损互转。</p></div><div class="card"><span class="eyelabel">03 · 编辑</span><h2>画板与运行预览分工</h2><p>画板整理和比较；精准修改在运行页面中选对象、限定范围并生成候选。</p></div><div class="card"><span class="eyelabel">04 · 协作</span><h2>Task 1 与 Task 2 分开</h2><p>单人产物闭环先成立；版本锚定建议作为独立开放 Feature 深入。</p></div></div><div class="foot"><span>范围决策</span><span>08 / 20</span></div></section>
+
+<section class="slide" data-title="信息架构"><div class="kicker">05 / 信息架构</div><h1>任务、产物、视图与版本保持同一关系</h1><p class="lead">文件不成为一级导航；用户先确认结果，再进入具体页面与对象。</p><div class="body diagram"><div class="tree"><b>AutoClaw 原有结构</b><div>项目</div><div>Design 任务</div><div class="active">产物工作区</div><div>工作版 v1 / v2…</div><div>页面 × 状态 × 设备</div><div>对象 / 候选 / 建议</div></div><div class="views"><div class="card"><span class="eyelabel">TASK 1 · 01</span><h2>成果</h2><p>主稿 HTML、资源、派生预览与输入参考；画板整理、文件清单和待处理项。</p></div><div class="card"><span class="eyelabel">TASK 1 · 02</span><h2>预览与编辑</h2><p>运行 HTML，定位页面、状态、设备、版本；对象点选和局部修改。</p></div><div class="card"><span class="eyelabel">TASK 1 · 03</span><h2>版本与交付</h2><p>候选差异、采纳记录、复核状态、固定源码与运行说明。</p></div><div class="card"><span class="eyelabel">TASK 2</span><h2>协作建议</h2><p>建议绑定版本与对象，经设计师决定后回流为独立候选。</p></div></div></div><div class="foot"><span>详见双任务信息架构</span><span>09 / 20</span></div></section>
+
+<section class="slide" data-title="Task 1 核心链路"><div class="kicker">06 / Task 1</div><h1>从 Agent 结果到固定版本交付</h1><p class="lead">目标是处理 HTML 设计产物；当前原型以可编辑 SVG 样例演示关键决策点。</p><div class="body"><div class="flow" style="height:285px"><div class="step"><span class="stepno">01</span><b>确认约束</b><p>明确尺寸、样式和交付要求</p></div><div class="arrow">→</div><div class="step"><span class="stepno">02</span><b>产物落地</b><p>从任务消息进入当前工作版</p></div><div class="arrow">→</div><div class="step"><span class="stepno">03</span><b>预览定位</b><p>确认当前版与目标对象</p></div><div class="arrow">→</div><div class="step"><span class="stepno">04</span><b>定域修订</b><p>确认命中对象、修改与保留项</p></div><div class="arrow">→</div><div class="step"><span class="stepno">05</span><b>审阅候选</b><p>比较影响，采纳或放弃</p></div><div class="arrow">→</div><div class="step"><span class="stepno">06</span><b>固定交付</b><p>复核并导出同版本文件</p></div></div><div class="grid2" style="height:150px;margin-top:24px"><div class="card teal"><b>版本约束</b><p>预览所确认的版本与交付快照的版本保持一致。</p></div><div class="card orange"><b>编辑约束</b><p>在 HTML 场景中，画笔圈选仍需先解析到实际 DOM/组件对象。</p></div></div></div><div class="foot"><span>产品目标链路；原型已验证其中的 SVG 样例</span><span>10 / 20</span></div></section>
+
+<section class="slide" data-title="需求澄清与产物落地"><div class="kicker">07 / Task 1 最新设计稿</div><h1>生成之前确认规范，生成之后看见产物</h1><p class="lead">Agent 的任务对话和右侧工作区持续对应；用户能区分约束确认、生成过程和结果落地。</p><div class="body grid2">
+<div class="image-card"><div class="visual"><img src="assets/v13-brief.png" alt="生成前确认规范"></div><div class="caption"><b>生成前</b>　确认画板尺寸、样式、矢量与文字交付要求。</div></div>
+<div class="image-card"><div class="visual"><img src="assets/v13-result.png" alt="产物落地"></div><div class="caption"><b>生成后</b>　任务消息给出产物入口；右侧出现同一工作版。</div></div></div><div class="foot"><span>测试 1 · 状态 02 / 04；生成进度为本地模拟</span><span>11 / 20</span></div></section>
+
+<section class="slide" data-title="对象精确修改"><div class="kicker">07 / Task 1 最新设计稿</div><h1>选中对象后，用属性值限定修改范围</h1><p class="lead">示例中只把输入卡片圆角从 25px 改为 12px，其他对象保留原状。</p><div class="body grid2" style="grid-template-columns:1.42fr .58fr">
+<div class="image-card"><div class="visual"><img src="assets/v13-object-edit.png" alt="选中对象与属性修改"></div><div class="source">来源：测试 1 状态 06。</div></div>
+<div class="card"><span class="eyelabel">具体交互</span><h2>从画布到修改卡</h2><ul><li>点选后明确标记“输入卡片”</li><li>右侧提供可确认的 12px 数值</li><li>提交后先形成局部候选</li><li>对话保留这次修改的任务上下文</li></ul><div class="hr"></div><p class="small">此处的属性修改由本地 SVG 样例真实执行，不能推断任意 HTML 元素都可同样回写。</p></div></div><div class="foot"><span>测试 1 · 可检验的局部属性变化</span><span>12 / 20</span></div></section>
+
+<section class="slide" data-title="候选比较与版本采纳"><div class="kicker">07 / Task 1 最新设计稿</div><h1>候选先与工作版比较，再由设计师采纳</h1><p class="lead">修改不会直接覆盖 v1；对比画面显示影响范围和保持不变的部分。</p><div class="body grid2">
+<div class="image-card"><div class="visual"><img src="assets/v13-compare.png" alt="工作版和候选比较"></div><div class="caption"><b>比较</b>　工作版 v1 与候选 v2 并置，确认输入卡片圆角变化。</div></div>
+<div class="card teal"><span class="eyelabel">版本规则</span><h2>采纳才形成工作版 v2</h2><p>候选保留在隔离状态；采纳后更新当前工作版，v1 留在历史中可查看。</p><p>这一状态给设计师一个明确的“接受修改”决定点，也为后续交付检查建立版本依据。</p></div></div><div class="foot"><span>测试 1 · 状态 08 / 09</span><span>13 / 20</span></div></section>
+
+<section class="slide" data-title="源码与交付检查"><div class="kicker">07 / Task 1 最新设计稿</div><h1>交付不是导出按钮，而是同源文件的检查结果</h1><p class="lead">原型从当前 SVG 解析尺寸、文字和素材结构，再导出定稿与 manifest。</p><div class="body grid2">
+<div class="image-card"><div class="visual"><img src="assets/v13-delivery-check.png" alt="交付检查"></div><div class="caption"><b>结构检查</b>　显示 1512×945、独立文字、字体声明和素材结构。</div></div>
+<div class="image-card"><div class="visual"><img src="assets/v13-source.png" alt="同源 SVG 源码"></div><div class="caption"><b>同源验证</b>　画布、代码与下载来自同一份 SVG 内容。</div></div></div><div class="foot"><span>测试 1 · SVG 样例验证；HTML 项目回写仍待测试</span><span>14 / 20</span></div></section>
+
+<section class="slide" data-title="独立协作评审任务"><div class="kicker">08 / Task 2 最新设计稿</div><h1>评审从固定版本出发，不插入 Task 1 生成流程</h1><p class="lead">PM 和前端围绕既有首页版本与具体对象给出建议；设计师决定是否形成候选。</p><div class="body grid2" style="grid-template-columns:1.42fr .58fr">
+<div class="image-card"><div class="visual"><img src="assets/v13-review.png" alt="独立协作评审任务"></div><div class="source">来源：测试 2 状态 01。</div></div>
+<div class="card"><span class="eyelabel">Task 2 单一 Feature</span><h2>版本锚定建议</h2><p><b>定位：</b>版本 × 页面状态 × 对象。</p><p><b>处理：</b>创建候选、暂不采纳、查看记录。</p><p><b>边界：</b>独立评审任务只从已有版本开始；邀请与反馈均为本地模拟。</p></div></div><div class="foot"><span>测试 2 · 与 Task 1 的设计生成任务分离</span><span>15 / 20</span></div></section>
+
+<section class="slide" data-title="评审记录与采纳"><div class="kicker">08 / Task 2 最新设计稿</div><h1>意见留在提出时的版本，采纳写入独立记录</h1><p class="lead">从建议建立候选后仍需审阅；历史建议不会随工作版变化而漂移。</p><div class="body grid2">
+<div class="image-card"><div class="visual"><img src="assets/v13-review-record.png" alt="评审记录"></div><div class="caption"><b>可追溯</b>　记录建议来源、原版本、处理决定与当前工作版。</div></div>
+<div class="card orange"><span class="eyelabel">已表达与未验证</span><h2>原型可演示，协作服务待验证</h2><p>当前原型可在本地创建候选、采纳并下载评审记录 JSON；刷新会重置状态。</p><p>这不是线上多人实时编辑，也不代表真实权限、通知或开发审批流程已完成。</p></div></div><div class="foot"><span>测试 2 · 状态 03 / 04</span><span>16 / 20</span></div></section>
+
+<section class="slide" data-title="设计稿产出：还原与规范"><div class="kicker">09 / 设计稿产出</div><h1>从 AutoClaw 基础界面建立扩展规范</h1><p class="lead">先还原侧栏、任务对话和控件语言，再补充 Design 工作区所需组件。 <a href="design-spec/index.html" target="_blank" style="color:#287dff;font-size:16px">查看设计规范 ↗</a>　<a href="design-spec/AutoClaw_设计规范_V10.zip" download style="color:#287dff;font-size:16px">下载规范</a></p><div class="body grid3"><div class="image-card"><div class="visual"><img src="assets/autoclaw-base.png" alt="AutoClaw 基础界面还原"></div><div class="caption"><b>01 基础还原</b>　任务入口、导航和输入区。</div></div><div class="image-card"><div class="visual"><img src="assets/04_布局模板.png" alt="AutoClaw 布局模板规范"></div><div class="caption"><b>02 布局规范</b>　1512×945 基准；280 / 420 / 812 三栏。</div></div><div class="image-card"><div class="visual"><img src="assets/05_组件与状态.png" alt="AutoClaw 组件与状态规范"></div><div class="caption"><b>03 组件状态</b>　产物卡、标签、选中与反馈状态。</div></div></div><div class="foot"><span>来源：基础界面稿与可视化规范；新组件为方案提案</span><span>17 / 20</span></div></section>
+
+<section class="slide" data-title="设计稿产出：结构演进"><div class="kicker">09 / 设计稿产出</div><h1>从“独立产物页”改为任务内连续工作流</h1><p class="lead">最新稿保留 AutoClaw 的项目与对话结构，让成果、编辑、版本和交付随任务展开。</p><div class="body grid2"><div class="image-card"><div class="visual"><img src="assets/01_任务成果与产物画板.png" alt="产物画板探索"></div><div class="caption"><b>前一轮方案</b>　侧重产物清单与画板组织，尚未完整说明生成前后过程。</div></div><div class="image-card"><div class="visual"><img src="assets/v13-result.png" alt="连续任务工作区"></div><div class="caption"><b>当前方案</b>　对话推进生成，右侧承接产物、预览、代码、图层与版本。</div></div></div><div class="foot"><span>产出链：界面还原 → 结构反馈 → 双任务原型 → 可交互状态</span><span>18 / 20</span></div></section>
+
+<section class="slide" data-title="AI 的参与与设计师决定"><div class="kicker">10 / 设计过程</div><h1>AI 加快制作与比较，关键取舍由设计师确定</h1><p class="lead">把共创过程写成可追溯的输入、辅助动作和设计决定。</p><div class="body grid2">
+<div class="card"><span class="eyelabel">AI 辅助</span><h2>把候选和状态变成可检查的文件</h2><ul><li>整理研究方向与竞品功能线索</li><li>生成信息架构草案和 HTML/SVG 状态</li><li>补齐版本、候选、交付和评审画面</li><li>辅助浏览器检查与本地交互验证</li></ul></div>
+<div class="card teal"><span class="eyelabel">设计师判断</span><h2>限定问题、校准产品和确认产出</h2><ul><li>从“通用画布”收束到任务内工作区</li><li>指出旧方案脱离 Agent 操作流程</li><li>提供新竞品截图、基础稿和规范</li><li>将 Task 1 与 Task 2 拆分成独立链路</li><li>确定局部编辑、版本审阅与交付重点</li></ul></div></div><div class="foot"><span>依据：对话反馈、双任务原型与规范文件</span><span>19 / 20</span></div></section>
+
+<section class="slide" data-title="交付物与验证边界"><div class="kicker">10 / 交付</div><h1>交付可查看的方案，也标明尚未验证的实现</h1><p class="lead">报告、信息架构、设计稿和演示原型均有本地文件；线上产品能力不由原型推断。</p><div class="body grid2"><div class="card"><span class="eyelabel">已完成文件</span><h2>方案与设计交付物</h2><ul><li>本汇报：20 页 HTML + 完整 MD</li><li>双任务信息架构</li><li>双任务可交互 HTML、18 张 SVG 与截图</li><li>视觉规范与图标资产</li><li>桌面、窄屏布局检查</li></ul></div><div class="card orange"><span class="eyelabel">验证范围</span><h2>原型已检验 / 产品待检验</h2><p><b>已检验：</b>本地页面状态、候选采纳、交付路径和浏览器视觉表现。</p><p><b>待检验：</b>真实 Agent HTML 项目、DOM 到源码回写、跨状态自动回归、外部多人分享。</p><div class="hr"></div><p><b>下一步：</b>用真实生成项目走完“定位主稿—连续两次局部修订—交付包复现”。</p></div></div><div class="foot"><span>AutoClaw Design Agent · 方案汇报</span><span>20 / 20</span></div></section>
+
+</div><div class="bottom"><button id="prev">← 上一页</button><button id="next">下一页 →</button><div class="progress"><span id="progress"></span></div><span class="hint">← → 翻页</span></div></div><div class="doc-view"><article class="article"><h1>AutoClaw Design Agent｜完整文稿汇总</h1>
+<p>本稿整合测试题、AutoClaw 界面截图、设计过程文件、双任务原型，以及新增的竞品调研、MVP 过程和 PRD 材料。它说明当前方案如何形成、具体解决什么问题、原型验证到了哪里。<strong>本稿是方案汇总，不将另一份探索 PRD 的设想视为已上线能力，也不把可点击 Demo 视为用户测试或工程可行性验证。</strong></p>
+<h2>01｜题目、对象与方案范围</h2>
+<p>测试题的主产物是 HTML：用户可用自然语言、截图、Figma、PRD 和代码等材料，让 Design Agent 从零生成网页或 UI，也可以基于已有设计继续修改。Task 1 要求在一次任务结束后，让用户能够查看结果、运行预览、继续编辑，并管理同一任务产生的多个文件。Task 2 要求选择一个最值得增加的 Design Feature，深入说明用户问题、机制、交互与价值。</p>
+<p>本轮以<strong>产品设计师</strong>为主要用户，选择“Agent 已生成初版，设计师要局部修订并交给开发”作为 Task 1 的核心场景。Task 2 选择<strong>版本锚定的协作建议</strong>：PM 或前端对指定版本、页面状态和对象提出建议，设计师决定是否转成修改候选。两题在同一产品结构下衔接，但 Task 1 不依赖多人参与才能成立。</p>
+<p>交付标准不是“生成了一张看起来正确的截图”，而是设计师能确认当前主稿、知道修改影响了什么、保留原版本，并让预览与最终文件指向同一版本。当前原型用 SVG 示例具体演示这一链路；它<strong>尚未验证任意 HTML/CSS/JS 项目的对象定位和源码回写</strong>。</p>
+<h2>02｜资料整合与证据级别</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>对本稿的作用</th>
+<th>使用边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>测试题截图与 AutoClaw 界面截图</td>
+<td>确定两项任务、HTML 产物范围和现有项目／任务／对话结构</td>
+<td>截图只证明可见界面，不证明未展示的产品能力</td>
+</tr>
+<tr>
+<td>用户提供的 Lovart、万相、WorkBuddy 画面</td>
+<td>观察局部编辑、多节点组织和任务旁预览的界面方式</td>
+<td>只能归纳截图或录屏可见的交互，不能推断其内部实现</td>
+</tr>
+<tr>
+<td><a href="../process/design_workspace_v13/2026-10-12_AutoClaw_Design测试题_双任务信息架构_V13.md">现有信息架构</a>与双任务原型</td>
+<td>作为当前方案及可点击结果的依据</td>
+<td>原型的本地模拟与实际文件修改须分开描述</td>
+</tr>
+<tr>
+<td><a href="references/01-竞品调研.pdf">新增竞品调研</a></td>
+<td>补充“产物状态、精修、评审对象”的比较维度</td>
+<td>多项竞品能力、评分和市场判断没有可逐条核验的来源链接，本稿不作为事实结论引用</td>
+</tr>
+<tr>
+<td><a href="references/02-MVP过程.pdf">新增 MVP 过程</a>与<a href="references/03-PRD.pdf">探索 PRD</a></td>
+<td>提供状态区分、版本留痕、语义选择和交付门禁等可评审机制</td>
+<td>文中“已验证”“P0”“【定】”多为作者判定；仍需与当前原型及真实 HTML 任务分别核验</td>
+</tr>
+</tbody>
+</table>
+<p>新增的<a href="references/DesignWorkspace方案评审材料_合订本.pdf">合订评审材料</a>主要汇集上述三份 PDF，保留为查阅入口。文中的“第一稿从两天压缩到十分钟”“竞品都能到 60 分”“选中即改零学习成本”等表达缺少本项目可核对的样本、方法或原始链接，因此没有进入本稿的事实层。</p>
+<h2>03｜设计工作路径与待解决问题</h2>
+<p>设计师的工作不是在第一次生成时结束。需求定义之后，团队需要比较方向、确定概念、检查运行体验，再把可交付版本交给研发。AI 缩短了初版制作时间，却同时引入了“哪个文件是主稿”“某次提示是否重做了整页”“评审的是哪版”这些需要在产品界面中明确回答的问题。本项目尚无用户频率数据，以下按任务链路整理为<strong>设计假设</strong>，不是统计结论。</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>设计师需要判断</th>
+<th>当前风险</th>
+<th>对应机制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>需求输入与方向形成</td>
+<td>目标、参考与约束是否明确</td>
+<td>模糊指令被直接执行，后续返工</td>
+<td>Agent 在关键歧义处追问，保留输入材料与确认记录</td>
+</tr>
+<tr>
+<td>初版生成</td>
+<td>哪个是可运行主稿，哪些是截图或参考</td>
+<td>多个格式混在消息里，主从关系不清</td>
+<td>任务结果卡进入产物工作区；主稿、资源、参考、派生物分组</td>
+</tr>
+<tr>
+<td>预览与局部修订</td>
+<td>改哪里、保留什么、会影响哪些状态</td>
+<td>重写提示词导致非目标区域变化</td>
+<td>运行预览定位对象；确定值直接调整，结构变化生成隔离候选</td>
+</tr>
+<tr>
+<td>方案评审</td>
+<td>PM、前端看到的是哪一版、哪种状态</td>
+<td>反馈脱离版本和对象</td>
+<td>建议锚定版本、页面／状态、对象，设计师决定是否采纳</td>
+</tr>
+<tr>
+<td>定稿与交付</td>
+<td>预览、文件和说明是否一致</td>
+<td>“Agent 完成”被误认作“人工批准”</td>
+<td>人工确认交付快照；文件清单与可机械检查项随版本保存</td>
+</tr>
+</tbody>
+</table>
+<p>PM 与设计师在<strong>方向收敛后、进入完整 Demo 前</strong>共同确认概念，可降低后续整案返工的风险；前端可在结构和技术约束需要提前判断时参与。这里是建议的评审时点，并未经过实际团队任务测试。Task 2 原型先验证“反馈被锚定且不能直接覆盖工作版”，不声称已实现完整在线评审流程。</p>
+<h2>04｜研究观察与方案演进</h2>
+<p>用户提供的 Lovart 录屏截帧显示对象选中、上下文工具、Quick Edit 与新旧结果并置；万相截图显示左侧指令过程与右侧多节点画布；WorkBuddy 截图显示项目／任务列表、对话文件卡和右侧画布。它们分别提示三种可借鉴的组织方式：<strong>围绕对象下达局部意图、在空间上比较多种结果、让任务记录与产物并列</strong>。但这些画面不能证明 HTML DOM 能被准确圈选并回写，也不能证明多人共同编辑的可靠性。</p>
+<p>新增竞品材料提出 Figma、Stitch、Framer、Pencil 等工具的不同路线，可作为后续核查清单。由于其多数能力说明和数字未附逐条原始证据，本轮不据此宣称“市场空白”或“行业共识”。本项目更可靠的决策依据，是测试题对 HTML 的明确要求、AutoClaw 已有界面、用户提供的可见竞品画面，以及本地原型走查发现的问题。</p>
+<p>方案从“无限画布承接所有格式”收敛为“<strong>可运行主稿 + 关联资料 + 轻量画板</strong>”。原因是题目要求处理 HTML：画板适合摆放参考、截图和方案卡片，真实的页面交互仍需要运行预览。早期独立 Design App 结构也被收回到 AutoClaw 任务内：左侧保留项目与任务，中间保留 Agent 对话，右侧随任务结果打开产物工作区。最后将生成后的单人产物链路与未来协作 Feature 拆成两个独立任务，避免 Task 1 被邀请流程稀释。</p>
+<p>AI 在过程中承担资料归类、信息结构草拟、HTML/SVG 状态稿生成和可点击样例制作；设计师明确题目边界、纠正产品结构、选择核心功能，并对原型与文稿的表述作最终判断。可核对的过程文件包括<a href="../process/md/2026-09-29_AI-Design-Agent_研究与方案方向_V01.md">研究方向</a>、<a href="../process/mvp_v03/2026-10-04_AutoClaw_Design工作区_MVP初稿_V03.md">MVP 初稿</a>和<a href="../process/design_workspace_v13/2026-10-12_AutoClaw_Design测试题_双任务信息架构_V13.md">信息架构</a>。</p>
+<h2>05｜四项关键产品决策</h2>
+<table>
+<thead>
+<tr>
+<th>决策</th>
+<th>当前方案</th>
+<th>取舍与尚待验证的问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>入口沿用 AutoClaw 任务</td>
+<td>Agent 完成消息中的产物卡打开右侧工作区</td>
+<td>新增材料建议把产物库固定左栏；当前以真实任务入口和 当前原型为先，不引入平行的 Design App</td>
+</tr>
+<tr>
+<td>源文件是权威主稿</td>
+<td>HTML、CSS、JS 与依赖资源构成运行主稿；截图和 PDF 为派生或参考</td>
+<td>当前原型的实际修改对象是 SVG 样例，HTML 同源编辑需要单独验证</td>
+</tr>
+<tr>
+<td>局部修改先成候选</td>
+<td>对象定位、修改意图、影响范围、候选对比与人工采纳形成闭环</td>
+<td>画笔圈选坐标到 DOM／组件的映射、共享样式影响仍未知</td>
+</tr>
+<tr>
+<td>把“完成”与“确认”分开</td>
+<td>Agent 执行状态、设计候选状态和交付快照分别记录</td>
+<td>新增 PRD 的四态模型可借鉴，但本轮不把 <code>draft/candidate/approved/superseded</code> 全套定义为已验证需求</td>
+</tr>
+</tbody>
+</table>
+<p>在数据语义上，<code>Agent 已完成生成</code> 只表示执行结束；<code>设计师已采纳候选</code> 表示工作版更新；<code>已确认交付</code> 表示某一版本的文件和说明被固定。三者不能共用一个 “done”。新增资料提出保留 manifest、不可静默覆盖历史、人工审批和确定性门禁；当前原型已演示版本保留、人工定稿和 SVG 文件结构检查。真实 HTML 项目还需定义具体文件校验和失败处理。</p>
+<h2>06｜信息架构与界面载体</h2>
+<pre><code class="language-text">AutoClaw
+├─ 左侧：项目 / 任务
+├─ 中间：Design 任务对话、输入材料、执行记录、完成结果卡
+└─ 右侧：当前任务的产物工作区
+   ├─ 成果：主稿、资源、参考、派生物、轻量画板
+   ├─ 预览与编辑：页面 × 状态 × 设备 × 版本、对象定位、修改意图
+   └─ 版本与交付：工作版、隔离候选、差异、采纳记录、交付快照
+</code></pre>
+<p>内容关系为 <code>Design 任务 → 产物集 → 主稿／参考／派生文件 → 视图 → 对象 → 候选 → 工作版 → 交付快照</code>。视图至少需要记录页面、状态、设备和版本。参考文件不得被 Agent 悄悄改写；派生截图应记录来源版本。可运行预览与下载源文件必须来自同一工作版，否则“看见的”与“交给开发的”会分离。</p>
+<p>轻量画板仅用于摆放与比较产物卡；点击 HTML 主稿进入聚焦运行预览，不把静态卡片当成网页编辑器。右侧空间有限时，以“成果／预览编辑／版本交付”三个工作态切换，而不是在同屏堆满文件树、画布、参数面板和聊天。对象选中时，画面高亮、对象名称和编辑控件应对应同一目标；若圈选不能解析到稳定对象，应先让用户确认命中范围。</p>
+<h2>07｜Task 1：从初版到交付的核心链路</h2>
+<p><strong>任务完成与识别。</strong> Agent 在对话中给出完成结果卡，展示主稿入口、文件数量、未处理问题。设计师打开右侧成果页，区分 HTML 主稿、运行资源、截图、PRD 和 Figma 引用。缺失依赖的主稿可查看文件，但不得标记为“可运行交付”。</p>
+<p><strong>聚焦预览与修改。</strong> 设计师选择 <code>页面／状态／设备／版本</code> 后运行预览，点选对象或用画笔圈选。确定性属性可输入明确值；可能改变结构的自然语言指令先生成隔离候选，并记录“保留哪些区域”。候选与原工作版并排审阅，显示目标对象、改动范围和需要复核的视图。设计师采纳后生成新的工作版，旧版保留可追溯。</p>
+<p><strong>固定交付。</strong> 设计师确认版本后，系统保存不可静默覆盖的交付快照，包含源文件、依赖、运行入口、预览来源版本、检查结果和已知问题。能机械判断的缺失文件、不可解析结构等自动检查；素材授权、业务验收和最终采用由人判断。新增 PRD 中“定稿等于复制”的建议适合作为实现方式，但最终的复制／快照策略仍需结合 AutoClaw 存储模型确认。</p>
+<p><a href="demo/autoclaw_task1_v13/index.html">测试 1 原型</a>用一个可核对的 SVG 示例走完链路：确认 1512×945 画板和矢量／文字要求；生成首版；选择输入卡片，把圆角从 25px 改为 12px；比较并采纳 v2；固定版本；检查实际 SVG 尺寸、文字与位图元素，再下载 SVG 和 manifest。自然语言理解与生成进度是本地模拟，属性修改与文件结构检查可在原型内操作。它证明样例流程可走通，<strong>不证明 HTML 项目的任意局部编辑已实现</strong>。</p>
+<h2>08｜Task 2：版本锚定的协作建议</h2>
+<p>当 PM 或前端说“这个按钮需要改”，设计师需要知道对方查看的是哪个版本、哪个页面状态和哪个对象。Task 2 的最小机制是把建议绑定 <code>version_id + view_id + target_ref</code>：受邀者看到固定位置的预览并提出意见，建议不直接覆盖工作版；设计师将其转成候选，比较后采纳或保留原方案。版本变化时，旧建议仍留在原版本，新的决定另行记录。</p>
+<p><a href="demo/autoclaw_task2_v13/index.html">测试 2 原型</a>从已有首页 v1 进入独立评审任务，演示建议、候选、采纳和本地评审记录下载。邀请与反馈不接入外部服务，刷新会重置。多角色权限、在线同步和研发真实技术评审尚未验证，不能以可点击页面代替其工程设计。</p>
+<h2>09｜设计稿还原、规范与产出过程</h2>
+<p>设计稿先还原用户提供的 AutoClaw 基础界面，再扩展 Design 工作区。现有 <a href="../process/autoclaw_unified_v08/README.md">统一界面</a>与<a href="design-spec/README.md">可视化设计规范</a>记录了布局、色彩、字体、图标、组件和交付规则；1512×945 画板与 280 侧栏／420 对话／812 工作区是本项目的执行基线，不冒称 AutoClaw 官方精确值。</p>
+<p>设计稿的结构变化有三步：基础界面与图标还原；根据“套壳、不符合 Agent 操作流程”的反馈，把产物入口接回任务结果；将 Task 1 的生成—修订—交付和 Task 2 的协作建议拆为独立可演示链路。<a href="demo/autoclaw_task1_v13/README.md">测试 1 文件包</a>含 14 张关键状态 SVG、独立 HTML、预览和实际下载的交付样例；<a href="demo/autoclaw_task2_v13/README.md">测试 2 文件包</a>含 4 张评审状态 SVG 与独立原型。Figma 导入辅助工具已做语法与输入检查，尚未在 Figma 实测组件和文字保真度。</p>
+<h2>10｜MVP 范围、验证与下一步</h2>
+<p><strong>本轮优先</strong>保留任务入口、产物角色识别、主稿运行预览、单对象局部修改、隔离候选、版本采纳和同版交付检查。<strong>后续探索</strong>包括画笔到 DOM 的稳定映射、跨页面和响应式影响分析、设计 token 的语义约束、跨产物规范继承、多角色权限及在线同步。无限画布绘制、全功能 Figma 式拖拽和多人实时同编不进入当前 Task 1 MVP；轻量画板仍保留用于比较与组织。</p>
+<p>已完成的是本地原型走查、SVG 样例的实际属性修改与导出结构检查，以及报告中 20 页画板、文稿和双任务入口的浏览器检查。<strong>尚无真实设计师可用性测试数据</strong>，也没有用真实 AutoClaw Agent 输出的 HTML 项目验证连续修改。下一轮应选一份真实生成的 HTML/CSS/JS 产物，让设计师完成“找到主稿—运行预览—两次局部修订—比较影响—交给开发”的任务；同时检查 DOM 定位准确率、未选中区域是否变化、预览与导出文件是否同版，以及失败时能否回退。PM 和前端再分别检查固定版本的建议是否清楚、交付包能否复现。</p>
+<p>本报告的<a href="index.html#slide-01">汇报画板</a>负责展示方案要点，<a href="index.html#demo">交互演示</a>负责操作两条原型路径；本完整文稿保留资料来源、方案取舍和验证边界。原探索稿与当前方案的差异已整理为<a href="2026-10-12_AutoClaw_DesignWorkspace_PRD_修订V04.md">PRD 修订稿</a>。打开浏览器时请使用 <strong><code>index.html#document</code></strong>，<code>index.template.html</code> 是生成用源文件。</p></article></div><div class="demo-view"><div class="demo-head"><div><h2>AutoClaw Design 工作区 · 可交互演示</h2><p>测试 1：设计产物生成、精准修改与交付；测试 2：基于产物版本的协作评审。演示为本地模拟，任务状态彼此独立。</p></div><div class="demo-actions"><button type="button" data-demo="task1">测试 1</button><button type="button" data-demo="task2">测试 2</button><a id="demo-open" href="demo/autoclaw_presentation_v18/index.html#task2" target="_blank" rel="noopener">独立打开 ↗</a></div></div><iframe class="demo-frame" src="demo/autoclaw_presentation_v18/index.html#task2" title="AutoClaw Design 工作区双任务演示"></iframe></div></main></div>
+<div class="overview" id="overview" role="dialog" aria-modal="true" aria-label="汇报总览"><div class="overview-head"><b>汇报总览 · 20 页</b><button id="close-overview">关闭 ×</button></div><div class="overview-grid" id="overview-grid"></div></div>
+<script>
+(()=>{const slides=[...document.querySelectorAll('.slide')],titles=slides.map(s=>s.dataset.title),list=document.getElementById('slide-list'),select=document.getElementById('mobile-select'),stage=document.getElementById('stage'),grid=document.getElementById('overview-grid'),overview=document.getElementById('overview');let current=0,mode='deck';titles.forEach((title,i)=>{let b=document.createElement('button');b.className='slide-link';b.dataset.goto=i;b.innerHTML='<span>'+String(i+1).padStart(2,'0')+'</span><span>'+title+'</span>';b.addEventListener('click',()=>go(i));list.append(b);let o=document.createElement('option');o.value=i;o.textContent=String(i+1).padStart(2,'0')+' · '+title;select.append(o);let t=document.createElement('button');t.className='overview-item';t.innerHTML='<b>'+String(i+1).padStart(2,'0')+'</b>'+title;t.addEventListener('click',()=>{go(i);overview.classList.remove('open')});grid.append(t)});function size(){let w=Math.min(stage.clientWidth,1280),s=w/1280;stage.style.height=(720*s)+'px';slides.forEach(el=>el.style.transform='scale('+s+')')}function go(i,hash=true){current=Math.max(0,Math.min(i,slides.length-1));slides.forEach((s,j)=>s.classList.toggle('active',j===current));document.querySelectorAll('.slide-link').forEach((b,j)=>b.classList.toggle('active',j===current));document.getElementById('current-title').textContent=titles[current];document.getElementById('count').textContent=String(current+1).padStart(2,'0')+' / '+slides.length;select.value=String(current);document.getElementById('prev').disabled=current===0;document.getElementById('next').disabled=current===slides.length-1;document.getElementById('progress').style.width=((current+1)/slides.length*100)+'%';if(hash)history.replaceState(null,'','#slide-'+String(current+1).padStart(2,'0'));window.scrollTo({top:0,behavior:'instant'})}function setMode(m,hash=true){mode=m;document.body.classList.toggle('doc-mode',m==='doc');document.body.classList.toggle('demo-mode',m==='demo');document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===m));if(hash)history.replaceState(null,'',m==='doc'?'#document':m==='demo'?'#demo':'#slide-'+String(current+1).padStart(2,'0'));window.scrollTo({top:0,behavior:'instant'})}document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));select.addEventListener('change',e=>go(Number(e.target.value)));document.getElementById('prev').addEventListener('click',()=>go(current-1));document.getElementById('next').addEventListener('click',()=>go(current+1));document.getElementById('overview-btn').addEventListener('click',()=>overview.classList.add('open'));document.getElementById('close-overview').addEventListener('click',()=>overview.classList.remove('open'));overview.addEventListener('click',e=>{if(e.target===overview)overview.classList.remove('open')});document.getElementById('fullscreen-btn').addEventListener('click',async()=>{if(document.fullscreenElement)await document.exitFullscreen();else await stage.requestFullscreen()});document.getElementById('print-btn').addEventListener('click',()=>window.print());document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overview.classList.contains('open')){overview.classList.remove('open');return}if(e.target.matches('input,textarea,select'))return;if(mode!=='deck'||overview.classList.contains('open'))return;if(e.key==='ArrowRight')go(current+1);if(e.key==='ArrowLeft')go(current-1);if(e.key.toLowerCase()==='o')overview.classList.add('open')});const demoFrame=document.querySelector('.demo-frame'),demoOpen=document.getElementById('demo-open');function showDemo(task){const url='demo/autoclaw_presentation_v18/index.html#task'+task;if(demoFrame.getAttribute('src')!==url)demoFrame.src=url;demoOpen.href=url;document.querySelectorAll('[data-demo]').forEach(b=>b.classList.toggle('active',b.dataset.demo==='task'+task))}document.querySelectorAll('[data-demo]').forEach(b=>b.addEventListener('click',()=>showDemo(b.dataset.demo==='task2'?2:1)));window.addEventListener('message',e=>{if(e.data?.type==='autoclaw-task-route'){if(e.data.task===0)setMode('deck');else showDemo(e.data.task)}});showDemo(2);window.addEventListener('resize',size);size();let m=location.hash.match(/^#slide-(\d+)$/);if(location.hash==='#document')setMode('doc',false);else if(location.hash==='#demo')setMode('demo',false);else go(m?Number(m[1])-1:0,false)})();
+</script></body></html>

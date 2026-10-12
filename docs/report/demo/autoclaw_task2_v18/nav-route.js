@@ -1,0 +1,1 @@
+document.addEventListener('click',e=>{const a=e.target.closest('a[href]');if(!a||parent===window)return;const h=a.getAttribute('href');const task=/autoclaw_task1_v18/.test(h)?1:/autoclaw_task2_v18/.test(h)?2:/autoclaw_presentation_v18/.test(h)?0:null;if(task!==null){e.preventDefault();parent.postMessage({type:'autoclaw-task-route',task},location.origin)}});

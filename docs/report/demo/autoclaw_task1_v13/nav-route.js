@@ -1,0 +1,1 @@
+document.addEventListener('click',e=>{const a=e.target.closest('a[href]');if(!a||parent===window)return;const href=a.getAttribute('href');let task=href.includes('autoclaw_task1_v13')?1:href.includes('autoclaw_task2_v13')?2:href.includes('index.html#demo')?0:null;if(task!==null){e.preventDefault();parent.postMessage({type:'autoclaw-task-route',task},'*')}});

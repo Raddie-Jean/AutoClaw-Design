@@ -1,0 +1,31 @@
+{
+  "task": "测试1",
+  "version": 2,
+  "status": "approved",
+  "width": 1512,
+  "height": 945,
+  "font": "PingFang SC",
+  "source": "AutoClaw native icons and V09 execution baseline",
+  "checks": [
+    {
+      "name": "画布尺寸",
+      "value": true,
+      "desc": "1512 × 945，与设计规范一致"
+    },
+    {
+      "name": "独立文字",
+      "value": true,
+      "desc": "32 个 SVG text 元素；Figma原生文字导入另附工具"
+    },
+    {
+      "name": "字体声明",
+      "value": true,
+      "desc": "PingFang SC；字体可用性需在接收端确认"
+    },
+    {
+      "name": "素材与结构",
+      "value": true,
+      "desc": "使用本机 AutoClaw 提取图标；当前产物无嵌入位图"
+    }
+  ]
+}

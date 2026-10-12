@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#122D31"/>
+<rect x="86" y="84" width="242" height="44" rx="22" fill="#12877D"/>
+<text x="207" y="114" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">产品设计测试题 · 汇报稿</text>
+<text x="87" y="247" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="72" font-weight="700" fill="#FFFFFF" text-anchor="start">从 AI 初稿</text>
+<text x="87" y="344" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="72" font-weight="700" fill="#FFFFFF" text-anchor="start">到可交付方案</text>
+<rect x="87" y="397" width="907" height="8" rx="4" fill="#F5AB6E"/>
+<text x="88" y="478" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="400" fill="#CBE2DC" text-anchor="start">Design Agent 工作区设计：</text>
+<text x="88" y="525" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="400" fill="#CBE2DC" text-anchor="start">让设计师看清结果、精准修订，并和 PM / 开发围绕同一版本决策。</text>
+<rect x="1107" y="186" width="380" height="470" rx="28" fill="#24464A"/>
+<circle cx="1168" cy="255" r="27" fill="#43676A"/>
+<text x="1168" y="263" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#FFFFFF" text-anchor="middle">01</text>
+<text x="1223" y="264" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="600" fill="#FFFFFF" text-anchor="start">看清初稿</text>
+<circle cx="1168" cy="355" r="27" fill="#12877D"/>
+<text x="1168" y="363" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#FFFFFF" text-anchor="middle">02</text>
+<text x="1223" y="364" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="600" fill="#FFFFFF" text-anchor="start">控制修改</text>
+<circle cx="1168" cy="455" r="27" fill="#43676A"/>
+<text x="1168" y="463" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#FFFFFF" text-anchor="middle">03</text>
+<text x="1223" y="464" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="600" fill="#FFFFFF" text-anchor="start">阶段共识</text>
+<circle cx="1168" cy="555" r="27" fill="#43676A"/>
+<text x="1168" y="563" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#FFFFFF" text-anchor="middle">04</text>
+<text x="1223" y="564" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="28" font-weight="600" fill="#FFFFFF" text-anchor="start">固定交付</text>
+<text x="88" y="811" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="20" font-weight="400" fill="#8EACA8" text-anchor="start">2026.10.05  ·  基于研究 V01–V07 与可点击原型 V08</text>
+</svg>

@@ -1,0 +1,23 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>README</title><style>body{max-width:980px;margin:48px auto;padding:0 24px;font:16px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:#262626}a{color:#287dff}img{max-width:100%}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ddd;padding:8px}pre{overflow:auto;background:#f7f7f7;padding:16px}</style><p><a href="README.md">下载可编辑 Markdown</a></p><h2>原生工具栏更新（2026-10-12）</h2>
+<p>两条任务统一底部选择、文字、蓝色评论、添加 SVG 素材、抓手工具。顶部恢复幻灯片/预览/桌面/平板/手机，以及打开和下载菜单。HTML 与 PNG 可下载，PDF 使用浏览器打印保存；复制到 Figma 提供 SVG 剪贴板内容，剪贴板不可用时下载 SVG。打开文件夹进入本地演示产物管理；网页不能直接控制系统文件管理器。幻灯片使用全屏预览。</p>
+<h2>2026-10-12 · 已更新交互演示 V18</h2>
+<p><code>index.html#demo</code> 已接入确认后的主界面结构，汇报画板与文稿保持原有内容。测试1顶部「产物管理」支持分类文件夹、文件筛选、对象定位修改、候选比较、版本及定稿；测试2右上文件夹入口支持相同的任务产物树，20px 图标与32px点击区域保持一致，保留独立协作评审。</p>
+<p>打开的是演示内的产物目录，不会直接控制系统 Finder 或改写磁盘目录。目录依据各自任务版本状态组织；原始素材与规范只读。两条任务状态独立，切换保留，刷新重置。首页设计稿可修改标题、圆角、侧栏背景与账户栏文字颜色；自由文本修改意图仅记录，具体改动由参数或预设意见驱动。邀请、AI生成与多人意见为本地模拟。</p>
+<p>默认测试1显示确认的首版，点击「重新演示」或「新建任务」可从需求发起和生成过程开始。测试2从已有 v1 发起评审。导出真实 SVG、定稿 manifest 及评审 JSON。</p>
+<p>入口：<code>demo/autoclaw_presentation_v18/index.html#task1</code> 与 <code>#task2</code>。旧版本保留；<code>backups/</code> 保存更新前的汇报 HTML 与模板。<code>V18_交互验证.json</code> 记录本轮完整流程结果，<code>previews/V18_*.png</code> 为浏览器实测截图。</p>
+<hr />
+<h1>AutoClaw Design Agent 方案汇报 V17</h1>
+<p>打开 <code>index.html</code> 即可查看 20 页汇报画板、完整文稿和最新 V18 双任务交互演示（按确认的 V17 主界面更新）。画板支持目录、左右方向键、总览、全屏和打印。<code>2026-10-12_AutoClaw_DesignAgent_完整文稿汇总_V17.md</code> 是当前可编辑的文稿来源；修改后运行 <code>python3 build.py</code> 可更新 HTML。<code>index.template.html</code> 仅用于生成，浏览器直接打开时会跳转到 <code>index.html</code>。原 <code>2026-10-12_AutoClaw_DesignAgent_方案汇报_V17.md</code> 保留作整合前版本。</p>
+<p>新增资料整合后，完整文稿归纳了截图观察、另一智能体的竞品／MVP／PRD 提案和当前 V13 原型的证据边界；<code>2026-10-12_AutoClaw_DesignWorkspace_PRD_修订V04.md</code> 修正了原探索 PRD 与测试题或当前方案不一致的内容。<code>references/</code> 保存用户提供的四份 PDF 原件副本，供离线核对。本轮未改动 20 页画板设计、SVG 稿或两条交互原型。</p>
+<h2>本版改动</h2>
+<ul>
+<li>汇报从旧版讨论过程改为：创意发散与 AI 协作、竞品截图观察、关键决策、信息架构、V13 两项测试原型、界面规范与设计稿演进。</li>
+<li>删除“草图三态”独立章节；不把未经验证的口头评审流程写成既有产品机制。</li>
+<li>“交互演示”接入 V15 双任务演示目录，默认打开测试 2；顶部可切换测试 1 与测试 2，也可独立打开。<code>demo/</code> 已包含 V15 演示及所需同级任务目录，离线打开即可查看；原 V13 文件保留。</li>
+<li><code>assets/</code> 保留竞品、AutoClaw 基础界面、规范与各轮原型截图；<code>previews/</code> 是浏览器逐页检查截图。</li>
+</ul>
+<h2>证据与边界</h2>
+<p>Lovart、万相和 WorkBuddy 的具体观察基于用户提供的录屏截帧或截图。用户的 Figma 竞品画板还有补充材料，但本轮接口受 Starter 调用额度限制，未逐张读取，因此未对这些未核对画面写功能结论。</p>
+<p>测试题当前以 HTML 为设计产物；V15 测试 1 则以 SVG 样例完成对象属性修改、候选采纳和真实结构检查。它验证的是这条交互链路及该样例的文件一致性，尚不能证明通用 HTML 项目的 DOM 定位、源码回写与跨状态检查。测试 2 的邀请和反馈为本地模拟，刷新会重置。汇报画板与完整文稿仍保留原有方案内容，本次只更新交互演示入口，未改设计稿。</p>
+<h2>校验</h2>
+<p>运行 <code>python3 verify.py</code> 可检查 20 页切换、图片加载、文稿与 V15 双任务演示入口、任务切换、窄屏水平溢出及浏览器脚本错误。PDF 由 <code>python3 export_pdf.py</code> 生成在 <code>../pdf/AutoClaw_DesignAgent_方案汇报_V17.pdf</code>；该 PDF 对应汇报画板，本次未重新导出。</p></html>

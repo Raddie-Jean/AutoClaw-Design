@@ -1,0 +1,50 @@
+{
+  "boards": [
+    {
+      "board": "06_图标与素材.svg",
+      "text_elements": 41,
+      "vector_only": true,
+      "rendered": true
+    },
+    {
+      "board": "05_组件与状态.svg",
+      "text_elements": 38,
+      "vector_only": true,
+      "rendered": true
+    },
+    {
+      "board": "01_规范总览.svg",
+      "text_elements": 42,
+      "vector_only": true,
+      "rendered": true
+    },
+    {
+      "board": "03_文字与空间.svg",
+      "text_elements": 37,
+      "vector_only": true,
+      "rendered": true
+    },
+    {
+      "board": "07_出稿与交付.svg",
+      "text_elements": 37,
+      "vector_only": true,
+      "rendered": true
+    },
+    {
+      "board": "04_布局模板.svg",
+      "text_elements": 29,
+      "vector_only": true,
+      "rendered": true
+    },
+    {
+      "board": "02_色彩与层级.svg",
+      "text_elements": 62,
+      "vector_only": true,
+      "rendered": true
+    }
+  ],
+  "all_svg_parsed": true,
+  "plugin_syntax_checked": true,
+  "figma_import_tested": false,
+  "native_figma_file_created": false
+}

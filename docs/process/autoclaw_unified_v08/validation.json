@@ -1,0 +1,20 @@
+{
+  "screens": [
+    {
+      "screen": "01_任务首页_统一规范.svg",
+      "texts": 32,
+      "groups": 31,
+      "raster_assets": 8
+    },
+    {
+      "screen": "02_任务执行_代码与项目文件_统一规范.svg",
+      "texts": 106,
+      "groups": 49,
+      "raster_assets": 2
+    }
+  ],
+  "rendered": true,
+  "figma_style_context_complete": false,
+  "plugin_syntax_checked": true,
+  "plugin_run_in_figma": false
+}

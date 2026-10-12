@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-12",
+  "browser": "Chrome Chromium macOS headless",
+  "isolated_path": "/var/folders/9z/bdrtng4j073554bq2s5wrbb00000gn/T/AutoClaw 其他设备 解压验证 b83pq9mj",
+  "network": "HTTP/HTTPS请求全部阻断",
+  "passed": [
+    "解压至不同路径后，断网打开统一首页与14个分类入口",
+    "20页汇报及图片可离线加载",
+    "测试1：圆角修改→候选对比→采纳v2→定稿→真实SVG下载",
+    "测试2：发起评审→头像气泡→候选对比→采纳→回复→解决",
+    "双任务切换，独立状态保留",
+    "产物管理入口、顶部图标工具栏与底部工具栏可用，无挤压换行",
+    "7章设计规范全部离线加载",
+    "两份录屏可加载并读取时长",
+    "390px移动视口可进入工作区（模拟，非真实手机实测）",
+    "演示运行无外网请求、无页面脚本报错"
+  ],
+  "errors": [],
+  "external_runtime_requests": [],
+  "limitations": [
+    "未在真实Windows/iOS/Android硬件验证",
+    "WebKit运行环境未安装，不宣称Safari实测",
+    "外部Figma链接需要网络与权限"
+  ]
+}

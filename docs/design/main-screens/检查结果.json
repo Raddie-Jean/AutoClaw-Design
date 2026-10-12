@@ -1,0 +1,16 @@
+[
+  {
+    "file": "测试1_预览与编辑主界面_V17.svg",
+    "native_text": 111,
+    "native_rects": 44,
+    "semantic_groups": 46,
+    "text_parity": true
+  },
+  {
+    "file": "测试2_协作评审主界面_V17.svg",
+    "native_text": 115,
+    "native_rects": 37,
+    "semantic_groups": 47,
+    "text_parity": true
+  }
+]

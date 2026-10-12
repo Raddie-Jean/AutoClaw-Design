@@ -1,0 +1,142 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>2026-10-12_AutoClaw_DesignWorkspace_PRD_修订V04</title><style>body{max-width:980px;margin:48px auto;padding:0 24px;font:16px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:#262626}a{color:#287dff}img{max-width:100%}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ddd;padding:8px}pre{overflow:auto;background:#f7f7f7;padding:16px}</style><p><a href="2026-10-12_AutoClaw_DesignWorkspace_PRD_修订V04.md">下载可编辑 Markdown</a></p><h1>AutoClaw Design Workspace PRD｜修订 V0.4</h1>
+<blockquote>
+<p>2026-10-12 · 方案评审稿。以测试题与现有 V13 双任务原型为当前方案基线。本文件修订另一智能体的 <a href="references/03-PRD.pdf">探索 PRD v0.3</a>，保留原版供追溯。这里的 P0/P1 表示建议优先级，不表示已经过用户或工程验证。</p>
+</blockquote>
+<h2>1. 本次修订的依据与变化</h2>
+<p>测试题 Task 1 的主产物是 HTML，要求完成一次 Design 任务后自然地查看、预览、编辑并管理相关文件；Task 2 是选择一个新的设计能力深入。原探索稿提出的状态留痕、局部编辑和交付检查有价值，但把“已做成可点击 Demo”写成“已验证需求”，将产物库改为左栏常驻，并把四态、全量语义参数、自动门禁等一并列为 P0，超出当前证据与 V13 设计范围。</p>
+<table>
+<thead>
+<tr>
+<th>原 v0.3 表述</th>
+<th>修订结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>产物库常驻左栏，形成独立三栏设计应用</td>
+<td>沿用 AutoClaw 左侧项目／任务和中间对话；当前任务结果在右侧打开产物工作区</td>
+</tr>
+<tr>
+<td><code>draft/candidate/approved/superseded</code> 四态均为已验证 P0</td>
+<td>分开 Agent 执行状态、设计候选／工作版状态和交付确认；四态命名留待数据模型评审</td>
+</tr>
+<tr>
+<td>选中即改为“零学习成本”</td>
+<td>V13 可点击样例能演示对象选择与确定值修改；真实用户理解度和 HTML 命中率未验证</td>
+</tr>
+<tr>
+<td>生成后自动切画布，文件只是副产物</td>
+<td>完成卡是入口；成果页先辨认 HTML 主稿、资源、参考和派生文件，再打开运行预览</td>
+</tr>
+<tr>
+<td>无限画布一概不做</td>
+<td>不做承载全部操作的无限画布；保留轻量手动画板组织和比较产物</td>
+</tr>
+<tr>
+<td>Agent 多候选一概不向用户展示</td>
+<td>方向探索阶段允许比较方案；局部修订候选必须供设计师审阅，不静默替换工作版</td>
+</tr>
+<tr>
+<td>一次定稿自动通过全部交付门禁</td>
+<td>机械检查与人工采用分离；真实 HTML 检查项、阈值和阻断级别待工程验证</td>
+</tr>
+</tbody>
+</table>
+<h2>2. 目标用户与核心任务</h2>
+<p>主要用户为产品设计师：已通过自然语言、PRD、截图或 Figma 参考发起 Design 任务，Agent 生成初版后，设计师需要找出可运行主稿、判断效果、改动具体对象，并把确定版本交给开发。产品经理与前端是 Task 2 的评审参与者，角色权限尚不属于 Task 1 MVP。</p>
+<p>成功路径：<code>任务完成 → 识别主稿与资料 → 运行预览 → 定域修改 → 候选对比 → 人工采纳 → 固定交付版本 → 导出文件和说明</code>。没有用户任务测试，不能声称该流程已证明比现有方式更快。</p>
+<h2>3. 产品结构与数据对象</h2>
+<pre><code class="language-text">AutoClaw
+├─ 项目 / 任务侧栏（沿用）
+├─ 当前任务对话：输入、Agent 过程、结果卡（沿用并扩展）
+└─ 右侧产物工作区
+   ├─ 成果：主稿、资源、参考、派生文件、轻量画板
+   ├─ 预览与编辑：页面 / 状态 / 设备 / 版本、对象与修改
+   └─ 版本与交付：工作版、隔离候选、采纳记录、快照
+</code></pre>
+<p><code>DesignTask</code> 关联对话和产物集；<code>SourceBundle</code> 保存 HTML 入口、CSS/JS 和依赖资源；<code>Reference</code> 保存 PRD、截图、Figma 链接及来源；<code>DerivedAsset</code> 记录来源版本；<code>View</code> 记录页面、状态、断点和版本；<code>Candidate</code> 记录基线、目标对象、影响文件和审阅结论；<code>DeliverySnapshot</code> 固定交付版本、文件清单、运行方式、检查结果和已知问题。主稿为可运行项目，截图和画板卡片不是其权威源。</p>
+<p>状态分为三条独立信息，不用一个 <code>done</code> 统称：</p>
+<ol>
+<li><strong>Agent 执行</strong>：运行中、已完成、失败。已完成只表示生成任务结束。</li>
+<li><strong>设计版本</strong>：当前工作版、待审候选、历史版本。采纳候选产生新工作版，不覆盖历史。</li>
+<li><strong>交付决定</strong>：未确认、已由用户确认的交付快照。Agent 可建议，但不代替设计师确认。</li>
+</ol>
+<p>完整状态机、回滚分支及多人批准权在工程评审后定义。应保存可追溯记录，但不以“所有历史永不可删除”作为未经评估的产品规则。</p>
+<h2>4. Task 1 功能要求</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>优先级</th>
+<th>要求</th>
+<th>可检查结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1-01</td>
+<td>P0</td>
+<td>完成结果卡提供“打开产物工作区”入口</td>
+<td>不翻找聊天记录即可进入当前任务的成果页</td>
+</tr>
+<tr>
+<td>T1-02</td>
+<td>P0</td>
+<td>成果页区分 HTML 主稿、运行资源、参考与派生物</td>
+<td>每个对象可见角色、来源和对应操作；缺依赖时标注不可运行</td>
+</tr>
+<tr>
+<td>T1-03</td>
+<td>P0</td>
+<td>选择页面／状态／设备／版本并运行预览</td>
+<td>预览来源版本明确，切换后定位信息同步更新</td>
+</tr>
+<tr>
+<td>T1-04</td>
+<td>P0</td>
+<td>点选对象并确认目标范围；确定值修改或 AI 局部候选</td>
+<td>候选采纳前不改工作版，失败时可返回基线</td>
+</tr>
+<tr>
+<td>T1-05</td>
+<td>P0</td>
+<td>对比候选与工作版，展示改动范围和待复核视图</td>
+<td>设计师能采纳、放弃或继续调整候选</td>
+</tr>
+<tr>
+<td>T1-06</td>
+<td>P0</td>
+<td>固定人工确认的交付快照并导出</td>
+<td>预览、源文件、资源清单和说明指向同一版本</td>
+</tr>
+<tr>
+<td>T1-07</td>
+<td>P1</td>
+<td>轻量画板组织参考、缩略图和方向卡</td>
+<td>可摆放、分组、打开来源，不承担 HTML 源码编辑</td>
+</tr>
+<tr>
+<td>T1-08</td>
+<td>P1</td>
+<td>语义 token 与跨视图影响检查</td>
+<td>需要真实 HTML 项目和设计系统输入后定义验收</td>
+</tr>
+</tbody>
+</table>
+<p>生成前的歧义追问是可选的约束澄清机制：只有关键要求存在多种解释、且不同解释会显著改变结果时才触发。不能把 Demo 中的追问时间或生成百分比当作真实性能数据。对象圈选也不应直接等同于可编辑组件；必须先确认命中的 DOM／组件范围。</p>
+<h2>5. Task 2 Feature：版本锚定的协作建议</h2>
+<p>受邀者的评论或修改建议绑定 <code>version_id + view_id + target_ref</code>。他们先看到固定版本的指定页面状态和对象，再提交建议；不能直接覆盖工作版。设计师选择把建议转为隔离候选，比较影响后采纳、拒绝或保留讨论。旧建议不随新版本自动迁移。Task 2 可以独立从已有版本开始，不重复 Task 1 的生成和交付全过程。</p>
+<p>V13 原型仅本地模拟邀请、反馈和评审记录，未实现真实分享、权限、通知、并发或审计系统。这些能力不写入本轮已实现范围。</p>
+<h2>6. 验收与验证计划</h2>
+<p><strong>已可在本地原型检查</strong>：SVG 示例中输入卡片圆角 25px→12px 的实际属性变化；隔离候选与工作版对比；人工采纳后保留历史；定稿下载的 SVG 与预览同源；SVG 尺寸、文字和位图元素的结构检查。测试 2 可检查建议的版本锚定展示和本地记录导出。这些仅是原型层验证。</p>
+<p><strong>进入工程前必须验证</strong>：真实 Design Agent 输出能否被识别为完整 HTML/CSS/JS 项目；点击或圈选区域能否稳定映射 DOM／组件；修改共享样式后是否影响其他页面或断点；预览与导出包是否可复现；依赖缺失或检查失败时是否能正确阻断交付。建议选择一份真实生成项目，连续做两次局部修改，并由前端在另一设备打开交付包复核。</p>
+<p><strong>进入产品判断前必须验证</strong>：设计师能否独立找到主稿、理解候选与工作版差别、识别“Agent 完成”与“人工确认”的区别；PM 和前端能否在固定版本给出可定位建议。记录成功率、错误位置、返工次数和主观困惑，不预设“零学习成本”或效率提升数字。</p>
+<h2>7. 本轮边界与待决问题</h2>
+<p>本轮不做完整无限画布、自由拖拽改布局、多人实时同编或从零建设设计系统。轻量画板与对象级修改仍保留。待决问题包括：HTML 对象身份如何跨版本保持稳定；圈选未解析到对象时如何降级；共享样式影响如何提示；交付快照采用复制还是不可变引用；设计 token 缺失时是否允许局部属性修改；Task 2 的真实角色与批准权如何定义。上述问题需要真实项目和参与者验证后再定优先级。</p>
+<h2>8. 资料与原型</h2>
+<ul>
+<li><a href="2026-10-12_AutoClaw_DesignAgent_完整文稿汇总_V17.md">完整文稿汇总</a>与<a href="index.html#slide-01">20 页汇报</a></li>
+<li><a href="../process/design_workspace_v13/2026-10-12_AutoClaw_Design测试题_双任务信息架构_V13.md">双任务信息架构 V13</a></li>
+<li><a href="demo/autoclaw_task1_v13/README.md">测试 1 原型及说明</a>；<a href="demo/autoclaw_task2_v13/README.md">测试 2 原型及说明</a></li>
+<li><a href="references/03-PRD.pdf">原探索 PRD v0.3</a>、<a href="references/02-MVP过程.pdf">MVP 过程</a>、<a href="references/01-竞品调研.pdf">竞品调研</a></li>
+</ul></html>

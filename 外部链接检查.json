@@ -1,0 +1,398 @@
+[
+  {
+    "url": "https://arxiv.org/html/2509.16779v2",
+    "status": 200,
+    "result": "可达",
+    "final": "https://arxiv.org/html/2509.16779v2"
+  },
+  {
+    "url": "https://arxiv.org/html/2606.13843v2",
+    "status": 200,
+    "result": "可达",
+    "final": "https://arxiv.org/html/2606.13843v2"
+  },
+  {
+    "url": "https://autoclaw.zhipuai.cn/blog/model/glm-5.3-flash/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://autoclaw.zhipuai.cn/blog/model/glm-5.3-flash/"
+  },
+  {
+    "url": "https://autoclaw.zhipuai.cn/blog/product/auto-design-ai-designer/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://autoclaw.zhipuai.cn/blog/product/auto-design-ai-designer/"
+  },
+  {
+    "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-updates/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-updates/"
+  },
+  {
+    "url": "https://bolt.new/blog/bolt-figma-integration",
+    "status": 200,
+    "result": "可达",
+    "final": "https://bolt.new/blog/bolt-figma-integration"
+  },
+  {
+    "url": "https://bolt.new/blog/visual-edits",
+    "status": 200,
+    "result": "可达",
+    "final": "https://bolt.new/blog/visual-edits"
+  },
+  {
+    "url": "https://developers.googleblog.com/stitch-a-new-way-to-design-uis/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://developers.googleblog.com/stitch-a-new-way-to-design-uis/"
+  },
+  {
+    "url": "https://docs.animaapp.com/docs/starting-from-figma",
+    "status": 200,
+    "result": "可达",
+    "final": "https://docs.animaapp.com/docs/starting-from-figma"
+  },
+  {
+    "url": "https://docs.github.com/en/copilot/how-tos/copilot-on-github/use-copilot-agents/overview",
+    "status": 200,
+    "result": "可达",
+    "final": "https://docs.github.com/en/copilot/how-tos/copilot-on-github/use-copilot-agents/overview"
+  },
+  {
+    "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site",
+    "status": 200,
+    "result": "可达",
+    "final": "https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site"
+  },
+  {
+    "url": "https://docs.pen.dev/core-concepts/pencil-interface",
+    "status": 200,
+    "result": "可达",
+    "final": "https://docs.pen.dev/core-concepts/pencil-interface"
+  },
+  {
+    "url": "https://docs.pen.dev/design-and-code/design-to-code",
+    "status": 200,
+    "result": "可达",
+    "final": "https://docs.pen.dev/design-and-code/design-to-code"
+  },
+  {
+    "url": "https://github.com/Raddie-Jean/AutoClaw-Design",
+    "status": 200,
+    "result": "可达",
+    "final": "https://github.com/Raddie-Jean/AutoClaw-Design"
+  },
+  {
+    "url": "https://help.figma.com/hc/en-us/articles/16822138920343-Use-AI-tools-in-FigJam",
+    "status": 200,
+    "result": "可达",
+    "final": "https://help.figma.com/hc/en-us/articles/16822138920343-Use-AI-tools-in-FigJam"
+  },
+  {
+    "url": "https://help.figma.com/hc/en-us/articles/360063144053-Guide-to-branching",
+    "status": 200,
+    "result": "可达",
+    "final": "https://help.figma.com/hc/en-us/articles/360063144053-Guide-to-branching"
+  },
+  {
+    "url": "https://help.figma.com/hc/en-us/articles/40775535020695-Make-in-your-local-codebase",
+    "status": 200,
+    "result": "可达",
+    "final": "https://help.figma.com/hc/en-us/articles/40775535020695-Make-in-your-local-codebase"
+  },
+  {
+    "url": "https://help.webflow.com/hc/en-us/articles/38840145286035-Build-a-site-with-Webflow-s-AI-site-builder",
+    "status": 403,
+    "result": "未通过：HTTPError"
+  },
+  {
+    "url": "https://helpx.adobe.com/uk/photoshop/desktop/create-open-import-images/create-images/edit-images-with-generative-fill.html",
+    "status": 403,
+    "result": "未通过：HTTPError"
+  },
+  {
+    "url": "https://holopix.cn/aiAcademy/detail?articleId=73&amp;amp;tutorialType=4",
+    "status": 200,
+    "result": "可达",
+    "final": "https://holopix.cn/aiAcademy/detail?articleId=73&amp;amp;tutorialType=4"
+  },
+  {
+    "url": "https://holopix.cn/aiAcademy/detail?articleId=73&amp;tutorialType=4",
+    "status": 200,
+    "result": "可达",
+    "final": "https://holopix.cn/aiAcademy/detail?articleId=73&amp;tutorialType=4"
+  },
+  {
+    "url": "https://holopix.cn/aiAcademy/detail?articleId=73&tutorialType=4",
+    "status": 200,
+    "result": "可达",
+    "final": "https://holopix.cn/aiAcademy/detail?articleId=73&tutorialType=4"
+  },
+  {
+    "url": "https://lovable.dev/blog/versioning-with-lovable-two-point-zero",
+    "status": 200,
+    "result": "可达",
+    "final": "https://lovable.dev/blog/versioning-with-lovable-two-point-zero"
+  },
+  {
+    "url": "https://lovable.dev/blog/visual-edits",
+    "status": 200,
+    "result": "可达",
+    "final": "https://lovable.dev/blog/visual-edits"
+  },
+  {
+    "url": "https://miro.com/blog/introducing-intelligent-canvas/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://miro.com/blog/introducing-intelligent-canvas/"
+  },
+  {
+    "url": "https://miro.com/blog/introducing-miro-prototyping/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://miro.com/blog/introducing-miro-prototyping/"
+  },
+  {
+    "url": "https://news.adobe.com/news/downloads/pdfs/2025/06/firefly-pr-6-17-25-5-1.pdf",
+    "status": 200,
+    "result": "可达",
+    "final": "https://news.adobe.com/news/downloads/pdfs/2025/06/firefly-pr-6-17-25-5-1.pdf"
+  },
+  {
+    "url": "https://openai.com/index/introducing-the-codex-app/",
+    "status": 403,
+    "result": "未通过：HTTPError"
+  },
+  {
+    "url": "https://private.holopix.cn/home",
+    "status": 200,
+    "result": "可达",
+    "final": "https://private.holopix.cn/home"
+  },
+  {
+    "url": "https://raddie-jean.github.io/AutoClaw-Design/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://raddie-jean.github.io/AutoClaw-Design/"
+  },
+  {
+    "url": "https://support.uizard.io/en/articles/6435370-using-wireframe-scanner",
+    "status": 200,
+    "result": "可达",
+    "final": "https://support.uizard.io/en/articles/6435370-using-wireframe-scanner"
+  },
+  {
+    "url": "https://uizard.io/design-assistant/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://uizard.io/design-assistant/"
+  },
+  {
+    "url": "https://v0.app/docs/design-mode",
+    "status": 200,
+    "result": "可达",
+    "final": "https://v0.app/docs/design-mode"
+  },
+  {
+    "url": "https://v0.app/docs/figma",
+    "status": 200,
+    "result": "可达",
+    "final": "https://v0.app/docs/figma"
+  },
+  {
+    "url": "https://www.builder.io/blog/visual-copilot",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.builder.io/blog/visual-copilot"
+  },
+  {
+    "url": "https://www.builder.io/blog/visual-copilot-2",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.builder.io/blog/visual-copilot-2"
+  },
+  {
+    "url": "https://www.canva.com/features/ai-replace/",
+    "status": 403,
+    "result": "未通过：HTTPError"
+  },
+  {
+    "url": "https://www.canva.com/newsroom/news/Canva-Code/",
+    "status": 403,
+    "result": "未通过：HTTPError"
+  },
+  {
+    "url": "https://www.canva.com/newsroom/news/canva-ai-whiteboards/",
+    "status": 403,
+    "result": "未通过：HTTPError"
+  },
+  {
+    "url": "https://www.figma.com/blog/2026-ai-report/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.figma.com/blog/2026-ai-report/"
+  },
+  {
+    "url": "https://www.figma.com/blog/bringing-figma-make-to-the-canvas/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.figma.com/blog/bringing-figma-make-to-the-canvas/"
+  },
+  {
+    "url": "https://www.figma.com/blog/figma-make-now-on-your-local-code/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.figma.com/blog/figma-make-now-on-your-local-code/"
+  },
+  {
+    "url": "https://www.figma.com/blog/introducing-figma-make/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.figma.com/blog/introducing-figma-make/"
+  },
+  {
+    "url": "https://www.figma.com/blog/state-of-the-designer-2026/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.figma.com/blog/state-of-the-designer-2026/"
+  },
+  {
+    "url": "https://www.figma.com/blog/the-figma-agent-is-here/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.figma.com/blog/the-figma-agent-is-here/"
+  },
+  {
+    "url": "https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/",
+    "status": 200,
+    "result": "需Figma权限，HTTP状态不代表源稿可访问",
+    "final": "https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/"
+  },
+  {
+    "url": "https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/%E6%99%BA%E8%B0%B1%E6%B5%8B%E8%AF%95%E9%A2%98-2026?node-id=100-3",
+    "status": 200,
+    "result": "需Figma权限，HTTP状态不代表源稿可访问",
+    "final": "https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/%E6%99%BA%E8%B0%B1%E6%B5%8B%E8%AF%95%E9%A2%98-2026?node-id=100-3"
+  },
+  {
+    "url": "https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/%E6%99%BA%E8%B0%B1%E6%B5%8B%E8%AF%95%E9%A2%98-2026?node-id=106-2",
+    "status": 200,
+    "result": "需Figma权限，HTTP状态不代表源稿可访问",
+    "final": "https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/%E6%99%BA%E8%B0%B1%E6%B5%8B%E8%AF%95%E9%A2%98-2026?node-id=106-2"
+  },
+  {
+    "url": "https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/%E6%99%BA%E8%B0%B1%E6%B5%8B%E8%AF%95%E9%A2%98-2026?node-id=246-2661",
+    "status": 200,
+    "result": "需Figma权限，HTTP状态不代表源稿可访问",
+    "final": "https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/%E6%99%BA%E8%B0%B1%E6%B5%8B%E8%AF%95%E9%A2%98-2026?node-id=246-2661"
+  },
+  {
+    "url": "https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/?node-id=349-2086",
+    "status": 200,
+    "result": "需Figma权限，HTTP状态不代表源稿可访问",
+    "final": "https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/?node-id=349-2086"
+  },
+  {
+    "url": "https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/?node-id=530-12283",
+    "status": 200,
+    "result": "需Figma权限，HTTP状态不代表源稿可访问",
+    "final": "https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/?node-id=530-12283"
+  },
+  {
+    "url": "https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/?node-id=541-13507",
+    "status": 200,
+    "result": "需Figma权限，HTTP状态不代表源稿可访问",
+    "final": "https://www.figma.com/design/XytIsXg4S2lL45NriFX69i/?node-id=541-13507"
+  },
+  {
+    "url": "https://www.figma.com/design/XytIsXg4S2lL45NriFX69i?node-id=330-782",
+    "status": 200,
+    "result": "需Figma权限，HTTP状态不代表源稿可访问",
+    "final": "https://www.figma.com/design/XytIsXg4S2lL45NriFX69i?node-id=330-782"
+  },
+  {
+    "url": "https://www.figma.com/reports/designer-developer-collaboration/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.figma.com/reports/designer-developer-collaboration/"
+  },
+  {
+    "url": "https://www.figma.com/reports/designer-developer-trends/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.figma.com/reports/designer-developer-trends/"
+  },
+  {
+    "url": "https://www.framer.com/solutions/ai-website-builder/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.framer.com/solutions/ai-website-builder/"
+  },
+  {
+    "url": "https://www.lovart.ai/zh/changelog",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.lovart.ai/zh/changelog"
+  },
+  {
+    "url": "https://www.lovart.art/docs/edit-your-design/advanced-ai-editing",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.lovart.art/docs/edit-your-design/advanced-ai-editing"
+  },
+  {
+    "url": "https://www.lovart.art/docs/edit-your-design/ai-transformation",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.lovart.art/docs/edit-your-design/ai-transformation"
+  },
+  {
+    "url": "https://www.lovart.art/docs/edit-your-design/basic-ai-editing",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.lovart.art/docs/edit-your-design/basic-ai-editing"
+  },
+  {
+    "url": "https://www.lovart.art/docs/edit-your-design/customize-your-canvas",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.lovart.art/docs/edit-your-design/customize-your-canvas"
+  },
+  {
+    "url": "https://www.lovart.art/docs/getting-started/how-lovart-works",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.lovart.art/docs/getting-started/how-lovart-works"
+  },
+  {
+    "url": "https://www.pen.dev/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.pen.dev/"
+  },
+  {
+    "url": "https://www.relume.ai/webflow",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.relume.ai/webflow"
+  },
+  {
+    "url": "https://www.tencent.com/tencent-hy3-now-available-globally-extending-practical-ai-across-products-workflows-and-cloud-services/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.tencent.com/tencent-hy3-now-available-globally-extending-practical-ai-across-products-workflows-and-cloud-services/"
+  },
+  {
+    "url": "https://www.tencent.com/tencent-rolls-out-new-ai-tools-and-enterprise-solutions-for-global-markets-at-inaugural-tencent-cloud-day-hong-kong/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.tencent.com/tencent-rolls-out-new-ai-tools-and-enterprise-solutions-for-global-markets-at-inaugural-tencent-cloud-day-hong-kong/"
+  },
+  {
+    "url": "https://www.uxpin.com/studio/blog/design-workflow-with-code-components/",
+    "status": 200,
+    "result": "可达",
+    "final": "https://www.uxpin.com/studio/blog/design-workflow-with-code-components/"
+  }
+]

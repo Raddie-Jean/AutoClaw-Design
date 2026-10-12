@@ -1,0 +1,42 @@
+{
+  "task": "测试2",
+  "baseline": 1,
+  "version": 3,
+  "comments": [
+    {
+      "id": 1,
+      "role": "产品经理",
+      "version": 1,
+      "target": "title",
+      "text": "首页标题可以更明确地表达用户价值，建议改为“和 AutoClaw 一起高效工作”。",
+      "value": "和 AutoClaw 一起高效工作",
+      "status": "已解决",
+      "replies": [
+        "设计师：已采纳至 v2，请复核后确认解决。",
+        "已按建议修改标题，并保留 v1 对照；确认本次调整符合预期。"
+      ]
+    },
+    {
+      "id": 2,
+      "role": "前端工程师",
+      "version": 1,
+      "target": "composer",
+      "text": "输入卡片圆角建议调整为12px，与编辑面板保持一致。",
+      "value": 12,
+      "status": "待处理",
+      "replies": []
+    }
+  ],
+  "changes": [
+    {
+      "version": 2,
+      "text": "根据产品经理建议调整首页标题",
+      "source": "产品经理"
+    },
+    {
+      "version": 3,
+      "text": "Intelligent UI 组件参数调整",
+      "source": "设计师"
+    }
+  ]
+}

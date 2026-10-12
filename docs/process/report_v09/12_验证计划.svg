@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">11 / 验证与下一步</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">把方案变成可检验的产品判断</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">下一轮先用真实 Auto Design HTML 任务核对现状，再测设计与研发接力。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">12 / 12</text>
+<rect x="88" y="225" width="678" height="383" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="88" y="225" width="8" height="383" rx="4" fill="#12877D"/>
+<text x="117" y="277" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">设计师任务测试 · 建议 5–8 人</text>
+<text x="117" y="325" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">能否找到全部页面、状态和当前版？</text>
+<text x="117" y="361" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">能否在不重述整页需求时完成两次微调？</text>
+<text x="117" y="397" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">能否识别候选的越界变化并正确回退？</text>
+<text x="117" y="433" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">能否区分“采纳修订”和“确认方案”？</text>
+<rect x="834" y="225" width="678" height="383" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="834" y="225" width="8" height="383" rx="4" fill="#F5AB6E"/>
+<text x="863" y="277" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">开发接手测试 · 建议 2–3 人</text>
+<text x="863" y="325" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">能否按说明运行同一 HTML 版本？</text>
+<text x="863" y="361" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">能否独立复现 Mobile 错误态与成功态？</text>
+<text x="863" y="397" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">是否看得见接口、权限和未解决问题？</text>
+<text x="863" y="433" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="22" font-weight="400" fill="#60716F" text-anchor="start">需要追问哪些关键假设？</text>
+<rect x="88" y="648" width="1424" height="93" rx="16" fill="#122D31"/>
+<text x="118" y="687" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#F5AB6E" text-anchor="start">汇报结论</text>
+<text x="255" y="688" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#FFFFFF" text-anchor="start">AI 负责生成候选与提示影响；设计师、PM、开发围绕同一版本作出不同阶段的决定。</text>
+<text x="118" y="722" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="400" fill="#D1E2DE" text-anchor="start">先跑通一条“看清 → 改准 → 审准 → 交清”的 HTML 主链路，再判断是否需要无限画布与跨格式同步。</text>
+</svg>

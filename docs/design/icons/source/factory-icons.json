@@ -1,0 +1,2478 @@
+[
+  {
+    "name": "archive-restore",
+    "data": [
+      [
+        "rect",
+        {
+          "width": "20",
+          "height": "5",
+          "x": "2",
+          "y": "3",
+          "rx": "1",
+          "key": "1wp1u1"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M4 8v11a2 2 0 0 0 2 2h2",
+          "key": "tvwodi"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M20 8v11a2 2 0 0 1-2 2h-2",
+          "key": "1gkqxj"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m9 15 3-3 3 3",
+          "key": "1pd0qc"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 12v9",
+          "key": "192myk"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 276474
+  },
+  {
+    "name": "archive",
+    "data": [
+      [
+        "rect",
+        {
+          "width": "20",
+          "height": "5",
+          "x": "2",
+          "y": "3",
+          "rx": "1",
+          "key": "1wp1u1"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8",
+          "key": "1s80jp"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M10 12h4",
+          "key": "a56b0p"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 276859
+  },
+  {
+    "name": "arrow-left",
+    "data": [
+      [
+        "path",
+        {
+          "d": "m12 19-7-7 7-7",
+          "key": "1l729n"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M19 12H5",
+          "key": "x3x0zl"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 277145
+  },
+  {
+    "name": "arrow-up-right",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M7 7h10v10",
+          "key": "1tivn9"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M7 17 17 7",
+          "key": "1vkiza"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 277432
+  },
+  {
+    "name": "bird",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M16 7h.01",
+          "key": "1kdx03"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20",
+          "key": "oj1oa8"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m20 7 2 .5-2 .5",
+          "key": "12nv4d"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M10 18v3",
+          "key": "1yea0a"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M14 17.75V21",
+          "key": "1pymcb"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M7 18a6 6 0 0 0 3.84-10.61",
+          "key": "1npnn0"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 277939
+  },
+  {
+    "name": "book-open",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M12 7v14",
+          "key": "1akyts"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z",
+          "key": "ruj8y"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 278337
+  },
+  {
+    "name": "brain",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M12 18V5",
+          "key": "adv99a"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4",
+          "key": "1e3is1"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5",
+          "key": "1gqd8o"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M17.997 5.125a4 4 0 0 1 2.526 5.77",
+          "key": "iwvgf7"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M18 18a4 4 0 0 0 2-7.464",
+          "key": "efp6ie"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517",
+          "key": "1gq6am"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M6 18a4 4 0 0 1-2-7.464",
+          "key": "k1g0md"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M6.003 5.125a4 4 0 0 0-2.526 5.77",
+          "key": "q97ue3"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 279041
+  },
+  {
+    "name": "building-2",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M10 12h4",
+          "key": "a56b0p"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M10 8h4",
+          "key": "1sr2af"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M14 21v-3a2 2 0 0 0-4 0v3",
+          "key": "1rgiei"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2",
+          "key": "secmi2"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16",
+          "key": "16ra0t"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 279543
+  },
+  {
+    "name": "calendar-clock",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M16 14v2.2l1.6 1",
+          "key": "fo4ql5"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M16 2v4",
+          "key": "4m81vk"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5",
+          "key": "1osxxc"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M3 10h5",
+          "key": "r794hk"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M8 2v4",
+          "key": "1cmpym"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "16",
+          "cy": "16",
+          "r": "6",
+          "key": "qoo3c4"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 280041
+  },
+  {
+    "name": "check",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M20 6 9 17l-5-5",
+          "key": "1gmf2c"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 280297
+  },
+  {
+    "name": "chevron-down",
+    "data": [
+      [
+        "path",
+        {
+          "d": "m6 9 6 6 6-6",
+          "key": "qrunsl"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 280541
+  },
+  {
+    "name": "chevron-left",
+    "data": [
+      [
+        "path",
+        {
+          "d": "m15 18-6-6 6-6",
+          "key": "1wnfg3"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 280795
+  },
+  {
+    "name": "chevron-right",
+    "data": [
+      [
+        "path",
+        {
+          "d": "m9 18 6-6-6-6",
+          "key": "mthhwq"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 281047
+  },
+  {
+    "name": "chevron-up",
+    "data": [
+      [
+        "path",
+        {
+          "d": "m18 15-6-6-6 6",
+          "key": "153udz"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 281302
+  },
+  {
+    "name": "circle-alert",
+    "data": [
+      [
+        "circle",
+        {
+          "cx": "12",
+          "cy": "12",
+          "r": "10",
+          "key": "1mglay"
+        }
+      ],
+      [
+        "line",
+        {
+          "x1": "12",
+          "x2": "12",
+          "y1": "8",
+          "y2": "12",
+          "key": "1pkeuh"
+        }
+      ],
+      [
+        "line",
+        {
+          "x1": "12",
+          "x2": "12.01",
+          "y1": "16",
+          "y2": "16",
+          "key": "4dfq90"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 281673
+  },
+  {
+    "name": "circle-check",
+    "data": [
+      [
+        "circle",
+        {
+          "cx": "12",
+          "cy": "12",
+          "r": "10",
+          "key": "1mglay"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m9 12 2 2 4-4",
+          "key": "dzmm74"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 281974
+  },
+  {
+    "name": "circle-question-mark",
+    "data": [
+      [
+        "circle",
+        {
+          "cx": "12",
+          "cy": "12",
+          "r": "10",
+          "key": "1mglay"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3",
+          "key": "1u773s"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 17h.01",
+          "key": "p32p05"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 282338
+  },
+  {
+    "name": "circle-x",
+    "data": [
+      [
+        "circle",
+        {
+          "cx": "12",
+          "cy": "12",
+          "r": "10",
+          "key": "1mglay"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m15 9-6 6",
+          "key": "1uzhvr"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m9 9 6 6",
+          "key": "z0biqf"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 282681
+  },
+  {
+    "name": "cloud-off",
+    "data": [
+      [
+        "path",
+        {
+          "d": "m2 2 20 20",
+          "key": "1ooewy"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M5.782 5.782A7 7 0 0 0 9 19h8.5a4.5 4.5 0 0 0 1.307-.193",
+          "key": "yfwify"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M21.532 16.5A4.5 4.5 0 0 0 17.5 10h-1.79A7.008 7.008 0 0 0 10 5.07",
+          "key": "jlfiyv"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 283107
+  },
+  {
+    "name": "cloud",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z",
+          "key": "p7xjir"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 283395
+  },
+  {
+    "name": "coins",
+    "data": [
+      [
+        "circle",
+        {
+          "cx": "8",
+          "cy": "8",
+          "r": "6",
+          "key": "3yglwk"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M18.09 10.37A6 6 0 1 1 10.34 18",
+          "key": "t5s6rm"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M7 6h1v4",
+          "key": "1obek4"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m16.71 13.88.7.71-2.82 2.82",
+          "key": "1rbuyh"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 283798
+  },
+  {
+    "name": "command",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3",
+          "key": "11bfej"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 284102
+  },
+  {
+    "name": "computer",
+    "data": [
+      [
+        "rect",
+        {
+          "width": "14",
+          "height": "8",
+          "x": "5",
+          "y": "2",
+          "rx": "2",
+          "key": "wc9tft"
+        }
+      ],
+      [
+        "rect",
+        {
+          "width": "20",
+          "height": "8",
+          "x": "2",
+          "y": "14",
+          "rx": "2",
+          "key": "w68u3i"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M6 18h2",
+          "key": "rwmk9e"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 18h6",
+          "key": "aqd8w3"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 284512
+  },
+  {
+    "name": "contrast",
+    "data": [
+      [
+        "circle",
+        {
+          "cx": "12",
+          "cy": "12",
+          "r": "10",
+          "key": "1mglay"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 18a6 6 0 0 0 0-12v12z",
+          "key": "j4l70d"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 284822
+  },
+  {
+    "name": "copy",
+    "data": [
+      [
+        "rect",
+        {
+          "width": "14",
+          "height": "14",
+          "x": "8",
+          "y": "8",
+          "rx": "2",
+          "ry": "2",
+          "key": "17jyea"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2",
+          "key": "zix9uf"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 285186
+  },
+  {
+    "name": "corner-down-left",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M20 4v7a4 4 0 0 1-4 4H4",
+          "key": "6o5b7l"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m9 10-5 5 5 5",
+          "key": "1kshq7"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 285482
+  },
+  {
+    "name": "corner-up-right",
+    "data": [
+      [
+        "path",
+        {
+          "d": "m15 14 5-5-5-5",
+          "key": "12vg1m"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M4 20v-7a4 4 0 0 1 4-4h12",
+          "key": "1lu4f8"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 285794
+  },
+  {
+    "name": "crown",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z",
+          "key": "1vdc57"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M5 21h14",
+          "key": "11awu3"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 286290
+  },
+  {
+    "name": "database",
+    "data": [
+      [
+        "ellipse",
+        {
+          "cx": "12",
+          "cy": "5",
+          "rx": "9",
+          "ry": "3",
+          "key": "msslwz"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M3 5V19A9 3 0 0 0 21 19V5",
+          "key": "1wlel7"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M3 12A9 3 0 0 0 21 12",
+          "key": "mv7ke4"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 286654
+  },
+  {
+    "name": "ellipsis",
+    "data": [
+      [
+        "circle",
+        {
+          "cx": "12",
+          "cy": "12",
+          "r": "1",
+          "key": "41hilf"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "19",
+          "cy": "12",
+          "r": "1",
+          "key": "1wjl8i"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "5",
+          "cy": "12",
+          "r": "1",
+          "key": "1pcz8c"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 287004
+  },
+  {
+    "name": "external-link",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M15 3h6v6",
+          "key": "1q9fwt"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M10 14 21 3",
+          "key": "gplh6r"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6",
+          "key": "a6xqqp"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 287373
+  },
+  {
+    "name": "eye-off",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49",
+          "key": "ct8e1f"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M14.084 14.158a3 3 0 0 1-4.242-4.242",
+          "key": "151rxh"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143",
+          "key": "13bj9a"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m2 2 20 20",
+          "key": "1ooewy"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 287932
+  },
+  {
+    "name": "eye",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0",
+          "key": "1nclc0"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "12",
+          "cy": "12",
+          "r": "3",
+          "key": "1v7zrd"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 288315
+  },
+  {
+    "name": "file-archive",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M13.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v11.5",
+          "key": "4pqfef"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M14 2v5a1 1 0 0 0 1 1h5",
+          "key": "wfsgrz"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M8 12v-1",
+          "key": "1ej8lb"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M8 18v-2",
+          "key": "qcmpov"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M8 7V6",
+          "key": "1nbb54"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "8",
+          "cy": "20",
+          "r": "2",
+          "key": "ckkr5m"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 288861
+  },
+  {
+    "name": "file-pen",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M12.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v9.34",
+          "key": "o6klzx"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M14 2v5a1 1 0 0 0 1 1h5",
+          "key": "wfsgrz"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M10.378 12.622a1 1 0 0 1 3 3.003L8.36 20.637a2 2 0 0 1-.854.506l-2.867.837a.5.5 0 0 1-.62-.62l.836-2.869a2 2 0 0 1 .506-.853z",
+          "key": "zhnas1"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 289414
+  },
+  {
+    "name": "file-search",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z",
+          "key": "1oefj6"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M14 2v5a1 1 0 0 0 1 1h5",
+          "key": "wfsgrz"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "11.5",
+          "cy": "14.5",
+          "r": "2.5",
+          "key": "1bq0ko"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M13.3 16.3 15 18",
+          "key": "2quom7"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 289911
+  },
+  {
+    "name": "file-stack",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M11 21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1",
+          "key": "likhh7"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M16 16a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1",
+          "key": "17ky3x"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M21 6a2 2 0 0 0-.586-1.414l-2-2A2 2 0 0 0 17 2h-3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1z",
+          "key": "1hyeo0"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 290409
+  },
+  {
+    "name": "file-text",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z",
+          "key": "1oefj6"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M14 2v5a1 1 0 0 0 1 1h5",
+          "key": "wfsgrz"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M10 9H8",
+          "key": "b1mrlr"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M16 13H8",
+          "key": "t4e002"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M16 17H8",
+          "key": "z1uh3a"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 290919
+  },
+  {
+    "name": "flask-conical",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2",
+          "key": "18mbvz"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M6.453 15h11.094",
+          "key": "3shlmq"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M8.5 2h7",
+          "key": "csnxdl"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 291341
+  },
+  {
+    "name": "folder-input",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M2 9V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-1",
+          "key": "fm4g5t"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M2 13h10",
+          "key": "pgb2dq"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m9 16 3-3-3-3",
+          "key": "6m91ic"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 291779
+  },
+  {
+    "name": "folder-open",
+    "data": [
+      [
+        "path",
+        {
+          "d": "m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2",
+          "key": "usdka0"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 292196
+  },
+  {
+    "name": "folder-search",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M10.7 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v4.1",
+          "key": "1bw5m7"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m21 21-1.9-1.9",
+          "key": "1g2n9r"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "17",
+          "cy": "17",
+          "r": "3",
+          "key": "18b49y"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 292633
+  },
+  {
+    "name": "git-compare-arrows",
+    "data": [
+      [
+        "circle",
+        {
+          "cx": "5",
+          "cy": "6",
+          "r": "3",
+          "key": "1qnov2"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 6h5a2 2 0 0 1 2 2v7",
+          "key": "1yj91y"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m15 9-3-3 3-3",
+          "key": "1lwv8l"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "19",
+          "cy": "18",
+          "r": "3",
+          "key": "1qljk2"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 18H7a2 2 0 0 1-2-2V9",
+          "key": "16sdep"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m9 15 3 3-3 3",
+          "key": "1m3kbl"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 293128
+  },
+  {
+    "name": "git-fork",
+    "data": [
+      [
+        "circle",
+        {
+          "cx": "12",
+          "cy": "18",
+          "r": "3",
+          "key": "1mpf1b"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "6",
+          "cy": "6",
+          "r": "3",
+          "key": "1lh9wr"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "18",
+          "cy": "6",
+          "r": "3",
+          "key": "1h7g24"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9",
+          "key": "1uq4wg"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 12v3",
+          "key": "158kv8"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 293592
+  },
+  {
+    "name": "grid-2x2",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M12 3v18",
+          "key": "108xh3"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M3 12h18",
+          "key": "1i2n21"
+        }
+      ],
+      [
+        "rect",
+        {
+          "x": "3",
+          "y": "3",
+          "width": "18",
+          "height": "18",
+          "rx": "2",
+          "key": "h1oib"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 293938
+  },
+  {
+    "name": "grip-vertical",
+    "data": [
+      [
+        "circle",
+        {
+          "cx": "9",
+          "cy": "12",
+          "r": "1",
+          "key": "1vctgf"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "9",
+          "cy": "5",
+          "r": "1",
+          "key": "hp0tcf"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "9",
+          "cy": "19",
+          "r": "1",
+          "key": "fkjjf6"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "15",
+          "cy": "12",
+          "r": "1",
+          "key": "1tmaij"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "15",
+          "cy": "5",
+          "r": "1",
+          "key": "19l28e"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "15",
+          "cy": "19",
+          "r": "1",
+          "key": "f4zoj3"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 294428
+  },
+  {
+    "name": "history",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8",
+          "key": "1357e3"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M3 3v5h5",
+          "key": "1xhq8a"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 7v5l4 2",
+          "key": "1fdv2h"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 294795
+  },
+  {
+    "name": "image",
+    "data": [
+      [
+        "rect",
+        {
+          "width": "18",
+          "height": "18",
+          "x": "3",
+          "y": "3",
+          "rx": "2",
+          "ry": "2",
+          "key": "1m3agn"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "9",
+          "cy": "9",
+          "r": "2",
+          "key": "af1f0g"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21",
+          "key": "1xmnt7"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 295190
+  },
+  {
+    "name": "import",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M12 3v12",
+          "key": "1x0j5s"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m8 11 4 4 4-4",
+          "key": "1dohi6"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M8 5H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-4",
+          "key": "1ywtjm"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 295575
+  },
+  {
+    "name": "info",
+    "data": [
+      [
+        "circle",
+        {
+          "cx": "12",
+          "cy": "12",
+          "r": "10",
+          "key": "1mglay"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 16v-4",
+          "key": "1dtifu"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 8h.01",
+          "key": "e9boi3"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 295905
+  },
+  {
+    "name": "loader-circle",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M21 12a9 9 0 1 1-6.219-8.56",
+          "key": "13zald"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 296163
+  },
+  {
+    "name": "loader",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M12 2v4",
+          "key": "3427ic"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m16.2 7.8 2.9-2.9",
+          "key": "r700ao"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M18 12h4",
+          "key": "wj9ykh"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m16.2 16.2 2.9 2.9",
+          "key": "1bxg5t"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 18v4",
+          "key": "jadmvz"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m4.9 19.1 2.9-2.9",
+          "key": "bwix9q"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M2 12h4",
+          "key": "j09sii"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m4.9 4.9 2.9 2.9",
+          "key": "giyufr"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 296705
+  },
+  {
+    "name": "maximize-2",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M15 3h6v6",
+          "key": "1q9fwt"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m21 3-7 7",
+          "key": "1l2asr"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m3 21 7-7",
+          "key": "tjx5ai"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M9 21H3v-6",
+          "key": "wtvkvv"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 297063
+  },
+  {
+    "name": "message-circle",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719",
+          "key": "1sd12s"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 297424
+  },
+  {
+    "name": "message-square-plus",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z",
+          "key": "18887p"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 8v6",
+          "key": "1ib9pf"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M9 11h6",
+          "key": "1fldmi"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 297853
+  },
+  {
+    "name": "message-square-text",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z",
+          "key": "18887p"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M7 11h10",
+          "key": "1twpyw"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M7 15h6",
+          "key": "d9of3u"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M7 7h8",
+          "key": "af5zfr"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 298323
+  },
+  {
+    "name": "message-square",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z",
+          "key": "18887p"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 298685
+  },
+  {
+    "name": "pencil",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z",
+          "key": "1a8usu"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m15 5 4 4",
+          "key": "1mk7zo"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 299093
+  },
+  {
+    "name": "plug-zap",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z",
+          "key": "goz73y"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m2 22 3-3",
+          "key": "19mgm9"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M7.5 13.5 10 11",
+          "key": "7xgeeb"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M10.5 16.5 13 14",
+          "key": "10btkg"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m18 3-4 4h6l-4 4",
+          "key": "16psg9"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 299568
+  },
+  {
+    "name": "plus",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M5 12h14",
+          "key": "1ays0h"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 5v14",
+          "key": "s699le"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 299848
+  },
+  {
+    "name": "refresh-cw",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8",
+          "key": "v9h5vc"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M21 3v5h-5",
+          "key": "1q7to0"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16",
+          "key": "3uifl3"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M8 16H3v5",
+          "key": "1cv678"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 300287
+  },
+  {
+    "name": "rocket",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z",
+          "key": "m3kijz"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z",
+          "key": "1fmvmk"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0",
+          "key": "1f8sc4"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5",
+          "key": "qeys4"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 300872
+  },
+  {
+    "name": "rotate-ccw",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8",
+          "key": "1357e3"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M3 3v5h5",
+          "key": "1xhq8a"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 301192
+  },
+  {
+    "name": "rotate-cw",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8",
+          "key": "1p45f6"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M21 3v5h-5",
+          "key": "1q7to0"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 301518
+  },
+  {
+    "name": "route",
+    "data": [
+      [
+        "circle",
+        {
+          "cx": "6",
+          "cy": "19",
+          "r": "3",
+          "key": "1kj8tv"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15",
+          "key": "1d8sl"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "18",
+          "cy": "5",
+          "r": "3",
+          "key": "gq8acd"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 301900
+  },
+  {
+    "name": "scale",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M12 3v18",
+          "key": "108xh3"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m19 8 3 8a5 5 0 0 1-6 0zV7",
+          "key": "zcdpyk"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1",
+          "key": "1yorad"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m5 8 3 8a5 5 0 0 1-6 0zV7",
+          "key": "eua70x"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M7 21h10",
+          "key": "1b0cd5"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 302355
+  },
+  {
+    "name": "scroll-text",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M15 12h-5",
+          "key": "r7krc0"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M15 8h-5",
+          "key": "1khuty"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M19 17V5a2 2 0 0 0-2-2H4",
+          "key": "zz82l3"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3",
+          "key": "1ph1d7"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 302822
+  },
+  {
+    "name": "search",
+    "data": [
+      [
+        "path",
+        {
+          "d": "m21 21-4.34-4.34",
+          "key": "14j7rj"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "11",
+          "cy": "11",
+          "r": "8",
+          "key": "4ej97u"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 303125
+  },
+  {
+    "name": "shield-alert",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+          "key": "oel41y"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 8v4",
+          "key": "1got3b"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 16h.01",
+          "key": "1drbdi"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 303595
+  },
+  {
+    "name": "shield-check",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+          "key": "oel41y"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m9 12 2 2 4-4",
+          "key": "dzmm74"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 304038
+  },
+  {
+    "name": "shield",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+          "key": "oel41y"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 304440
+  },
+  {
+    "name": "sparkles",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z",
+          "key": "1s2grr"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M20 2v4",
+          "key": "1rf3ol"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M22 4h-4",
+          "key": "gwowj6"
+        }
+      ],
+      [
+        "circle",
+        {
+          "cx": "4",
+          "cy": "20",
+          "r": "2",
+          "key": "6kqj1y"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 305056
+  },
+  {
+    "name": "square-terminal",
+    "data": [
+      [
+        "path",
+        {
+          "d": "m7 11 2-2-2-2",
+          "key": "1lz0vl"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M11 13h4",
+          "key": "1p7l4v"
+        }
+      ],
+      [
+        "rect",
+        {
+          "width": "18",
+          "height": "18",
+          "x": "3",
+          "y": "3",
+          "rx": "2",
+          "ry": "2",
+          "key": "1m3agn"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 305415
+  },
+  {
+    "name": "terminal",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M12 19h8",
+          "key": "baeox8"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m4 17 6-6-6-6",
+          "key": "1yngyt"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 305708
+  },
+  {
+    "name": "ticket-check",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z",
+          "key": "qn84l0"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m9 12 2 2 4-4",
+          "key": "dzmm74"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 306087
+  },
+  {
+    "name": "trash-2",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M10 11v6",
+          "key": "nco0om"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M14 11v6",
+          "key": "outv1u"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6",
+          "key": "miytrc"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M3 6h18",
+          "key": "d0wm0j"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2",
+          "key": "e791ji"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 306544
+  },
+  {
+    "name": "triangle-alert",
+    "data": [
+      [
+        "path",
+        {
+          "d": "m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3",
+          "key": "wmoenq"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 9v4",
+          "key": "juzpu7"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M12 17h.01",
+          "key": "p32p05"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 306925
+  },
+  {
+    "name": "user-round",
+    "data": [
+      [
+        "circle",
+        {
+          "cx": "12",
+          "cy": "8",
+          "r": "5",
+          "key": "1hypcn"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "M20 21a8 8 0 0 0-16 0",
+          "key": "rfgkzh"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 307235
+  },
+  {
+    "name": "video",
+    "data": [
+      [
+        "path",
+        {
+          "d": "m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5",
+          "key": "ftymec"
+        }
+      ],
+      [
+        "rect",
+        {
+          "x": "2",
+          "y": "6",
+          "width": "14",
+          "height": "12",
+          "rx": "2",
+          "key": "158x01"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 307612
+  },
+  {
+    "name": "wrench",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z",
+          "key": "1ngwbx"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 308038
+  },
+  {
+    "name": "x",
+    "data": [
+      [
+        "path",
+        {
+          "d": "M18 6 6 18",
+          "key": "1bl5f8"
+        }
+      ],
+      [
+        "path",
+        {
+          "d": "m6 6 12 12",
+          "key": "d8bk6v"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 308320
+  },
+  {
+    "name": "zoom-in",
+    "data": [
+      [
+        "circle",
+        {
+          "cx": "11",
+          "cy": "11",
+          "r": "8",
+          "key": "4ej97u"
+        }
+      ],
+      [
+        "line",
+        {
+          "x1": "21",
+          "x2": "16.65",
+          "y1": "21",
+          "y2": "16.65",
+          "key": "13gj7c"
+        }
+      ],
+      [
+        "line",
+        {
+          "x1": "11",
+          "x2": "11",
+          "y1": "8",
+          "y2": "14",
+          "key": "1vmskp"
+        }
+      ],
+      [
+        "line",
+        {
+          "x1": "8",
+          "x2": "14",
+          "y1": "11",
+          "y2": "11",
+          "key": "durymu"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 308740
+  },
+  {
+    "name": "zoom-out",
+    "data": [
+      [
+        "circle",
+        {
+          "cx": "11",
+          "cy": "11",
+          "r": "8",
+          "key": "4ej97u"
+        }
+      ],
+      [
+        "line",
+        {
+          "x1": "21",
+          "x2": "16.65",
+          "y1": "21",
+          "y2": "16.65",
+          "key": "13gj7c"
+        }
+      ],
+      [
+        "line",
+        {
+          "x1": "8",
+          "x2": "14",
+          "y1": "11",
+          "y2": "11",
+          "key": "durymu"
+        }
+      ]
+    ],
+    "file": "session-history-D3RznYo3.js",
+    "start": 309111
+  }
+]

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">04 / 草图阶段</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">草图的三种状态：保留可能性，再逐步收敛</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">草图评审要轻量；只有第三态结束才形成进入 Demo 的概念基线。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">05 / 12</text>
+<rect x="88" y="223" width="454" height="464" rx="22" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="143" cy="284" r="29" fill="#E5F4F0"/>
+<text x="143" y="293" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#12877D" text-anchor="middle">01</text>
+<text x="190" y="296" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="31" font-weight="700" fill="#17383B" text-anchor="start">草图收集</text>
+<text x="119" y="380" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">PRD 片段、参考、手绘、</text>
+<text x="119" y="426" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">未尝试概念与 AI 生成物</text>
+<text x="119" y="472" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">允许不完整和矛盾并存</text>
+<line x1="119" y1="564" x2="511" y2="564" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="119" y="615" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="600" fill="#12877D" text-anchor="start">无需批准；值得深化即可入围</text>
+<line x1="543" y1="456" x2="557" y2="456" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="546" y1="446" x2="557" y2="456" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="546" y1="466" x2="557" y2="456" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="574" y="223" width="454" height="464" rx="22" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="629" cy="284" r="29" fill="#E5F4F0"/>
+<text x="629" y="293" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#12877D" text-anchor="middle">02</text>
+<text x="676" y="296" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="31" font-weight="700" fill="#17383B" text-anchor="start">定义概念</text>
+<text x="605" y="380" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">选择 1–3 个方向并排比较</text>
+<text x="605" y="426" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">在原方向上连续局部修订</text>
+<text x="605" y="472" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">PM 与设计师持续讨论</text>
+<line x1="605" y1="564" x2="997" y2="564" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="605" y="615" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="600" fill="#12877D" text-anchor="start">保留主方向与备选，细节仍可变</text>
+<line x1="1029" y1="456" x2="1043" y2="456" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1032" y1="446" x2="1043" y2="456" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<line x1="1032" y1="466" x2="1043" y2="456" stroke="#12877D" stroke-width="3" stroke-linecap="round"/>
+<rect x="1060" y="223" width="454" height="464" rx="22" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<circle cx="1115" cy="284" r="29" fill="#12877D"/>
+<text x="1115" y="293" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="700" fill="#FFFFFF" text-anchor="middle">03</text>
+<text x="1162" y="296" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="31" font-weight="700" fill="#17383B" text-anchor="start">概念确定</text>
+<text x="1091" y="380" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">确认核心路径与设计原则</text>
+<text x="1091" y="426" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">记录拒绝理由和未决问题</text>
+<text x="1091" y="472" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="400" fill="#60716F" text-anchor="start">必要时请开发做技术预检</text>
+<line x1="1091" y1="564" x2="1483" y2="564" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="1091" y="615" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="600" fill="#12877D" text-anchor="start">G1：PM + 设计师确认后进 Demo</text>
+</svg>

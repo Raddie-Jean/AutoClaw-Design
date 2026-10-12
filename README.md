@@ -1,42 +1,21 @@
-# AutoClaw Design Agent · 设计资料库
+# 智谱测试题提交-周景-产品体验设计 1012
 
-本仓库整理了 AI Native Design 工作区测试题的研究过程、方案汇报、交互原型和 HTML 产物架构。`docs/` 是可直接静态托管的站点目录。
+解压整个文件夹后，用 Chrome / Edge / Safari 打开最外层 `index.html`。不要只发送单个 HTML 文件，也不要直接从压缩包预览。无需安装软件、登录本机账号或运行服务。目录和文件名请一起保留。
 
-## 从哪里看
+## 交付内容
 
-- [资料首页](docs/index.html)：推荐阅读顺序和所有入口。
-- [方案汇报 V09](docs/report_v09/index.html)：完整文稿、12 页汇报画板和内嵌 Demo。
-- [功能架构 V10](docs/architecture_v10/index.html)：HTML 产物管理、精准调优与 8 张交互框架图。
-- [可点击原型 V08](docs/prototype_v08/index.html)：模拟从初稿到候选审阅、阶段评审和交付。
-- [过程资料索引](docs/process.html)：V01–V07 调研、用户旅程、MVP 与功能定义。
+- docs/report：最新汇报 HTML、完整文稿、PRD、PDF 与 V18 双任务演示。
+- docs/report/references：竞品调研、MVP、PRD 及合订评审原件。
+- docs/report/design-spec：7章设计规范、SVG、tokens、Figma 导入插件。
+- docs/design：确认主界面 SVG/PNG、用户导出稿、Figma 原生图层 JSON、插件与原生图标。
+- docs/process：历史研究、MVP、架构与交互过程，仅用于追溯，不代替当前方案。
+- docs/research-media：录屏预览副本与题面，原始大文件保留在用户原目录。
+- docs/links.html：在线 Figma、仓库及外部参考链接。
 
-`docs/` 内同时保留原始 MD、PDF、SVG、PNG 和原型代码。浏览器阅读用的 `.html` 是对应 MD 的静态副本；资料包进入独立仓库后，修改 `docs/` 内的原始 MD，可安装 `requirements.txt` 后运行仓库根目录的 `build_release.py` 重新生成阅读页。直接预览现有站点不需要安装依赖。
+## 版本与边界
 
-## 网页预览
+最新交互为 V18，汇报为 V17；本次 1012 为完整提交合集。两条测试任务状态独立。AI生成、邀请与多人意见为本地模拟；参数修改与 SVG、HTML、PNG、评审记录下载可操作。PDF通过浏览器打印保存；复制 Figma 为 SVG 内容，文件导入为备用方式。
 
-仓库文件可直接用于多设备同步。若要通过独立网址浏览完整 HTML 页面，可在仓库 `Settings → Pages` 中将发布源设为 `Deploy from a branch`，选择 `main` 和 `/docs`；入口是 `docs/index.html`。[GitHub 官方配置说明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。
+未找到 .fig 文件，不将 SVG 或插件冒称 .fig 原生文件。外部 Figma 文件需要对应权限；所有主要设计内容提供本地副本。在线链接的验证结果见验收报告，受网络或登录影响的链接不会标记为通过。
 
-**发布前检查可公开范围。**GitHub 官方说明：GitHub Pages 站点即使来自私有仓库，也可能作为公开网页被访问。本包包含测试题截图与产品录屏的截帧；请先确认这些材料适合公开，再启用 Pages。Figma 源稿仍是外部链接，其访问权限由原 Figma 文件控制。
-
-## 范围与版本
-
-| 目录 | 内容 |
-|---|---|
-| `docs/report_v09/` | 当前方案汇报与 SVG 画板 |
-| `docs/architecture_v10/` | 最新功能架构、信息结构和线框 |
-| `docs/prototype_v08/` | 可点击交互原型及截图 |
-| `docs/md/`、`docs/pdf/` | 研究 V01–V02 |
-| `docs/mvp_v03/` 至 `docs/feature_v07/` | 观察证据、旅程、共创流程、草图三态、定域修订定义 |
-| `docs/input/` | 用户提供的题目截图 |
-
-未纳入与本题无关的 `black_friday_gift/`、`imagegen/`、`ui_750x1624/`、旧版重复 ZIP 和临时浏览器文件。另一个面试资料目录中的原始录屏约 124 MB，未放入这份网页资料包；本包保留此前整理的截图和观察记录。个人求职资料 PDF 也未纳入。
-
-## 本地预览
-
-在本目录运行 `python3 -m http.server 8767`，然后访问 `http://127.0.0.1:8767/docs/`。页面不需要构建工具或云端 API；外部研究与 Figma 链接需要联网。
-
-分享前可运行 `python3 verify_release.py` 检查站内链接与 SVG 文件。
-
-## 交付性质
-
-V08 是交互模拟，V09–V10 是方案与线框，不代表 AutoClaw 当前已实现 HTML 定域回写、真实视觉回归或生产代码交付。各文档分别标出已观察事实、方案假设和待验证问题。
+浏览器离线验证覆盖桌面 Chrome 与移动视口模拟，不能替代真实 Windows、iOS、Android 硬件测试。中文字体使用系统字体回退，排版可能有细微差异。

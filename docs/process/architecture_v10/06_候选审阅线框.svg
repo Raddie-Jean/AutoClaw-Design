@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="960" viewBox="0 0 1600 960">
+<rect width="1600" height="960" fill="#F6F8F7"/>
+<rect x="0" y="0" width="12" height="960" fill="#11867D"/>
+<text x="54" y="68" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="38" font-weight="700" fill="#1B3436" text-anchor="start">06  候选审阅｜看见越界，再做决定</text>
+<text x="55" y="109" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#607472" text-anchor="start">线框：候选不是正式稿；视觉、源码和受影响视图必须同时可见。</text>
+<rect x="30" y="150" width="214" height="680" rx="16" fill="#F0F2F1" stroke="#F0F2F1" stroke-width="1"/>
+<text x="55" y="190" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#1B3436" text-anchor="start">AutoClaw</text>
+<text x="55" y="245" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#607472" text-anchor="start">任务</text>
+<text x="55" y="282" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#1B3436" text-anchor="start">邀请成员流程</text>
+<line x1="48" y1="306" x2="224" y2="306" stroke="#D8E2DE" stroke-width="2" stroke-linecap="round" />
+<text x="62" y="338" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#607472" text-anchor="start">成果总览</text>
+<text x="62" y="394" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#607472" text-anchor="start">预览与编辑</text>
+<rect x="45" y="421" width="183" height="42" rx="10" fill="#E8F4F1" stroke="#E8F4F1" stroke-width="1"/>
+<text x="62" y="450" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#11867D" text-anchor="start">修订审阅</text>
+<text x="62" y="506" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#607472" text-anchor="start">版本与评审</text>
+<text x="62" y="562" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#607472" text-anchor="start">交付</text>
+<text x="275" y="164" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="400" fill="#607472" text-anchor="start">项目  /  邀请成员流程  /  Design 工作区</text>
+<text x="275" y="213" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="700" fill="#1B3436" text-anchor="start">候选 v3-c1 · 待审阅</text>
+<rect x="1320" y="175" width="150" height="35" rx="17" fill="#FFF0D8" stroke="#FFF0D8" stroke-width="1"/>
+<text x="1334" y="199" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#1B3436" text-anchor="start">尚未采纳</text>
+<rect x="275" y="244" width="1280" height="54" rx="10" fill="#FFFFFF" stroke="#D8E2DE" stroke-width="1"/>
+<text x="297" y="279" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="700" fill="#1B3436" text-anchor="start">方向 B / 邀请成员 / 邮箱错误态 / Mobile 390    基线 v3  ↔  候选 v3-c1</text>
+<rect x="275" y="316" width="456" height="366" rx="16" fill="#FFFFFF" stroke="#D8E2DE" stroke-width="1"/>
+<text x="297" y="351" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#1B3436" text-anchor="start">原版 v3</text>
+<rect x="363" y="373" width="280" height="278" rx="11" fill="#F6F8F7" stroke="#D8E2DE" stroke-width="1"/>
+<text x="385" y="417" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#1B3436" text-anchor="start">邀请成员</text>
+<rect x="385" y="445" width="235" height="37" rx="5" fill="#FFFFFF" stroke="#D8E2DE" stroke-width="1"/>
+<text x="397" y="470" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="400" fill="#607472" text-anchor="start">name@example.com</text>
+<rect x="380" y="552" width="245" height="40" rx="5" fill="#E8F4F1" stroke="#11867D" stroke-width="1"/>
+<text x="391" y="578" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#11867D" text-anchor="start">请输入有效的邮箱地址</text>
+<rect x="385" y="605" width="235" height="35" rx="5" fill="#11867D" stroke="#11867D" stroke-width="1"/>
+<rect x="753" y="316" width="456" height="366" rx="16" fill="#FFFFFF" stroke="#D8E2DE" stroke-width="1"/>
+<text x="775" y="351" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#1B3436" text-anchor="start">候选 v3-c1</text>
+<rect x="841" y="373" width="280" height="278" rx="11" fill="#F6F8F7" stroke="#D8E2DE" stroke-width="1"/>
+<text x="863" y="417" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#1B3436" text-anchor="start">邀请成员</text>
+<rect x="863" y="445" width="235" height="37" rx="5" fill="#FFFFFF" stroke="#D8E2DE" stroke-width="1"/>
+<text x="875" y="470" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="400" fill="#607472" text-anchor="start">name@example.com</text>
+<rect x="858" y="493" width="245" height="40" rx="5" fill="#E8F4F1" stroke="#11867D" stroke-width="1"/>
+<text x="869" y="519" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#11867D" text-anchor="start">请输入有效的邮箱地址</text>
+<rect x="863" y="605" width="235" height="35" rx="5" fill="#11867D" stroke="#11867D" stroke-width="1"/>
+<rect x="1231" y="316" width="324" height="366" rx="16" fill="#FFFFFF" stroke="#D8E2DE" stroke-width="1"/>
+<text x="1252" y="352" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#1B3436" text-anchor="start">影响检查</text>
+<text x="1252" y="391" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="400" fill="#607472" text-anchor="start">✓ 错误态 Mobile 已运行</text>
+<text x="1252" y="435" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="400" fill="#607472" text-anchor="start">✓ 成功态未见变化</text>
+<text x="1252" y="479" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="400" fill="#607472" text-anchor="start">! Desktop 需人工复核</text>
+<text x="1252" y="523" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="400" fill="#607472" text-anchor="start">✓ 资源引用正常</text>
+<rect x="275" y="701" width="868" height="133" rx="16" fill="#FFFFFF" stroke="#D8E2DE" stroke-width="1"/>
+<text x="297" y="740" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="700" fill="#1B3436" text-anchor="start">源文件变动</text>
+<text x="297" y="779" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="400" fill="#1B3436" text-anchor="start">invite.css  ·  错误提示布局 +12 / -3 行</text>
+<text x="297" y="811" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="400" fill="#607472" text-anchor="start">变更仅来自候选；点击可查看具体差异。</text>
+<rect x="1163" y="701" width="392" height="133" rx="16" fill="#FFFFFF" stroke="#D8E2DE" stroke-width="1"/>
+<text x="1185" y="740" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="700" fill="#1B3436" text-anchor="start">决定</text>
+<rect x="1185" y="768" width="108" height="35" rx="17" fill="#F6F8F7" stroke="#F6F8F7" stroke-width="1"/>
+<text x="1199" y="792" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#1B3436" text-anchor="start">继续限定</text>
+<rect x="1302" y="768" width="76" height="35" rx="17" fill="#F6F8F7" stroke="#F6F8F7" stroke-width="1"/>
+<text x="1316" y="792" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#1B3436" text-anchor="start">放弃</text>
+<rect x="1388" y="768" width="139" height="35" rx="17" fill="#11867D" stroke="#11867D" stroke-width="1"/>
+<text x="1402" y="792" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="start">采纳为 v4</text>
+<line x1="54" y1="900" x2="1546" y2="900" stroke="#D8E2DE" stroke-width="2" stroke-linecap="round" />
+<text x="54" y="935" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="400" fill="#607472" text-anchor="start">AutoClaw · Design 工作区 / 功能与交互 V10</text>
+<text x="1545" y="935" font-family="PingFang SC, Noto Sans SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="400" fill="#607472" text-anchor="end">06 / 08</text>
+</svg>

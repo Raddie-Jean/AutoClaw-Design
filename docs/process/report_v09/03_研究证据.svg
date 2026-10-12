@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9F7"/>
+<rect x="0" y="0" width="17" height="900" rx="0" fill="#12877D"/>
+<text x="89" y="56" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="21" font-weight="700" fill="#12877D" text-anchor="start" letter-spacing="2">02 / 证据</text>
+<text x="88" y="125" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="49" font-weight="700" fill="#17383B" text-anchor="start">研究发现：成熟工具已覆盖生成与局部编辑</text>
+<text x="90" y="165" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">本方案关注的是生成后的控制、决策与交接。</text>
+<line x1="88" y1="788" x2="1512" y2="788" stroke="#DDE6E2" stroke-width="2" stroke-linecap="round"/>
+<text x="88" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw · Design Agent 工作区 / 方案汇报 V09</text>
+<text x="1490" y="833" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="18" font-weight="400" fill="#60716F" text-anchor="end">03 / 12</text>
+<rect x="88" y="224" width="446" height="383" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="88" y="224" width="8" height="383" rx="4" fill="#12877D"/>
+<text x="117" y="276" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">AutoClaw：任务与产物入口</text>
+<text x="117" y="324" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">录屏可见任务、项目、对话与</text>
+<text x="117" y="360" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">连接器；客户端可见产物/工作</text>
+<text x="117" y="396" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">区容器。HTML Design 全链路</text>
+<text x="117" y="432" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">尚未由录屏验证。</text>
+<rect x="577" y="224" width="446" height="383" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="577" y="224" width="8" height="383" rx="4" fill="#F5AB6E"/>
+<text x="606" y="276" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">Lovart：对象化局部编辑</text>
+<text x="606" y="324" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">录屏可见选中对象、Quick Edit、</text>
+<text x="606" y="360" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">原稿旁生成候选。启发是先指明</text>
+<text x="606" y="396" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">修改对象，再保留可比较结果。</text>
+<text x="606" y="432" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">不能直接照搬到 HTML 源码。</text>
+<rect x="1066" y="224" width="446" height="383" rx="19" fill="#FFFFFF" stroke="#DDE6E2" stroke-width="1"/>
+<rect x="1066" y="224" width="8" height="383" rx="4" fill="#12877D"/>
+<text x="1095" y="276" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="29" font-weight="700" fill="#17383B" text-anchor="start">外部研究：判断权仍在人</text>
+<text x="1095" y="324" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">Figma 调查与研究支持清晰目标、</text>
+<text x="1095" y="360" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">多方向预览、位置化反馈与</text>
+<text x="1095" y="396" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">设计开发协作。样本不是</text>
+<text x="1095" y="432" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#60716F" text-anchor="start">AutoClaw 目标用户。</text>
+<rect x="88" y="642" width="1424" height="94" rx="16" fill="#FFF0E3"/>
+<text x="116" y="681" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="24" font-weight="700" fill="#A15C25" text-anchor="start">证据边界</text>
+<text x="263" y="681" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="23" font-weight="400" fill="#855A3B" text-anchor="start">外部数据只支持方向判断；痛点频率和当前产品能力仍需真实 HTML 任务验证。</text>
+<text x="116" y="716" font-family="'PingFang SC','Noto Sans SC',sans-serif" font-size="19" font-weight="400" fill="#855A3B" text-anchor="start">来源与样本范围见随附 MD 的“研究依据”章节。</text>
+</svg>
