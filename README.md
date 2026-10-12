@@ -1,6 +1,6 @@
 # 智谱测试题提交-周景-产品体验设计 1012
 
-解压整个文件夹后，用 Chrome / Edge / Safari 打开最外层 `index.html`。不要只发送单个 HTML 文件，也不要直接从压缩包预览。无需安装软件、登录本机账号或运行服务。目录和文件名请一起保留。
+解压整个文件夹后，用 Chrome / Edge / Safari 打开最外层 `index.html`，直接进入汇报首页。不要只发送单个 HTML 文件，也不要直接从压缩包预览。无需安装软件、登录本机账号或运行服务。目录和文件名请一起保留。
 
 ## 交付内容
 
@@ -25,3 +25,5 @@
 [在线交付首页](https://raddie-jean.github.io/AutoClaw-Design/) · [GitHub仓库](https://github.com/Raddie-Jean/AutoClaw-Design)
 
 在线首页与主要演示已通过公开访问验证，见在线验收.json。离线交付不依赖这些在线链接。
+
+入口更新：不再展示资料清单，在线首页和离线入口直接进入汇报封面。

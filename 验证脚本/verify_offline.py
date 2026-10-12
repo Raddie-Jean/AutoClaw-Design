@@ -7,7 +7,7 @@ with sync_playwright() as p:
  ctx=b.new_context(viewport={'width':1512,'height':945},accept_downloads=True)
  ctx.route('http://**/*',lambda r:(blocked.append(r.request.url),r.abort()));ctx.route('https://**/*',lambda r:(blocked.append(r.request.url),r.abort()))
  page=ctx.new_page();page.set_default_timeout(8000);page.on('pageerror',lambda e:errors.append(str(e)))
- page.goto((D/'index.html').as_uri());page.locator('.card').first.wait_for();assert '智谱测试题' in page.title();assert page.locator('.card').count()==14;results.append('解压至不同路径后，断网打开统一首页与14个分类入口')
+ page.goto((D/'index.html').as_uri());page.locator('.slide.active').wait_for();assert page.locator('.slide').count()==20;results.append('解压至不同路径后，断网直接打开汇报首页')
  page.goto((D/'docs/report/index.html').as_uri());assert page.locator('.slide').count()==20
  for i in range(20):
   page.locator('#slide-select').select_option(str(i)) if page.locator('#slide-select').count() else page.locator('#next').click() if i else None
