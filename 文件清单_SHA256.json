@@ -6726,18 +6726,18 @@
   },
   {
     "path": "docs/verification/交付验收报告.html",
-    "bytes": 2603,
-    "sha256": "79612ed1ccdc5d721ff5ee6b32cd8f811ad46933ec7b280c2838613fc3594966"
+    "bytes": 2918,
+    "sha256": "74de1d4fb2865ca76d7697c6469a4335aba3ce2c95d2aaed81a680e95f813190"
   },
   {
     "path": "docs/verification/交付验收报告.md",
-    "bytes": 2066,
-    "sha256": "de06a4ee98037f33afe9f739c3200bfecaec55787c0c9a86ed10122fb1d0f10b"
+    "bytes": 2370,
+    "sha256": "a1d44c80607fd8bfeab75619216ed92179db0239142c5b028e4ec4706794e161"
   },
   {
     "path": "docs/verification/在线验收.json",
-    "bytes": 446,
-    "sha256": "4147ae445cc5fd3cc59125b18c4f7e477cf0375be258e4e8aefbad49e4e52e10"
+    "bytes": 681,
+    "sha256": "1838cdefd8b10bad03289f096fa7b980c5c54109dae1e4164cbf0f4a85cded81"
   },
   {
     "path": "docs/verification/外部链接检查.json",
@@ -6766,13 +6766,13 @@
   },
   {
     "path": "交付验收报告.html",
-    "bytes": 2599,
-    "sha256": "50f640f9633f02af0490078a709f5e133817e3c7c2468cd56df75f1721c4880a"
+    "bytes": 2914,
+    "sha256": "93d4db5e0c8b7a8ad4c643852ab67d2907beb40189df49d8cc0d1df9541719a8"
   },
   {
     "path": "交付验收报告.md",
-    "bytes": 2062,
-    "sha256": "b9c1599582db8862d10529a686111ef85cda6ea623136664bea6b474593033dc"
+    "bytes": 2366,
+    "sha256": "d54124f6e5f947954e472103072b2a00ce22ab9118f786ef513d6fb7e4541bd4"
   },
   {
     "path": "在线站点验收.png",
@@ -6781,8 +6781,8 @@
   },
   {
     "path": "在线验收.json",
-    "bytes": 446,
-    "sha256": "4147ae445cc5fd3cc59125b18c4f7e477cf0375be258e4e8aefbad49e4e52e10"
+    "bytes": 681,
+    "sha256": "1838cdefd8b10bad03289f096fa7b980c5c54109dae1e4164cbf0f4a85cded81"
   },
   {
     "path": "外部链接检查.json",
