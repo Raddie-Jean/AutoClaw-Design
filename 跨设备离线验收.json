@@ -1,7 +1,7 @@
 {
   "date": "2026-10-12",
   "browser": "Chrome Chromium macOS headless",
-  "isolated_path": "/var/folders/9z/bdrtng4j073554bq2s5wrbb00000gn/T/AutoClaw 其他设备 解压验证 w705a81n",
+  "isolated_path": "/var/folders/9z/bdrtng4j073554bq2s5wrbb00000gn/T/AutoClaw 其他设备 解压验证 enfldfws",
   "network": "HTTP/HTTPS请求全部阻断",
   "passed": [
     "解压至不同路径后，断网直接打开汇报首页",

@@ -1,24 +1,17 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>交付验收报告</title><style>body{max-width:900px;margin:40px auto;font:16px/1.8 -apple-system,PingFang SC,sans-serif}</style><h1>1012 交付验收</h1>
-<h2>已验证</h2>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>交付验收报告</title><style>body{max-width:900px;margin:40px auto;padding:0 20px;font:16px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;color:#17383a}a{color:#087d73}code{background:#eef4f1;padding:2px 4px;border-radius:3px}</style><main>
+<h1>智谱测试题提交｜交付验收报告</h1>
+<p>验收日期：2026-10-21。交付包名称：<code>智谱测试题提交-周景-产品体验设计 1012</code>。</p>
+<h2>内容与入口</h2>
+<p>解压完整 ZIP 后，在 Chrome 或 Edge 中打开最外层 <code>index.html</code>，进入 20 页汇报。顶部可切换完整文稿和交互演示；两条测试任务也有独立 HTML。各类文件的入口集中在 <a href="../../交付文件合集.md">交付文件合集</a>。</p>
+<h2>已完成的离线检查</h2>
 <ul>
-<li>解压至不同路径后，断网直接打开汇报首页</li>
-<li>20页汇报及图片可离线加载</li>
-<li>测试1：圆角修改→候选对比→采纳v2→定稿→真实SVG下载</li>
-<li>测试2：发起评审→头像气泡→候选对比→采纳→回复→解决</li>
-<li>双任务切换，独立状态保留</li>
-<li>产物管理入口、顶部图标工具栏与底部工具栏可用，无挤压换行</li>
-<li>7章设计规范全部离线加载</li>
-<li>两份录屏可加载并读取时长</li>
-<li>390px移动视口可进入工作区（模拟，非真实手机实测）</li>
-<li>演示运行无外网请求、无页面脚本报错</li>
+<li>交付目录复制到另一临时路径后，阻断外网运行：20 页汇报、图片、7 章设计规范和两份录屏均能加载。</li>
+<li>测试 1 可执行“局部圆角修改 → 候选对比 → 采纳 v2 → 定稿 → SVG 下载”；测试 2 可执行“发起评审 → 查看意见 → 候选比较 → 采纳 → 回复 → 解决”。双任务状态相互独立。</li>
+<li>390 px 宽移动视口可进入工作区；这是浏览器模拟，未在真实移动设备上实测。</li>
+<li>页面运行无外网请求与脚本报错；静态资源检查未发现失效的包内链接或依赖本机地址的链接。详情见 <code>跨设备离线验收.json</code> 与 <code>静态链接检查.json</code>。</li>
 </ul>
-<p>静态 HTML 资源与链接检查：0 个失效本地链接，0 个依赖本机地址的链接。</p>
-<p>外部参考链接检测 67 条，其中 61 条 HTTP 200；其余返回 403。HTTP 200 仅表示 URL 可达，不代表登录后内容或 Figma 文件权限已验证。Figma 编辑权限需要收件人账号获得授权，本地 SVG/PNG/原生图层素材已提供作为替代。</p>
-<h2>交付使用</h2>
-<p>解压完整 ZIP 后双击根目录 index.html。HTML、脚本、图片、规范、PDF、录屏均随包附上。演示运行不依赖 GitHub 或本机服务。手机文件管理器的 HTML 预览可能限制脚本，建议通过在线站点浏览。</p>
-<p>真实 Windows / iOS / Android 设备没有连接到本次测试环境，不能宣称这些硬件均已实测。WebKit 未安装，本次实际执行的是 Chrome 浏览器与 390px 移动视口模拟。PDF 阅读版是静态画板，新增操作以 HTML 演示为准。</p>
-<p>原视频保留不动，交付包中为720p压缩预览副本。未取得 .fig，使用可导入的 SVG、原生图层 JSON、插件及 Figma 在线源稿链接交付。</p>
-<h2>GitHub 与在线站点</h2>
-<p>已更新 https://github.com/Raddie-Jean/AutoClaw-Design 的 main。公开站点：https://raddie-jean.github.io/AutoClaw-Design/ 。在线首页、汇报内嵌演示、两条任务的产物管理和7章设计规范均已通过无登录浏览器访问。</p>
-<p>完整 ZIP 已进行 CRC 检查、解压后逐文件 SHA256 对比，并在解压路径重新离线打开首页、测试1、测试2。发送时请发送整个 ZIP，收件人解压后打开最外层 index.html。</p>
-<p>首页入口已改为直接进入汇报封面，不再展示资料清单。顶部导航恢复独立箭头与原生刷新图标，文件名居中简写显示。</p></html>
+<h2>交付边界</h2>
+<p>HTML 演示中的 AI 生成、邀请与多人意见为产品原型模拟，不能视为已上线能力。PDF 为静态阅读材料，具体交互以 HTML 为准。Figma 在线源稿已列入 <a href="../links.html">链接目录</a>，访问及编辑仍取决于收件人的 Figma 权限；未取得可离线分发的 <code>.fig</code> 原生文件，包内提供 SVG、PNG、原生图层 JSON 和导入辅助工具。原始录屏未修改，交付包内采用适于传输的预览副本。</p>
+<h2>发送与在线访问</h2>
+<p>发送整个 ZIP，收件人解压后再打开根目录 <code>index.html</code>。手机文件管理器内置 HTML 预览可能限制脚本，移动设备优先使用公开站点。仓库：<a href="https://github.com/Raddie-Jean/AutoClaw-Design">AutoClaw-Design</a>；预览：<a href="https://raddie-jean.github.io/AutoClaw-Design/">GitHub Pages</a>。在线可访问性与 ZIP 解压校验结果记录在最终验收数据中。</p>
+</main></html>

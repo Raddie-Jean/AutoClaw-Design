@@ -1,8 +1,13 @@
 [
   {
     "path": "README.md",
-    "bytes": 2021,
-    "sha256": "ce84b87a51e350286d290d305356ebbec358030fe6a5316ae1531f03b35e3f1b"
+    "bytes": 2681,
+    "sha256": "af1257dc40525b621859158ea1fd2aff366ab20aad3a1c91cd4e8232cf275d68"
+  },
+  {
+    "path": "docs/attachments.html",
+    "bytes": 3600,
+    "sha256": "5c4314b45aa80c960bd41357777604c1054ef6bba1299fa3c48a54aaa81d8a42"
   },
   {
     "path": "docs/design/figma-exports/01_任务首页_统一规范 1.png",
@@ -1936,13 +1941,13 @@
   },
   {
     "path": "docs/index.html",
-    "bytes": 3600,
-    "sha256": "5c4314b45aa80c960bd41357777604c1054ef6bba1299fa3c48a54aaa81d8a42"
+    "bytes": 335,
+    "sha256": "6e65e02201a6450d7fc1b07551a4887f351d9568ab159ba45d3f8293fd1362e0"
   },
   {
     "path": "docs/links.html",
-    "bytes": 11271,
-    "sha256": "edc6fe14829c74fa95cc8905fc8c5d264e7e77190c7583a9d5b069a66a4c89a2"
+    "bytes": 14233,
+    "sha256": "636dfc03152cfe5659989366fffc5e00475117372a8db2262c0a15289df7be36"
   },
   {
     "path": "docs/process/.nojekyll",
@@ -4270,6 +4275,11 @@
     "sha256": "f19da8cb1067933f3b0b1e006e27f02caf06fd934cbe6e0ac0de891f40eb6346"
   },
   {
+    "path": "docs/report/demo/autoclaw_task1_v18/assets/browser-refresh.svg",
+    "bytes": 8827,
+    "sha256": "7451d8b17dc4e64966cd48c733177d9d784597ca29898f4d752120f452841204"
+  },
+  {
     "path": "docs/report/demo/autoclaw_task1_v18/assets/capture-AutoClaw 首页设计稿 v1.svg",
     "bytes": 41457,
     "sha256": "28b15203b4fcc5b3bf59e47d2787daf4320de1ac60f2ac39bd817a32f6d9e0ad"
@@ -4385,9 +4395,24 @@
     "sha256": "a2a31176eebd9a432024f513f79fb7e6d11e24c39e2fe01ed0f6bc179570b63d"
   },
   {
+    "path": "docs/report/demo/autoclaw_task1_v18/assets/nav-back.svg",
+    "bytes": 230,
+    "sha256": "8201e78a28d829e318c725f3bd513224281d6f308329b1d84f1d72ed69a39472"
+  },
+  {
+    "path": "docs/report/demo/autoclaw_task1_v18/assets/nav-refresh.svg",
+    "bytes": 8827,
+    "sha256": "4b47c7178253884d0b593b93017b609df3a6d4a5290d9d175b7ec3b8abd950ac"
+  },
+  {
     "path": "docs/report/demo/autoclaw_task1_v18/assets/new-task.svg",
     "bytes": 620,
     "sha256": "15b2b9bd03cef83e9b3b4b604ecc56cd66f60efd5f0377b99187f1dab67a4958"
+  },
+  {
+    "path": "docs/report/demo/autoclaw_task1_v18/assets/panel-sidebar.svg",
+    "bytes": 273,
+    "sha256": "8c2b28fdf5d854cc41cc0c7993e42f194620f8e94af7c7db5a8adf962962e0a9"
   },
   {
     "path": "docs/report/demo/autoclaw_task1_v18/assets/plus-export.svg",
@@ -4428,6 +4453,11 @@
     "path": "docs/report/demo/autoclaw_task1_v18/assets/skills.svg",
     "bytes": 3357,
     "sha256": "6158f0ba44225956e468fd251ec120a76a764d1b49ba65e43f544ed382914f0b"
+  },
+  {
+    "path": "docs/report/demo/autoclaw_task1_v18/assets/sparkles.svg",
+    "bytes": 529,
+    "sha256": "e9564a5e6f25889b91c5e48f8c001a127b0f95e575fe1755ef3c21e0b365676b"
   },
   {
     "path": "docs/report/demo/autoclaw_task1_v18/assets/task.svg",
@@ -4471,8 +4501,8 @@
   },
   {
     "path": "docs/report/demo/autoclaw_task1_v18/confirmed.js",
-    "bytes": 921,
-    "sha256": "3d20eff8359039237b0854be4e900c10b3a02b7cc84cdb60bef2f11aafc5b501"
+    "bytes": 844,
+    "sha256": "15449cf744d7a2ec90ebfe3846a631b4181342f6f944600bd9cf2e257ca1a169"
   },
   {
     "path": "docs/report/demo/autoclaw_task1_v18/delivery-example/AutoClaw界面_设计产物_v2.svg",
@@ -4601,13 +4631,13 @@
   },
   {
     "path": "docs/report/demo/autoclaw_task1_v18/icon-polish.js",
-    "bytes": 4944,
-    "sha256": "d44910a9966c59c8bace597d8b69b2fa465e8cc8e4430f976b35d6379ca93e55"
+    "bytes": 6106,
+    "sha256": "67acc772c6e9df74d641108c8858e94e7ff07c4ae38d30f197edb5792ae3e9ee"
   },
   {
     "path": "docs/report/demo/autoclaw_task1_v18/index.html",
-    "bytes": 68861,
-    "sha256": "c74860ef33fb8cd474e40b578efcb560d30ea1c558faf2dc3ccb64a8b353c0a4"
+    "bytes": 68982,
+    "sha256": "006a6171a32d9de7733c61963df76a89c15524fbc6e5bfccb245a8a07e6df7d8"
   },
   {
     "path": "docs/report/demo/autoclaw_task1_v18/manager.js",
@@ -4616,8 +4646,8 @@
   },
   {
     "path": "docs/report/demo/autoclaw_task1_v18/module-ui.js",
-    "bytes": 4818,
-    "sha256": "28c893c96ea38c225ada94be1523f686f38d36fea51c22ec0fdd2cdb5631df1c"
+    "bytes": 6805,
+    "sha256": "84eff81cb595d98ca932a2008b4989844592b309f99477d6b5df5ccaf429c4cf"
   },
   {
     "path": "docs/report/demo/autoclaw_task1_v18/native-chrome.js",
@@ -4946,8 +4976,8 @@
   },
   {
     "path": "docs/report/demo/autoclaw_task1_v18/task1.js",
-    "bytes": 27537,
-    "sha256": "6feefad3010a77eb91ef0d60986c69d13622abced29111a97cb0cffb5b7b0e07"
+    "bytes": 27812,
+    "sha256": "606f8ab0c5dfc8fad487f9d4bb312976f5f1a22932c98adcb849f8e85414c686"
   },
   {
     "path": "docs/report/demo/autoclaw_task2_v13/README.md",
@@ -5595,6 +5625,11 @@
     "sha256": "f19da8cb1067933f3b0b1e006e27f02caf06fd934cbe6e0ac0de891f40eb6346"
   },
   {
+    "path": "docs/report/demo/autoclaw_task2_v18/assets/browser-refresh.svg",
+    "bytes": 8827,
+    "sha256": "7451d8b17dc4e64966cd48c733177d9d784597ca29898f4d752120f452841204"
+  },
+  {
     "path": "docs/report/demo/autoclaw_task2_v18/assets/capture-AutoClaw 首页设计稿 v1.svg",
     "bytes": 41457,
     "sha256": "28b15203b4fcc5b3bf59e47d2787daf4320de1ac60f2ac39bd817a32f6d9e0ad"
@@ -5735,9 +5770,24 @@
     "sha256": "a2a31176eebd9a432024f513f79fb7e6d11e24c39e2fe01ed0f6bc179570b63d"
   },
   {
+    "path": "docs/report/demo/autoclaw_task2_v18/assets/nav-back.svg",
+    "bytes": 230,
+    "sha256": "8201e78a28d829e318c725f3bd513224281d6f308329b1d84f1d72ed69a39472"
+  },
+  {
+    "path": "docs/report/demo/autoclaw_task2_v18/assets/nav-refresh.svg",
+    "bytes": 8827,
+    "sha256": "4b47c7178253884d0b593b93017b609df3a6d4a5290d9d175b7ec3b8abd950ac"
+  },
+  {
     "path": "docs/report/demo/autoclaw_task2_v18/assets/new-task.svg",
     "bytes": 620,
     "sha256": "15b2b9bd03cef83e9b3b4b604ecc56cd66f60efd5f0377b99187f1dab67a4958"
+  },
+  {
+    "path": "docs/report/demo/autoclaw_task2_v18/assets/panel-sidebar.svg",
+    "bytes": 273,
+    "sha256": "8c2b28fdf5d854cc41cc0c7993e42f194620f8e94af7c7db5a8adf962962e0a9"
   },
   {
     "path": "docs/report/demo/autoclaw_task2_v18/assets/plus-export.svg",
@@ -5778,6 +5828,11 @@
     "path": "docs/report/demo/autoclaw_task2_v18/assets/skills.svg",
     "bytes": 3357,
     "sha256": "6158f0ba44225956e468fd251ec120a76a764d1b49ba65e43f544ed382914f0b"
+  },
+  {
+    "path": "docs/report/demo/autoclaw_task2_v18/assets/sparkles.svg",
+    "bytes": 529,
+    "sha256": "e9564a5e6f25889b91c5e48f8c001a127b0f95e575fe1755ef3c21e0b365676b"
   },
   {
     "path": "docs/report/demo/autoclaw_task2_v18/assets/task.svg",
@@ -5821,8 +5876,8 @@
   },
   {
     "path": "docs/report/demo/autoclaw_task2_v18/confirmed.js",
-    "bytes": 921,
-    "sha256": "3d20eff8359039237b0854be4e900c10b3a02b7cc84cdb60bef2f11aafc5b501"
+    "bytes": 844,
+    "sha256": "15449cf744d7a2ec90ebfe3846a631b4181342f6f944600bd9cf2e257ca1a169"
   },
   {
     "path": "docs/report/demo/autoclaw_task2_v18/delivery-example/测试2_协作评审记录.json",
@@ -5931,13 +5986,13 @@
   },
   {
     "path": "docs/report/demo/autoclaw_task2_v18/icon-polish.js",
-    "bytes": 4944,
-    "sha256": "d44910a9966c59c8bace597d8b69b2fa465e8cc8e4430f976b35d6379ca93e55"
+    "bytes": 6106,
+    "sha256": "67acc772c6e9df74d641108c8858e94e7ff07c4ae38d30f197edb5792ae3e9ee"
   },
   {
     "path": "docs/report/demo/autoclaw_task2_v18/index.html",
-    "bytes": 69021,
-    "sha256": "7a3f21050e9675388689d6ce29c46a0f8fa5de103dccb032bb8710bbb92f9e18"
+    "bytes": 69142,
+    "sha256": "4710b58acccfcf1cc1f21e6b3598423c7c450d0ac9b9db8d778120e9b7e4a4c2"
   },
   {
     "path": "docs/report/demo/autoclaw_task2_v18/manager.js",
@@ -5946,8 +6001,8 @@
   },
   {
     "path": "docs/report/demo/autoclaw_task2_v18/module-ui.js",
-    "bytes": 4818,
-    "sha256": "28c893c96ea38c225ada94be1523f686f38d36fea51c22ec0fdd2cdb5631df1c"
+    "bytes": 6805,
+    "sha256": "84eff81cb595d98ca932a2008b4989844592b309f99477d6b5df5ccaf429c4cf"
   },
   {
     "path": "docs/report/demo/autoclaw_task2_v18/native-chrome.js",
@@ -6191,8 +6246,8 @@
   },
   {
     "path": "docs/report/demo/autoclaw_task2_v18/task2.js",
-    "bytes": 25849,
-    "sha256": "254e04a2220e19c87a22d01db0550ed152bbf28084d3da666e8141d5f3353ef5"
+    "bytes": 26124,
+    "sha256": "c702230d5cbd0b370934fea61594956269369e526c70eba66dff28157e9b938f"
   },
   {
     "path": "docs/report/demo/delivery_v18/AutoClaw界面_设计产物_v2.svg",
@@ -6436,8 +6491,8 @@
   },
   {
     "path": "docs/report/index.html",
-    "bytes": 59284,
-    "sha256": "a05abc984ceb4387e044e87566fe480df31df7051e115a1d1ca75e3ba6490d01"
+    "bytes": 59516,
+    "sha256": "75217bff18b8570a72872a3855d6eed87b0e84789f13cd51708b6ea73d17bbd8"
   },
   {
     "path": "docs/report/index.template.html",
@@ -6671,13 +6726,13 @@
   },
   {
     "path": "docs/verification/交付验收报告.html",
-    "bytes": 2584,
-    "sha256": "e506f766f27b22bde0e78e52b0a8a25ef46d2ed0819a99d8f827910b2c187c51"
+    "bytes": 2603,
+    "sha256": "79612ed1ccdc5d721ff5ee6b32cd8f811ad46933ec7b280c2838613fc3594966"
   },
   {
     "path": "docs/verification/交付验收报告.md",
-    "bytes": 2226,
-    "sha256": "43d60953fd85868528244af8bccd7f80a6b7806be56641c3190f984088b580f3"
+    "bytes": 2066,
+    "sha256": "de06a4ee98037f33afe9f739c3200bfecaec55787c0c9a86ed10122fb1d0f10b"
   },
   {
     "path": "docs/verification/在线验收.json",
@@ -6691,8 +6746,8 @@
   },
   {
     "path": "docs/verification/跨设备离线验收.json",
-    "bytes": 1133,
-    "sha256": "00a93535edc691cd88ca7876a660d4baa447d33f044ed68c70a6a0d4adb6b82b"
+    "bytes": 1119,
+    "sha256": "e7d2149edd3a344c170d88e163884d4f6b9c7a5f769d29e31ab7dfd983fc29dc"
   },
   {
     "path": "docs/verification/静态链接检查.json",
@@ -6701,18 +6756,23 @@
   },
   {
     "path": "index.html",
-    "bytes": 221,
-    "sha256": "46e61bee4527e0c47663e0fafacbf4717c08b48c90ebc97d26d9c69146c9008a"
+    "bytes": 350,
+    "sha256": "9479eee33d1b9203709409aa0fc472955de564a75519a0c476f6af3b07028230"
+  },
+  {
+    "path": "交付文件合集.md",
+    "bytes": 2650,
+    "sha256": "92aa1644fb08abe62e52f073f2604ffe7015e2954261dfeea77e8e58a0815ba1"
   },
   {
     "path": "交付验收报告.html",
-    "bytes": 2584,
-    "sha256": "e506f766f27b22bde0e78e52b0a8a25ef46d2ed0819a99d8f827910b2c187c51"
+    "bytes": 2599,
+    "sha256": "50f640f9633f02af0490078a709f5e133817e3c7c2468cd56df75f1721c4880a"
   },
   {
     "path": "交付验收报告.md",
-    "bytes": 2226,
-    "sha256": "43d60953fd85868528244af8bccd7f80a6b7806be56641c3190f984088b580f3"
+    "bytes": 2062,
+    "sha256": "b9c1599582db8862d10529a686111ef85cda6ea623136664bea6b474593033dc"
   },
   {
     "path": "在线站点验收.png",
@@ -6731,23 +6791,23 @@
   },
   {
     "path": "离线演示验收.png",
-    "bytes": 184981,
-    "sha256": "ce3ede8df8e14b629e474359c154f2cbf0325342962cd9de86bc95abda90ee88"
+    "bytes": 178037,
+    "sha256": "6476c56eddc293e88bb0f7f7fd06f1a5f20df28527e7553c2bf6fc22da160ce1"
   },
   {
     "path": "跨设备离线验收.json",
-    "bytes": 1133,
-    "sha256": "00a93535edc691cd88ca7876a660d4baa447d33f044ed68c70a6a0d4adb6b82b"
+    "bytes": 1119,
+    "sha256": "3f17d0b2930cd287ebcb357e1ac51b5540be9b89f37fa7d6215cb7eee6a54fcf"
   },
   {
     "path": "链接清单.json",
-    "bytes": 5455,
-    "sha256": "26897d5e2c9d44b8a285632233e69175c9b535a72ca5b76317dc60a03593aba0"
+    "bytes": 5302,
+    "sha256": "35aa7b894adcfc4ff390b0ad5c0168afc4f23a609307d8ac97358132f7f15d2f"
   },
   {
     "path": "静态链接检查.json",
-    "bytes": 4785,
-    "sha256": "b864e3ce5c197d755e6ecc3ca9b318a60b4c46613023714d0b08cda1e84d6641"
+    "bytes": 4746,
+    "sha256": "3a80bcfa82889894364ed0e90ea60b9520a76b47075ea05537650fd2f041b441"
   },
   {
     "path": "验证脚本/audit_links.py",
@@ -6756,7 +6816,7 @@
   },
   {
     "path": "验证脚本/verify_offline.py",
-    "bytes": 5468,
-    "sha256": "939673954e2a1204af0cce35ebbf25374573a93e656b4f3947251a4ec766cbb0"
+    "bytes": 5454,
+    "sha256": "381ea80a5f0a094fae35c7f5820844b7b9d3d7f0e3c2d8ee8ce754d407432e9e"
   }
 ]

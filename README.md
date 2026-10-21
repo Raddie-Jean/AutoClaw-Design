@@ -4,6 +4,8 @@
 
 ## 交付内容
 
+完整入口、文件路径和使用顺序见 [交付文件合集.md](交付文件合集.md)，可点击目录见 [docs/attachments.html](docs/attachments.html)。
+
 - docs/report：最新汇报 HTML、完整文稿、PRD、PDF 与 V18 双任务演示。
 - docs/report/references：竞品调研、MVP、PRD 及合订评审原件。
 - docs/report/design-spec：7章设计规范、SVG、tokens、Figma 导入插件。
@@ -19,6 +21,10 @@
 未找到 .fig 文件，不将 SVG 或插件冒称 .fig 原生文件。外部 Figma 文件需要对应权限；所有主要设计内容提供本地副本。在线链接的验证结果见验收报告，受网络或登录影响的链接不会标记为通过。
 
 浏览器离线验证覆盖桌面 Chrome 与移动视口模拟，不能替代真实 Windows、iOS、Android 硬件测试。中文字体使用系统字体回退，排版可能有细微差异。
+
+## 2026-10-21 重新核对
+
+本次按原有「1012」命名重新核对离线包与公开仓库；验收结果以本包中的 `交付验收报告.md` 为准。在线 Figma 源文件已确认可在连接的账号中读取，但收件人的查看和编辑权限仍由 Figma 控制。未取得 `.fig` 原生文件，本地提供 SVG、PNG、图层 JSON 与导入插件。
 
 ## 在线查看
 

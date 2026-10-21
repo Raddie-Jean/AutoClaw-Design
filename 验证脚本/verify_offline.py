@@ -1,6 +1,7 @@
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 import shutil,json,tempfile
+from datetime import date
 source=Path(__file__).resolve().parent.parent;T=Path(tempfile.mkdtemp(prefix='AutoClaw 其他设备 解压验证 '));D=T/'交付文件';shutil.copytree(source,D);results=[];errors=[];blocked=[]
 with sync_playwright() as p:
  b=p.chromium.launch(executable_path='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless=True)
@@ -29,4 +30,4 @@ with sync_playwright() as p:
  mobile=b.new_context(viewport={'width':390,'height':844},is_mobile=True,has_touch=True);m=mobile.new_page();m.goto((D/'docs/report/demo/autoclaw_task2_v18/index.html').as_uri());m.locator('[data-mobile=work]').click();assert m.locator('.workspace').is_visible();results.append('390px移动视口可进入工作区（模拟，非真实手机实测）')
  assert not errors,errors;assert not blocked,blocked;results.append('演示运行无外网请求、无页面脚本报错')
  b.close()
-(source/'跨设备离线验收.json').write_text(json.dumps({'date':'2026-10-12','browser':'Chrome Chromium macOS headless','isolated_path':str(T),'network':'HTTP/HTTPS请求全部阻断','passed':results,'errors':errors,'external_runtime_requests':blocked,'limitations':['未在真实Windows/iOS/Android硬件验证','WebKit运行环境未安装，不宣称Safari实测','外部Figma链接需要网络与权限']},ensure_ascii=False,indent=2));print('\n'.join(results))
+(source/'跨设备离线验收.json').write_text(json.dumps({'date':date.today().isoformat(),'browser':'Chrome Chromium macOS headless','isolated_path':str(T),'network':'HTTP/HTTPS请求全部阻断','passed':results,'errors':errors,'external_runtime_requests':blocked,'limitations':['未在真实Windows/iOS/Android硬件验证','WebKit运行环境未安装，不宣称Safari实测','外部Figma链接需要网络与权限']},ensure_ascii=False,indent=2));print('\n'.join(results))
